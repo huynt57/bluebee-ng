@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "16026b34b35cf4dec2e83a7285ea86cb",
-    "content-hash": "55e2f7b7b2b8a79bd8eb34b69e178865",
+    "hash": "d87da8227568003afaff3df87b5c40cd",
+    "content-hash": "4955c920f7b3c21f302076b18b15d6a2",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -283,6 +283,172 @@
             "time": "2015-03-06 05:28:07"
         },
         {
+            "name": "cmrcx/phptidy",
+            "version": "v2.16",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cmrcx/phptidy.git",
+                "reference": "7c84e830163e81cd4ac39ddb160cb0c20f89bd1f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cmrcx/phptidy/zipball/7c84e830163e81cd4ac39ddb160cb0c20f89bd1f",
+                "reference": "7c84e830163e81cd4ac39ddb160cb0c20f89bd1f",
+                "shasum": ""
+            },
+            "require": {
+                "ext-tokenizer": "*",
+                "php": ">=5.0"
+            },
+            "suggest": {
+                "ext-mbstring": "*"
+            },
+            "bin": [
+                "phptidy"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Magnus Rosenbaum",
+                    "email": "phptidy@cmr.cx",
+                    "homepage": "http://cmr.cx",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP code formatter",
+            "homepage": "https://github.com/cmrcx/phptidy",
+            "time": "2015-10-27 09:29:21"
+        },
+        {
+            "name": "dmstr/yii2-bootstrap",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dmstr/yii2-bootstrap.git",
+                "reference": "df2afef6509390e6d754c16b72f3c5a980169e19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dmstr/yii2-bootstrap/zipball/df2afef6509390e6d754c16b72f3c5a980169e19",
+                "reference": "df2afef6509390e6d754c16b72f3c5a980169e19",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2-bootstrap": "^2.0.6"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "dmstr\\bootstrap\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Christopher Stebe",
+                    "email": "c.stebe@herzogkommunikation.de"
+                }
+            ],
+            "description": "yii2 bootstrap components and extensions from diemeisterei GmbH",
+            "keywords": [
+                "bootstrap",
+                "extension",
+                "yii2"
+            ],
+            "time": "2016-04-22 18:33:17"
+        },
+        {
+            "name": "dmstr/yii2-db",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dmstr/yii2-db.git",
+                "reference": "49e3227665c1f38b8da5d8b7cbe29b9f5b3fbab0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dmstr/yii2-db/zipball/49e3227665c1f38b8da5d8b7cbe29b9f5b3fbab0",
+                "reference": "49e3227665c1f38b8da5d8b7cbe29b9f5b3fbab0",
+                "shasum": ""
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "dmstr\\db\\": "db/",
+                    "dmstr\\console\\": "console/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Tobias Munk",
+                    "email": "tobias@diemeisterei.de"
+                }
+            ],
+            "description": "Database extensions",
+            "keywords": [
+                "database",
+                "db",
+                "extension",
+                "yii2"
+            ],
+            "time": "2015-12-21 10:01:49"
+        },
+        {
+            "name": "dmstr/yii2-helpers",
+            "version": "0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dmstr/yii2-helpers.git",
+                "reference": "5ca0584e6be20e2539cdd511636347a6b84eef60"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dmstr/yii2-helpers/zipball/5ca0584e6be20e2539cdd511636347a6b84eef60",
+                "reference": "5ca0584e6be20e2539cdd511636347a6b84eef60",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "dmstr\\helpers\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sergej Kunz",
+                    "email": "s.kunz@herzogkommunikation.de"
+                },
+                {
+                    "name": "Tobias Munk",
+                    "email": "t.munk@herzogkommunikation.de"
+                }
+            ],
+            "description": "Yii2 Helpers",
+            "keywords": [
+                "extension",
+                "yii2"
+            ],
+            "time": "2016-05-10 17:16:40"
+        },
+        {
             "name": "ezyang/htmlpurifier",
             "version": "v4.7.0",
             "source": {
@@ -327,6 +493,61 @@
             "time": "2015-08-05 01:03:42"
         },
         {
+            "name": "fabpot/php-cs-fixer",
+            "version": "v1.11.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
+                "reference": "b0a383d856d884d6b16e15892f507ecf89f8dbd2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/b0a383d856d884d6b16e15892f507ecf89f8dbd2",
+                "reference": "b0a383d856d884d6b16e15892f507ecf89f8dbd2",
+                "shasum": ""
+            },
+            "require": {
+                "ext-tokenizer": "*",
+                "php": ">=5.3.6",
+                "sebastian/diff": "~1.1",
+                "symfony/console": "~2.3|~3.0",
+                "symfony/event-dispatcher": "~2.1|~3.0",
+                "symfony/filesystem": "~2.1|~3.0",
+                "symfony/finder": "~2.1|~3.0",
+                "symfony/process": "~2.3|~3.0",
+                "symfony/stopwatch": "~2.5|~3.0"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "0.7.*@dev"
+            },
+            "bin": [
+                "php-cs-fixer"
+            ],
+            "type": "application",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\CS\\": "Symfony/CS/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dariusz Rumiński",
+                    "email": "dariusz.ruminski@gmail.com"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "A tool to automatically fix PHP code style",
+            "abandoned": "friendsofphp/php-cs-fixer",
+            "time": "2016-05-26 23:49:24"
+        },
+        {
             "name": "phpspec/php-diff",
             "version": "v1.1.0",
             "source": {
@@ -363,6 +584,114 @@
             ],
             "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays).",
             "time": "2016-04-07 12:29:16"
+        },
+        {
+            "name": "schmunk42/yii2-giiant",
+            "version": "0.8.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/schmunk42/yii2-giiant.git",
+                "reference": "83b1d37664f7d5d4427cd799cb374ff958217fea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/schmunk42/yii2-giiant/zipball/83b1d37664f7d5d4427cd799cb374ff958217fea",
+                "reference": "83b1d37664f7d5d4427cd799cb374ff958217fea",
+                "shasum": ""
+            },
+            "require": {
+                "cmrcx/phptidy": "2.*",
+                "dmstr/yii2-bootstrap": "^0.1.2 || ~0.2",
+                "dmstr/yii2-db": "*",
+                "dmstr/yii2-helpers": "*",
+                "fabpot/php-cs-fixer": "1.* || 2.*",
+                "yiisoft/yii2": "~2.0.4",
+                "yiisoft/yii2-gii": "~2.0.4"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "bootstrap": "schmunk42\\giiant\\Bootstrap",
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "schmunk42\\giiant\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Tobias Munk",
+                    "email": "schmunk@usrbin.de",
+                    "homepage": "http://www.usrbin.de"
+                }
+            ],
+            "description": "Gii CRUD generator for Yii 2 Framework",
+            "homepage": "https://github.com/schmunk42/yii2-giiant",
+            "keywords": [
+                "crud",
+                "gii",
+                "yii2"
+            ],
+            "time": "2016-06-02 08:13:46"
+        },
+        {
+            "name": "sebastian/diff",
+            "version": "1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/diff.git",
+                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/13edfd8706462032c2f52b4b862974dd46b71c9e",
+                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kore Nordmann",
+                    "email": "mail@kore-nordmann.de"
+                },
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de"
+                }
+            ],
+            "description": "Diff implementation",
+            "homepage": "https://github.com/sebastianbergmann/diff",
+            "keywords": [
+                "diff"
+            ],
+            "time": "2015-12-08 07:14:41"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -416,6 +745,381 @@
                 "mailer"
             ],
             "time": "2016-05-01 08:45:47"
+        },
+        {
+            "name": "symfony/console",
+            "version": "v2.8.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/console.git",
+                "reference": "48221d3de4dc22d2cd57c97e8b9361821da86609"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/console/zipball/48221d3de4dc22d2cd57c97e8b9361821da86609",
+                "reference": "48221d3de4dc22d2cd57c97e8b9361821da86609",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/event-dispatcher": "~2.1|~3.0.0",
+                "symfony/process": "~2.1|~3.0.0"
+            },
+            "suggest": {
+                "psr/log": "For using the console logger",
+                "symfony/event-dispatcher": "",
+                "symfony/process": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Console\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Console Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-04-26 12:00:47"
+        },
+        {
+            "name": "symfony/event-dispatcher",
+            "version": "v2.8.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/event-dispatcher.git",
+                "reference": "a158f13992a3147d466af7a23b564ac719a4ddd8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/a158f13992a3147d466af7a23b564ac719a4ddd8",
+                "reference": "a158f13992a3147d466af7a23b564ac719a4ddd8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/config": "~2.0,>=2.0.5|~3.0.0",
+                "symfony/dependency-injection": "~2.6|~3.0.0",
+                "symfony/expression-language": "~2.6|~3.0.0",
+                "symfony/stopwatch": "~2.3|~3.0.0"
+            },
+            "suggest": {
+                "symfony/dependency-injection": "",
+                "symfony/http-kernel": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\EventDispatcher\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony EventDispatcher Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-05-03 18:59:18"
+        },
+        {
+            "name": "symfony/filesystem",
+            "version": "v2.8.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/filesystem.git",
+                "reference": "dee379131dceed90a429e951546b33edfe7dccbb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/dee379131dceed90a429e951546b33edfe7dccbb",
+                "reference": "dee379131dceed90a429e951546b33edfe7dccbb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Filesystem\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Filesystem Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-04-12 18:01:21"
+        },
+        {
+            "name": "symfony/finder",
+            "version": "v2.8.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/finder.git",
+                "reference": "ca24cf2cd4e3826f571e0067e535758e73807aa1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/ca24cf2cd4e3826f571e0067e535758e73807aa1",
+                "reference": "ca24cf2cd4e3826f571e0067e535758e73807aa1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Finder\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Finder Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-03-10 10:53:53"
+        },
+        {
+            "name": "symfony/polyfill-mbstring",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-mbstring.git",
+                "reference": "dff51f72b0706335131b00a7f49606168c582594"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/dff51f72b0706335131b00a7f49606168c582594",
+                "reference": "dff51f72b0706335131b00a7f49606168c582594",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "ext-mbstring": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for the Mbstring extension",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "mbstring",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2016-05-18 14:26:46"
+        },
+        {
+            "name": "symfony/process",
+            "version": "v2.8.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/process.git",
+                "reference": "1276bd9be89be039748cf753a2137f4ef149cd74"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/process/zipball/1276bd9be89be039748cf753a2137f4ef149cd74",
+                "reference": "1276bd9be89be039748cf753a2137f4ef149cd74",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Process\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Process Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-04-14 15:22:22"
+        },
+        {
+            "name": "symfony/stopwatch",
+            "version": "v2.8.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/stopwatch.git",
+                "reference": "9e24824b2a9a16e17ab997f61d70bc03948e434e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/9e24824b2a9a16e17ab997f61d70bc03948e434e",
+                "reference": "9e24824b2a9a16e17ab997f61d70bc03948e434e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Stopwatch\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Stopwatch Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-03-04 07:54:35"
         },
         {
             "name": "veyselsahin/yii2-giix",
@@ -949,7 +1653,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "schmunk42/yii2-giiant": 0
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
