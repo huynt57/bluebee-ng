@@ -5,6 +5,7 @@ namespace app\models;
 use Yii;
 use app\models\Users;
 use \app\models\base\Documents as BaseDocuments;
+use yii\data\Pagination;
 
 /**
  * This is the model class for table "documents".
@@ -29,6 +30,19 @@ class Documents extends BaseDocuments {
             return 'Success';
         }
         return 'Error !';
+    }
+
+    public static function getAllLatestDocuments() {
+        $query = Documents::find()->orderBy('id', 'SORT_DESC');
+        $countQuery = clone $query;
+        $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $models = $query->offset($pages->offset)
+                ->limit($pages->limit)
+                ->all();
+        return [
+            'models' => $models,
+            'pages' => $pages,
+        ];
     }
 
     public static function getDocumentById($id) {

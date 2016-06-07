@@ -32,6 +32,12 @@ class DocumentController extends \yii\web\Controller {
 
         return false;
     }
+    
+    public function actionGetLatestDocuments()
+    {
+        $data = Documents::getAllLatestDocuments();
+        return $this->render('documents', $data);
+    }
 
     public function actionGetDocumentById() {
         $request = Yii::$app->request;
