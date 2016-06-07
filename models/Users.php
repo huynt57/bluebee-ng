@@ -24,6 +24,11 @@ class Users extends BaseUsers {
             return 'Success';
         }
     }
+    
+    public static function getTopUser()
+    {
+        
+    }
 
     protected function beforeSave($insert) {
         if (parent::beforeSave($insert)) {

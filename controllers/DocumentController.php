@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use yii\web\UploadedFile;
 use app\models\Documents;
+use Yii;
 
 class DocumentController extends \yii\web\Controller {
 
@@ -14,7 +15,7 @@ class DocumentController extends \yii\web\Controller {
     public function actionUpload() {
         $request = Yii::$app->request;
         $fileName = 'file';
-        $uploadPath = './files';
+        $uploadPath = '/uploads';
         $value = array();
         $value['user'] = $request->post('user', '');
         $value['name'] = $request->post('name', '');
@@ -30,6 +31,28 @@ class DocumentController extends \yii\web\Controller {
         }
 
         return false;
+    }
+
+    public function actionGetDocumentById() {
+        $request = Yii::$app->request;
+        try {
+            $id = $request->get('id', '');
+            $document = Documents::findOne(['id' => $id]);
+            return $document;
+        } catch (Exception $ex) {
+            
+        }
+    }
+
+    public function actionGetDocumentBySubject() {
+        $request = Yii::$app->request;
+        try {
+            $subject = $request->get('subject', '');
+            $documents = Documents::getDocumentsBySubject($subject);
+            return $documents;
+        } catch (Exception $ex) {
+            
+        }
     }
 
 }
