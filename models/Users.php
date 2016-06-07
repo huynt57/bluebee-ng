@@ -30,7 +30,7 @@ class Users extends BaseUsers {
         
     }
 
-    protected function beforeSave($insert) {
+    public function beforeSave($insert) {
         if (parent::beforeSave($insert)) {
             $this->updated_at = time();
             return true;
