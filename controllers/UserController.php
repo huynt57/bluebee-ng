@@ -11,7 +11,7 @@ class UserController extends \yii\web\Controller
     
     public function actionLoginWithFacebook()
     {
-        
+        return $this->render('index');
     }
 
 }
