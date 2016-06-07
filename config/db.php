@@ -2,7 +2,7 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=bluebee_ng',
+    'dsn' => 'mysql:host=localhost;dbname=bbng',
     'username' => 'root',
     'password' => '',
     'charset' => 'utf8',

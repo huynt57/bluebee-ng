@@ -8,14 +8,50 @@
 
 namespace app\components;
 
-use Yii;
-use yii\base\Component;
-use yii\base\InvalidConfigException;
+class Util {
 
-class Util extends Component {
+    public static function generateToken($minLength, $maxLength) {
+        $token = base_convert(sha1(uniqid(mt_rand(), true)), $minLength, $maxLength);
+        return $token;
+    }
 
-    public function welcome() {
-        echo "Hello..Welcome to MyComponent";
+    public static function stripSpace($string) {
+        $nonSpaceString = str_replace(' ', '', $string);
+        return $nonSpaceString;
+    }
+
+    public static function strip_crlf($string) {
+        return str_replace("\r\n", "\n", $string);
+    }
+
+    public static function generateRandomString($length) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, strlen($characters) - 1)];
+        }
+        return $randomString;
+    }
+
+    public static function generateRandomStringCode($length) {
+        $characters = '0123456789';
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, strlen($characters) - 1)];
+        }
+        return $randomString;
+    }
+
+    public static function arraySuccess($message = NULL, $data = NULL) {
+        return ['status' => 1, 'data' => $data, 'message' => $message];
+    }
+
+    public static function arrayError($message = NULL, $data = NULL) {
+        return ['status' => 0, 'data' => $data, 'message' => $message];
+    }
+
+    public static function makeOuoUrl() {
+        
     }
 
 }
