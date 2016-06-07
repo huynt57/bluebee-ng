@@ -18,7 +18,6 @@ class m160607_072603_alter extends Migration {
 
     public function down() {
         echo "m160607_072603_alter cannot be reverted.\n";
-
         return false;
     }
 
