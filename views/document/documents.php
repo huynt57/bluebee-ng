@@ -1,5 +1,5 @@
 <div class="row">
-    <div id="catalog" class="col-sm-12 col-md-9 content pull-right">
+    <div id="catalog" class="col-sm-12 col-md-9 <?php echo Yii::getAlias('@web')?>/content pull-right">
         <div class="category-img">
             <div class="description">Automation &amp; Integration technology to fit any lifestyle</div>
         </div>
@@ -56,7 +56,7 @@
                 <div class="default">
                     <span class="sale top"></span>
                     <a href="shop-product-view.html" class="product-image">
-                        <img class="replace-2x" src="content/img/product-1.jpg" alt="" title="" width="270" height="270">
+                        <img class="replace-2x" src="<?php echo Yii::getAlias('@web')?>/content/img/product-1.jpg" alt="" title="" width="270" height="270">
                     </a>
                     <div class="product-description">
                         <div class="vertical">
@@ -74,7 +74,7 @@
                     </h3>
                     <div class="price">$1, 449.00</div>
                     <a href="shop-product-view.html" class="product-image">
-                        <img class="replace-2x" src="content/img/product-1.jpg" alt="" title="" width="70" height="70">
+                        <img class="replace-2x" src="<?php echo Yii::getAlias('@web')?>/content/img/product-1.jpg" alt="" title="" width="70" height="70">
                     </a>
                     <ul>
                         <li>117 cm / 46"LCD TV</li>
@@ -127,6 +127,6 @@
                 </ul>
                 <i class="pagination-text">Displaying 1 to 10 (of 100 posts)</i>
             </div><!-- .pagination-box -->
-        </div><!-- .content -->
+        </div><!-- .<?php echo Yii::getAlias('@web')?>/content -->
     </div>
 <?php echo Yii::$app->view->render('sideBar')?>
