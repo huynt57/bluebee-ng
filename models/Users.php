@@ -24,10 +24,10 @@ class Users extends BaseUsers {
             return 'Success';
         }
     }
-    
-    public static function getTopUser()
-    {
-        
+
+    public static function getTopUser() {
+        $data = Users::findAll()->order('points')->limit(10);
+        return $data;
     }
 
     public function beforeSave($insert) {
