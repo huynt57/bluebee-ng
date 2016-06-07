@@ -5,6 +5,7 @@ namespace app\controllers;
 use yii\web\UploadedFile;
 use app\models\Documents;
 use Yii;
+use Imagick;
 
 class DocumentController extends \yii\web\Controller {
 
@@ -15,7 +16,7 @@ class DocumentController extends \yii\web\Controller {
     public function actionUpload() {
         $request = Yii::$app->request;
         $fileName = 'file';
-        $uploadPath = '/uploads';
+        $uploadPath = './uploads';
         $value = array();
         $value['user'] = $request->post('user', '');
         $value['name'] = $request->post('name', '');
@@ -24,17 +25,20 @@ class DocumentController extends \yii\web\Controller {
         if (isset($_FILES[$fileName])) {
             $file = UploadedFile::getInstanceByName($fileName);
             $path = $uploadPath . '/' . $file->name;
+            $png = $path . '.jpg';
             $value['path'] = $path;
+            $im = new Imagick("$path[0]");
+            $im->setImageFormat('jpg');
+            header('Content-Type: image/jpeg');
+            echo $im;
             if ($file->saveAs($path)) {
                 Documents::upload($value);
             }
         }
-
         return false;
     }
-    
-    public function actionGetLatestDocuments()
-    {
+
+    public function actionGetLatestDocuments() {
         $data = Documents::getAllLatestDocuments();
         return $this->render('documents', $data);
     }

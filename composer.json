@@ -19,7 +19,9 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "veyselsahin/yii2-giix":"*",
-        "schmunk42/yii2-giiant":"@stable"
+        "schmunk42/yii2-giiant":"@stable",
+        "tpmanc/yii2-imagick": "*"
+
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
