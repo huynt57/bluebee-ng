@@ -37,7 +37,7 @@ class DocumentController extends \yii\web\Controller {
         $request = Yii::$app->request;
         try {
             $id = $request->get('id', '');
-            $document = Documents::findOne(['id' => $id]);
+            $document = Documents::getDocumentById($id);
             return $document;
         } catch (Exception $ex) {
             

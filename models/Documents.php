@@ -18,7 +18,8 @@ class Documents extends BaseDocuments {
         }
         $document->created_at = time();
         $document->updated_at = time();
-        $user = Users::findOne(['id' => $user]);
+        $document->user = $value['user'];
+        $user = Users::findOne(['id' => $value['user']]);
         if (!$user) {
             return 'Error !';
         }
@@ -29,10 +30,26 @@ class Documents extends BaseDocuments {
         }
         return 'Error !';
     }
-    
-    public static function download($id)
-    {
-        $document = Documents::findOne(['id'=>$id]);
+
+    public static function getDocumentById($id) {
+        $document = Documents::findOne(['id' => $id]);
+        $retVal = array();
+        $retVal['id'] = $document->id;
+        $retVal['name'] = $document->name;
+        $retVal['description'] = $document->description;
+        $retVal['created_at'] = Date($document->created_at, 'd/m/Y');
+        $retVal['updated_at'] = Date($document->updated_at, 'd/m/Y');
+        $retVal['preview'] = $document->preview;
+        $retVal['original_url'] = $document->original_url;
+        $retVal['money_url'] = $document->money_url;
+        $retVal['subject'] = Subjects::findOne(['id' => $document->subject])->name;
+        $retVal['user'] = Users::findOne(['id' => $document->user])->name;
+        $retVal['number_download'] = $document->number_download;
+        return $retVal;
+    }
+
+    public static function download($id) {
+        $document = Documents::findOne(['id' => $id]);
         $document->number_download += 1;
         $document->save();
     }

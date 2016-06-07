@@ -50,8 +50,10 @@ class Util {
         return ['status' => 0, 'data' => $data, 'message' => $message];
     }
 
-    public static function makeOuoUrl() {
-        
+    public static function makeOuoUrl($url) {
+        $link = 'http://ouo.io/api/KzDtJCvY?s=' . $url;
+        $ouo = file_get_contents($link);
+        return $ouo;
     }
 
 }
