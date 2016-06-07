@@ -46,7 +46,7 @@
 
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.<?php echo Yii::getAlias('@web')?>/js/1.4.2/respond.min.js"></script>
                               <link rel='stylesheet' href="<?php echo Yii::getAlias('@web')?>/css/ie/ie8.css">
         <![endif]-->
     </head>
@@ -553,54 +553,54 @@
         <div class="clearfix"></div>
 
         <!--[if (!IE)|(gt IE 8)]><!-->
-        <script src="js/jquery-2.1.3.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery-2.1.3.min.js"></script>
         <!--<![endif]-->
 
         <!--[if lte IE 8]>
-          <script src="js/jquery-1.9.1.min.js"></script>
+          <script src="<?php echo Yii::getAlias('@web')?>/js/jquery-1.9.1.min.js"></script>
         <![endif]-->
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/price-regulator/jshashtable-2.1_src.js"></script>
-        <script src="js/price-regulator/jquery.numberformatter-1.2.3.js"></script>
-        <script src="js/price-regulator/tmpl.js"></script>
-        <script src="js/price-regulator/jquery.dependClass-0.1.js"></script>
-        <script src="js/price-regulator/draggable-0.1.js"></script>
-        <script src="js/price-regulator/jquery.slider.js"></script>
-        <script src="js/jquery.carouFredSel-6.2.1-packed.js"></script>
-        <script src="js/jquery.touchwipe.min.js"></script>
-        <script src="js/jquery.elevateZoom-3.0.8.min.js"></script>
-        <script src="js/jquery.imagesloaded.min.js"></script>
-        <script src="js/jquery.appear.js"></script>
-        <script src="js/jquery.sparkline.min.js"></script>
-        <script src="js/jquery.easypiechart.min.js"></script>
-        <script src="js/jquery.easing.1.3.js"></script>
-        <script src="js/jquery.fancybox.pack.js"></script>
-        <script src="js/isotope.pkgd.min.js"></script>
-        <script src="js/jquery.knob.js"></script>
-        <script src="js/jquery.selectBox.min.js"></script>
-        <script src="js/jquery.royalslider.min.js"></script>
-        <script src="js/jquery.tubular.1.0.js"></script>
-        <script src="js/SmoothScroll.js"></script>
-        <script src="js/country.js"></script>
-        <script src="js/spin.min.js"></script>
-        <script src="js/ladda.min.js"></script>
-        <script src="js/masonry.pkgd.min.js"></script>
-        <script src="js/morris.min.js"></script>
-        <script src="js/raphael.min.js"></script>
-        <script src="js/video.js"></script>
-        <script src="js/pixastic.custom.js"></script>
-        <script src="js/livicons-1.4.min.js"></script>
-        <script src="js/layerslider/greensock.js"></script>
-        <script src="js/layerslider/layerslider.transitions.js"></script>
-        <script src="js/layerslider/layerslider.kreaturamedia.jquery.js"></script>
-        <script src="js/revolution/jquery.themepunch.tools.min.js"></script>
-        <script src="js/revolution/jquery.themepunch.revolution.min.js"></script>
-        <script src="js/bootstrapValidator.min.js"></script>
-        <script src="js/bootstrap-datepicker.js"></script>
-        <script src="js/jplayer/jquery.jplayer.min.js"></script>
-        <script src="js/jplayer/jplayer.playlist.min.js"></script>
-        <script src="js/jquery.scrollbar.min.js"></script>
-        <script src="js/main.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/bootstrap.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/price-regulator/jshashtable-2.1_src.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/price-regulator/jquery.numberformatter-1.2.3.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/price-regulator/tmpl.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/price-regulator/jquery.dependClass-0.1.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/price-regulator/draggable-0.1.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/price-regulator/jquery.slider.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.touchwipe.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.elevateZoom-3.0.8.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.imagesloaded.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.appear.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.sparkline.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.easypiechart.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.easing.1.3.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.fancybox.pack.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/isotope.pkgd.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.knob.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.selectBox.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.royalslider.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.tubular.1.0.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/SmoothScroll.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/country.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/spin.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/ladda.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/masonry.pkgd.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/morris.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/raphael.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/video.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/pixastic.custom.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/livicons-1.4.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/layerslider/greensock.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/layerslider/layerslider.transitions.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/layerslider/layerslider.kreaturamedia.jquery.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/revolution/jquery.themepunch.tools.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/revolution/jquery.themepunch.revolution.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/bootstrapValidator.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/bootstrap-datepicker.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/jplayer/jquery.jplayer.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/jplayer/jplayer.playlist.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.scrollbar.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web')?>/js/main.js"></script>
 
     </body>
 
