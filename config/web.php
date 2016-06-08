@@ -11,6 +11,10 @@ $config = [
 
             'class' => 'app\components\Util',
         ],
+        'imageResize' => [
+
+            'class' => 'app\components\ImageResize',
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'mtAsnDCTuuZoahYt1ER838WsACPcmlV3',

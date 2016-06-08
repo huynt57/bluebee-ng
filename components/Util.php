@@ -8,6 +8,11 @@
 
 namespace app\components;
 
+use yii\web\UploadedFile;
+use Yii;
+use Scribd;
+use app\components\ImageResize;
+
 class Util {
 
     public static function generateToken($minLength, $maxLength) {
@@ -54,6 +59,53 @@ class Util {
         $link = 'http://ouo.io/api/KzDtJCvY?s=' . $url;
         $ouo = file_get_contents($link);
         return $ouo;
+    }
+
+    public function getPdfPreview($scribd_id) {
+       
+    }
+    
+    public function uploadScribd($url)
+    {
+        $scribd = new Scribd\API($api_key, $secret);
+        $scribd->uploadFromUrl($url);
+        return $scribd; 
+    }
+    
+    public function getPdfScribd()
+    {
+        
+    }
+
+    public static function upload($fileName) {
+        $retVal = array();
+        $file = UploadedFile::getInstanceByName($fileName);
+        $storeFolder = Yii::getAlias('@webroot') . '/uploads/document/' . Date('d/m/Y') . '/';   //2
+        if (!file_exists($storeFolder)) {
+            mkdir($storeFolder, 0777, true);
+        }
+        $save = $storeFolder . time() . $file->baseName . '.' . $file->extension;
+        $file->saveAs($save);
+        $extension = strtolower($file->extension);
+        switch ($extension) {
+            case 'pdf':
+                $this->uploadScribd();
+                break;
+            case 'doc':
+            case 'docx':
+                $this->uploadScribd();
+                $this->getPdfScribd();
+                break;
+            case 'jpeg':
+            case 'jpg':
+            case 'png':
+            case 'pjepg':
+            case 'gif':
+                $preview = ImageResize::resize_image($file, $string, $width, $height);
+                break;
+            default:
+                break;
+        }
     }
 
 }

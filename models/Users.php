@@ -38,4 +38,8 @@ class Users extends BaseUsers {
         return false;
     }
 
+    public static function getUserById($id) {
+        return Users::findOne(['id' => $id]);
+    }
+
 }
