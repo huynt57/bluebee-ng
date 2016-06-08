@@ -6,11 +6,39 @@ use yii\web\UploadedFile;
 use app\models\Documents;
 use Yii;
 use Imagick;
+use Scribd;
 
 class DocumentController extends \yii\web\Controller {
 
     public function actionIndex() {
         return $this->render('index');
+    }
+
+    public function actionConvert() {
+        $scribd_api_key = "24cxjtv3vw69wu5p7pqd9";
+        $scribd_secret = "sec-b2rlvg8kxwwpkz9fo3i02mo9vo";
+        $scribd = new Scribd\API($scribd_api_key, $scribd_secret);
+
+        $docx = Yii::getAlias('@webroot') . '/uploads/t';
+        $upload_scribd = $scribd->uploadFromUrl($docx);
+        $thumbnail_info = array('doc_id' => $upload_scribd["doc_id"],
+            'method' => NULL,
+            'session_key' => NULL,
+            'my_user_id' => NULL,
+            'width' => '220',
+            'height' => '250');
+        $get_thumbnail = $scribd->postRequest('thumbnail.get', $thumbnail_info);
+
+        var_dump($upload_scribd);
+    }
+    
+    public function actionDownload()
+    {
+        $scribd_api_key = "24cxjtv3vw69wu5p7pqd9";
+        $scribd_secret = "sec-b2rlvg8kxwwpkz9fo3i02mo9vo";
+        $scribd = new Scribd\API($scribd_api_key, $scribd_secret);
+        $result = $scribd->downloadFromUrl('315134125', "PDF");
+        var_dump($result);
     }
 
     public function actionUpload() {
@@ -25,12 +53,6 @@ class DocumentController extends \yii\web\Controller {
         if (isset($_FILES[$fileName])) {
             $file = UploadedFile::getInstanceByName($fileName);
             $path = $uploadPath . '/' . $file->name;
-            $png = $path . '.jpg';
-            $value['path'] = $path;
-            $im = new Imagick("$path[0]");
-            $im->setImageFormat('jpg');
-            header('Content-Type: image/jpeg');
-            echo $im;
             if ($file->saveAs($path)) {
                 Documents::upload($value);
             }

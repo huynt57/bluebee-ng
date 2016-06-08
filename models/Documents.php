@@ -20,6 +20,7 @@ class Documents extends BaseDocuments {
         $document->created_at = time();
         $document->updated_at = time();
         $document->user = $value['user'];
+        
         $user = Users::findOne(['id' => $value['user']]);
         if (!$user) {
             return 'Error !';
