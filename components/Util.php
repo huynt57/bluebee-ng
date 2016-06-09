@@ -98,7 +98,7 @@ class Util {
         $extension = strtolower($file->extension);
         switch ($extension) {
             case 'pdf':
-                $file_scribd = $scribd->uploadFromUrl($save);
+                $file_scribd = $scribd->uploadFromUrl(Yii::getAlias('@web').$save);
                 $preview = $scribd->getPreviewImage($file_scribd['doc_id'], $width, $height);
                 break;
             case 'doc':

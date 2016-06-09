@@ -22,6 +22,8 @@ use Yii;
  * @property integer $status
  * @property string $gender
  * @property string $dob
+ * @property string $email
+ * @property string $pdf
  * @property string $aliasModel
  */
 abstract class Users extends \yii\db\ActiveRecord
@@ -44,9 +46,9 @@ abstract class Users extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['avatar', 'description'], 'string'],
+            [['avatar', 'description', 'pdf'], 'string'],
             [['created_at', 'updated_at', 'number_upload', 'points', 'role', 'status'], 'integer'],
-            [['name', 'fb_id', 'gender', 'dob'], 'string', 'max' => 255]
+            [['name', 'fb_id', 'gender', 'dob', 'email'], 'string', 'max' => 255]
         ];
     }
 
@@ -69,6 +71,8 @@ abstract class Users extends \yii\db\ActiveRecord
             'status' => 'Status',
             'gender' => 'Gender',
             'dob' => 'Dob',
+            'email' => 'Email',
+            'pdf' => 'Pdf',
         ];
     }
 
