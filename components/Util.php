@@ -10,7 +10,7 @@ namespace app\components;
 
 use yii\web\UploadedFile;
 use Yii;
-use Scribd;
+use app\components\Scribd;
 use app\components\ImageResize;
 
 class Util {
@@ -61,51 +61,68 @@ class Util {
         return $ouo;
     }
 
-    public function getPdfPreview($scribd_id) {
-       
-    }
-    
-    public function uploadScribd($url)
-    {
-        $scribd = new Scribd\API($api_key, $secret);
-        $scribd->uploadFromUrl($url);
-        return $scribd; 
-    }
-    
-    public function getPdfScribd()
-    {
-        
+    public function downloadFile($url, $path) {
+        $newfname = $path;
+        $file = fopen($url, 'rb');
+        if ($file) {
+            $newf = fopen($newfname, 'wb');
+            if ($newf) {
+                while (!feof($file)) {
+                    fwrite($newf, fread($file, 1024 * 8), 1024 * 8);
+                }
+            }
+        }
+        if ($file) {
+            fclose($file);
+        }
+        if ($newf) {
+            fclose($newf);
+        }
     }
 
     public static function upload($fileName) {
+        $scribd = new Scribd(Yii::$app->params['SCRIBD_KEY'], Yii::$app->params['SCRIBD_SECRET']);
+        $width = Yii::$app->params['PREVIEW_WIDTH'];
+        $height = Yii::$app->params['PREVIEW_HEIGHT'];
+        $pdf = null;
+        $preview = null;
         $retVal = array();
         $file = UploadedFile::getInstanceByName($fileName);
-        $storeFolder = Yii::getAlias('@webroot') . '/uploads/document/' . Date('d/m/Y') . '/';   //2
+        $storeFolder = Yii::getAlias('@webroot') . '/uploads/document/' . Date('d/m/Y') . '/';   
         if (!file_exists($storeFolder)) {
             mkdir($storeFolder, 0777, true);
         }
         $save = $storeFolder . time() . $file->baseName . '.' . $file->extension;
+        $pdf_path = $storeFolder . time() . $file->baseName . '.pdf';
         $file->saveAs($save);
         $extension = strtolower($file->extension);
         switch ($extension) {
             case 'pdf':
-                $this->uploadScribd();
+                $file_scribd = $scribd->uploadFromUrl($save);
+                $preview = $scribd->getPreviewImage($file_scribd['doc_id'], $width, $height);
                 break;
             case 'doc':
             case 'docx':
-                $this->uploadScribd();
-                $this->getPdfScribd();
+                $file_scribd = $scribd->uploadFromUrl($save);
+                $pdf = $scribd->downloadPdfFromUrl($file_scribd['doc_id'], 'pdf');
+                $this->downloadFile($pdf, $pdf_path);
+                $preview = $scribd->getPreviewImage($file_scribd['doc_id'], $width, $height);
                 break;
             case 'jpeg':
             case 'jpg':
             case 'png':
             case 'pjepg':
             case 'gif':
-                $preview = ImageResize::resize_image($file, $string, $width, $height);
+                $preview = ImageResize::resize_image($save, NULL, $width, $height);
                 break;
             default:
+                $preview = Yii::$app->params['PREVIEW_IMAGE'];    
                 break;
         }
+        $retVal['preview'] = $preview;
+        $retVal['path'] = $save;
+        $retVal['pdf'] = $pdf;
+        return $retVal;
     }
 
 }

@@ -15,6 +15,10 @@ $config = [
 
             'class' => 'app\components\ImageResize',
         ],
+        'scribd' => [
+
+            'class' => 'app\components\Scribd',
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'mtAsnDCTuuZoahYt1ER838WsACPcmlV3',
