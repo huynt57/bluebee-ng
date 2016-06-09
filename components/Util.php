@@ -88,7 +88,7 @@ class Util {
         $preview = null;
         $retVal = array();
         $file = UploadedFile::getInstanceByName($fileName);
-        $storeFolder = Yii::getAlias('@webroot') . '/uploads/document/' . Date('d/m/Y') . '/';   
+        $storeFolder = Yii::getAlias('@webroot') . '/uploads/document/' . Date('d/m/Y') . '/';
         if (!file_exists($storeFolder)) {
             mkdir($storeFolder, 0777, true);
         }
@@ -98,7 +98,7 @@ class Util {
         $extension = strtolower($file->extension);
         switch ($extension) {
             case 'pdf':
-                $file_scribd = $scribd->uploadFromUrl(Yii::getAlias('@web').$save);
+                $file_scribd = $scribd->uploadFromUrl(Yii::getAlias('@web') . $save);
                 $preview = $scribd->getPreviewImage($file_scribd['doc_id'], $width, $height);
                 break;
             case 'doc':
@@ -116,7 +116,7 @@ class Util {
                 $preview = ImageResize::resize_image($save, NULL, $width, $height);
                 break;
             default:
-                $preview = Yii::$app->params['PREVIEW_IMAGE'];    
+                $preview = Yii::$app->params['PREVIEW_IMAGE'];
                 break;
         }
         $retVal['preview'] = $preview;

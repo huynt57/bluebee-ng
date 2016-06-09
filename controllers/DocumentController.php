@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\Documents;
 use Yii;
 use app\components\Util;
+use app\models\Subjects;
 
 class DocumentController extends \yii\web\Controller {
 
@@ -25,7 +26,8 @@ class DocumentController extends \yii\web\Controller {
             $value['path'] = $uploaded['path'];
             $value['preview'] = $uploaded['preview'];
             $value['pdf'] = $uploaded['pdf'];
-            Documents::upload($value);
+            $message = Documents::upload($value);
+            return $message;
         }
         return false;
     }
@@ -40,7 +42,7 @@ class DocumentController extends \yii\web\Controller {
         try {
             $id = $request->get('id', '');
             $document = Documents::getDocumentById($id);
-            return $document;
+            return $this->render('read', ['data' => $document]);
         } catch (Exception $ex) {
             
         }
@@ -51,7 +53,18 @@ class DocumentController extends \yii\web\Controller {
         try {
             $subject = $request->get('subject', '');
             $documents = Documents::getDocumentsBySubject($subject);
-            return $documents;
+            $subject_name = Subjects::findOne(['id' => $subject])->name;
+            return $this->render('documents', ['documents' => $documents, 'title' => $subject_name]);
+        } catch (Exception $ex) {
+            
+        }
+    }
+
+    public function actionAddWishlist() {
+        $request = Yii::$app->request;
+        try {
+            $doc = $request->post('doc_id', '');
+            $user = $request->post('user_id', '');
         } catch (Exception $ex) {
             
         }

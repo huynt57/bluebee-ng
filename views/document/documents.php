@@ -1,7 +1,7 @@
 <div class="row">
     <div id="catalog" class="col-sm-12 col-md-9 <?php echo Yii::getAlias('@web')?>/content pull-right">
         <div class="category-img">
-            <div class="description">Automation &amp; Integration technology to fit any lifestyle</div>
+            <div class="description"><?php echo $title ?></div>
         </div>
 
         <div class="toolbar clearfix">
@@ -56,7 +56,7 @@
                 <div class="default">
                     <span class="sale top"></span>
                     <a href="shop-product-view.html" class="product-image">
-                        <img class="replace-2x" src="<?php echo Yii::getAlias('@web')?>/content/img/product-1.jpg" alt="" title="" width="270" height="270">
+                        <img class="replace-2x" src="<?php echo $documents->preview?>" alt="" title="" width="270" height="270">
                     </a>
                     <div class="product-description">
                         <div class="vertical">
