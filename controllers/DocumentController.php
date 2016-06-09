@@ -69,9 +69,10 @@ class DocumentController extends \yii\web\Controller {
             
         }
     }
-    
+    //Download file tam thoi
     public function actionDownload()
     {
+        $request = Yii::$app->request;
         
     }
 
