@@ -56,12 +56,12 @@
                 <div class="default">
                     <span class="sale top"></span>
                     <a href="shop-product-view.html" class="product-image">
-                        <img class="replace-2x" src="<?php echo $documents->preview?>" alt="" title="" width="270" height="270">
+                        <img class="replace-2x" src="<?php echo $item->preview?>" alt="" title="" width="270" height="270">
                     </a>
                     <div class="product-description">
                         <div class="vertical">
                             <h3 class="product-name">
-                                <a href="shop-product-view.html">Sony Led TV KDL-46HX853</a>
+                                <a href="shop-product-view.html"><?php echo $item->name?></a>
                             </h3>
                             <div class="price">$1, 449.00</div>	
                         </div>
