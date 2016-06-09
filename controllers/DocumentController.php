@@ -69,5 +69,10 @@ class DocumentController extends \yii\web\Controller {
             
         }
     }
+    
+    public function actionDownload()
+    {
+        
+    }
 
 }
