@@ -65,6 +65,7 @@ class DocumentController extends \yii\web\Controller {
         try {
             $doc = $request->post('doc_id', '');
             $user = $request->post('user_id', '');
+            
         } catch (Exception $ex) {
             
         }
