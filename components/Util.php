@@ -124,5 +124,10 @@ class Util {
         $retVal['pdf'] = $pdf;
         return $retVal;
     }
+    
+    public static function getSideBar()
+    {
+       
+    }
 
 }

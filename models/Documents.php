@@ -40,9 +40,11 @@ class Documents extends BaseDocuments {
         $models = $query->offset($pages->offset)
                 ->limit($pages->limit)
                 ->all();
+        $subjects = Subjects::findAll()->order_by('name', 'desc');
         return [
             'models' => $models,
             'pages' => $pages,
+            'subjects'=>$subjects,
         ];
     }
 

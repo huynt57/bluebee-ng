@@ -129,4 +129,4 @@
             </div><!-- .pagination-box -->
         </div><!-- .<?php echo Yii::getAlias('@web')?>/content -->
     </div>
-<?php echo Yii::$app->view->render('sideBar')?>
+<?php echo Yii::$app->view->render('sideBar', ['subjects'=>$subjects])?>
