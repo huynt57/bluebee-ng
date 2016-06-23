@@ -9,7 +9,7 @@ namespace app\components;
 
 class ImageResize {
 
-    public static function resize_image($file, $string = null, $width = 0, $height = 0, $proportional = false, $output = 'file', $delete_original = true, $use_linux_commands = false, $quality = 100
+    public static function resize_image($file, $string = null, $width = 0, $height = 0, $proportional = false, $output = 'preview', $delete_original = false, $use_linux_commands = false, $quality = 100
     ) {
 
         if ($height <= 0 && $width <= 0)
@@ -104,18 +104,18 @@ class ImageResize {
                 break;
             case 'preview':
                 $name = basename($file);
-                $preview = 'preview-' . $name;
-                $output = 'images/preview/' . $preview;
+                $preview = 'preview-' . time().$name;
+                $output = 'uploads/preview/' . $preview;
                 break;
             case 'preview-grid':
                 $name = basename($file);
                 $preview = 'preview-grid-' . $name;
-                $output = 'images/preview/' . $preview;
+                $output = 'uploads/preview/' . $preview;
                 break;
             case 'preview-list':
                 $name = basename($file);
-                $preview = 'preview-list-' . $name;
-                $output = 'images/preview/' . $preview;
+                $preview = 'preview-list-' . time().$name;
+                $output = 'uploads/preview/' . $preview;
                 break;
             default:
                 break;

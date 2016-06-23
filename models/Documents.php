@@ -21,13 +21,13 @@ class Documents extends BaseDocuments {
         $document->updated_at = time();
         $document->user = $value['user'];
         
-        $user = Users::findOne(['id' => $value['user']]);
-        if (!$user) {
-            return 'Error !';
-        }
+//        $user = Users::findOne(['id' => $value['user']]);
+//        if (!$user) {
+//            return 'Error !';
+//        }
         if ($document->save()) {
-            $user->number_upload += 1;
-            $user->save();
+            //$user->number_upload += 1;
+            //$user->save();
             return 'Success';
         }
         return 'Error !';
@@ -40,7 +40,7 @@ class Documents extends BaseDocuments {
         $models = $query->offset($pages->offset)
                 ->limit($pages->limit)
                 ->all();
-        $subjects = Subjects::findAll()->order_by('name', 'desc');
+        $subjects = Subjects::find()->orderBy('name', 'desc')->all();
         return [
             'models' => $models,
             'pages' => $pages,

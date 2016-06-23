@@ -1,7 +1,7 @@
 <div class="row">
     <div id="catalog" class="col-sm-12 col-md-9 <?php echo Yii::getAlias('@web')?>/content pull-right">
         <div class="category-img">
-            <div class="description"><?php echo $title ?></div>
+            <div class="description">Tài liệu mới nhất</div>
         </div>
 
         <div class="toolbar clearfix">

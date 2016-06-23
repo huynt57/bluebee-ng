@@ -84,15 +84,18 @@ class Util {
         $scribd = new Scribd(Yii::$app->params['SCRIBD_KEY'], Yii::$app->params['SCRIBD_SECRET']);
         $width = Yii::$app->params['PREVIEW_WIDTH'];
         $height = Yii::$app->params['PREVIEW_HEIGHT'];
-        $pdf = null;
+        $pdf = '';
         $preview = null;
         $retVal = array();
         $file = UploadedFile::getInstanceByName($fileName);
-        $storeFolder = Yii::getAlias('@webroot') . '/uploads/document/' . Date('d/m/Y') . '/';
+        $relative_path = '/uploads/document/' . Date('d-m-Y') . '/';
+        $storeFolder = Yii::getAlias('@webroot') . $relative_path;
+         
         if (!file_exists($storeFolder)) {
             mkdir($storeFolder, 0777, true);
         }
         $save = $storeFolder . time() . $file->baseName . '.' . $file->extension;
+        $original_url = $relative_path. time() . $file->baseName . '.' . $file->extension;
         $pdf_path = $storeFolder . time() . $file->baseName . '.pdf';
         $file->saveAs($save);
         $extension = strtolower($file->extension);
@@ -119,9 +122,11 @@ class Util {
                 $preview = Yii::$app->params['PREVIEW_IMAGE'];
                 break;
         }
+        
         $retVal['preview'] = $preview;
         $retVal['path'] = $save;
         $retVal['pdf'] = $pdf;
+        $retVal['original_url'] = $original_url;
         return $retVal;
     }
     
