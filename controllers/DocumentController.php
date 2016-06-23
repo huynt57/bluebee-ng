@@ -26,6 +26,7 @@ class DocumentController extends \yii\web\Controller {
             $value['path'] = $uploaded['path'];
             $value['preview'] = $uploaded['preview'];
             $value['pdf'] = $uploaded['pdf'];
+            $value['original_url'] = $uploaded['original_url'];
             $message = Documents::upload($value);
             return $message;
         }
