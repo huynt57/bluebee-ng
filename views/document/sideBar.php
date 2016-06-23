@@ -6,7 +6,7 @@
         <nav>
             <ul>
                 <?php foreach ($subjects as $subject):?>
-                    <li><a href="#">Proin lobortis nulla</a></li>
+                    <li><a href="#"><?php echo $subject->name?></a></li>
                 <?php endforeach;?>
             </ul>
         </nav>

@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
 
-    
+
     <head>
         <meta charset="utf-8">
         <title>Creative Home \ Progressive — Responsive Multipurpose HTML Template</title>
@@ -13,41 +13,41 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
         <!-- Favicon -->
-        <link rel="shortcut icon" href="<?php echo Yii::getAlias('@web')?>/img/favicon.ico">
+        <link rel="shortcut icon" href="<?php echo Yii::getAlias('@web') ?>/img/favicon.ico">
 
         <!-- Font -->
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Arimo:400,700,400italic,700italic'>
 
         <!-- Plugins CSS -->
-        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web')?>/css/bootstrap.css">
-        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web')?>/css/font-awesome.min.css">
-        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web')?>/css/jslider.css">
-        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web')?>/css/settings.css">
-        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web')?>/css/jquery.fancybox.css">
-        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web')?>/css/animate.css">
-        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web')?>/css/video-js.min.css">
-        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web')?>/css/morris.css">
-        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web')?>/css/royalslider/royalslider.css">
-        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web')?>/css/royalslider/skins/minimal-white/rs-minimal-white.css">
-        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web')?>/css/layerslider/layerslider.css">
-        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web')?>/css/ladda.min.css">
-        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web')?>/css/datepicker.css">
-        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web')?>/css/jquery.scrollbar.css">
+        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/bootstrap.css">
+        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/font-awesome.min.css">
+        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/jslider.css">
+        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/settings.css">
+        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/jquery.fancybox.css">
+        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/animate.css">
+        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/video-js.min.css">
+        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/morris.css">
+        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/royalslider/royalslider.css">
+        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/royalslider/skins/minimal-white/rs-minimal-white.css">
+        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/layerslider/layerslider.css">
+        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/ladda.min.css">
+        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/datepicker.css">
+        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/jquery.scrollbar.css">
 
         <!-- Theme CSS -->
-        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web')?>/css/style.css">
+        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/style.css">
 
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web')?>/css/customizer/pages.css">
-        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web')?>/css/customizer/home-pages-customizer.css">
+        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/customizer/pages.css">
+        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/customizer/home-pages-customizer.css">
 
         <!-- IE Styles-->
-        <link rel='stylesheet' href="<?php echo Yii::getAlias('@web')?>/css/ie/ie.css">
+        <link rel='stylesheet' href="<?php echo Yii::getAlias('@web') ?>/css/ie/ie.css">
 
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.<?php echo Yii::getAlias('@web')?>/js/1.4.2/respond.min.js"></script>
-                              <link rel='stylesheet' href="<?php echo Yii::getAlias('@web')?>/css/ie/ie8.css">
+          <script src="https://oss.maxcdn.com/libs/respond.<?php echo Yii::getAlias('@web') ?>/js/1.4.2/respond.min.js"></script>
+                              <link rel='stylesheet' href="<?php echo Yii::getAlias('@web') ?>/css/ie/ie8.css">
         <![endif]-->
     </head>
     <body class="fixed-header">
@@ -61,7 +61,7 @@
                                 <div class="col-xs-6 col-md-2 col-lg-3 logo-box">
                                     <div class="logo">
                                         <a href="index-2.html">
-                                            <img src="<?php echo Yii::getAlias('@web')?>/img/logo.svg" class="logo-img" alt="">
+                                            <img src="<?php echo Yii::getAlias('@web') ?>/img/logo.svg" class="logo-img" alt="">
                                         </a>
                                     </div>
                                 </div><!-- .logo-box -->
@@ -75,7 +75,7 @@
                                                     <path d="M12.001,10l-0.5,0.5l-0.79-0.79c0.806-1.021,1.29-2.308,1.29-3.71c0-3.313-2.687-6-6-6C2.687,0,0,2.687,0,6
                                                           s2.687,6,6,6c1.402,0,2.688-0.484,3.71-1.29l0.79,0.79l-0.5,0.5l4,4l2-2L12.001,10z M6,10c-2.206,0-4-1.794-4-4s1.794-4,4-4
                                                           s4,1.794,4,4S8.206,10,6,10z"></path>
-                                                    <image src="<?php echo Yii::getAlias('@web')?>/img/png-icons/search-icon.png" alt="" width="16" height="16" style="vertical-align: top;">
+                                                    <image src="<?php echo Yii::getAlias('@web') ?>/img/png-icons/search-icon.png" alt="" width="16" height="16" style="vertical-align: top;">
                                                     </svg>
                                                 </a>
                                             </div><!-- .search-header
@@ -86,7 +86,7 @@
                                                     <path d="M11.001,0H5C3.896,0,3,0.896,3,2c0,0.273,0,11.727,0,12c0,1.104,0.896,2,2,2h6c1.104,0,2-0.896,2-2
                                                           c0-0.273,0-11.727,0-12C13.001,0.896,12.105,0,11.001,0z M8,15c-0.552,0-1-0.447-1-1s0.448-1,1-1s1,0.447,1,1S8.553,15,8,15z
                                                           M11.001,12H5V2h6V12z"></path>
-                                                    <image src="<?php echo Yii::getAlias('@web')?>/img/png-icons/phone-icon.png" alt="" width="16" height="16" style="vertical-align: top;">
+                                                    <image src="<?php echo Yii::getAlias('@web') ?>/img/png-icons/phone-icon.png" alt="" width="16" height="16" style="vertical-align: top;">
                                                     </svg>
                                                 </a>
                                             </div><!-- .phone-header -->
@@ -319,7 +319,7 @@
 
                                                                     <div class="promo-block text-right">
                                                                         <a href="#">
-                                                                            <img src="<?php echo Yii::getAlias('@web')?>/content/<?php echo Yii::getAlias('@web')?>/img/megamenu-big.jpg" class="replace-2x" width="253" height="457" alt="">
+                                                                            <img src="<?php echo Yii::getAlias('@web') ?>/content/<?php echo Yii::getAlias('@web') ?>/img/megamenu-big.jpg" class="replace-2x" width="253" height="457" alt="">
                                                                         </a>
                                                                     </div><!-- .promo-block -->
                                                                 </li>
@@ -370,7 +370,7 @@
                                                                     </div><!-- .sub-list -->
 
                                                                     <div class="promo-block bg">
-                                                                        <img class="replace-2x" src="<?php echo Yii::getAlias('@web')?>/content/<?php echo Yii::getAlias('@web')?>/img/menu-elements.png" width="240" height="434" alt="">
+                                                                        <img class="replace-2x" src="<?php echo Yii::getAlias('@web') ?>/content/<?php echo Yii::getAlias('@web') ?>/img/menu-elements.png" width="240" height="434" alt="">
                                                                     </div><!-- .promo-block -->
                                                                 </li>
                                                             </ul>
@@ -413,7 +413,7 @@
                                             <path fill="#231F20" d="M12.001,10l-0.5,0.5l-0.79-0.79c0.806-1.021,1.29-2.308,1.29-3.71c0-3.313-2.687-6-6-6C2.687,0,0,2.687,0,6
                                                   s2.687,6,6,6c1.402,0,2.688-0.484,3.71-1.29l0.79,0.79l-0.5,0.5l4,4l2-2L12.001,10z M6,10c-2.206,0-4-1.794-4-4s1.794-4,4-4
                                                   s4,1.794,4,4S8.206,10,6,10z"></path>
-                                            <image src="<?php echo Yii::getAlias('@web')?>/img/png-icons/search-icon.png" alt="" width="16" height="16" style="vertical-align: top;">
+                                            <image src="<?php echo Yii::getAlias('@web') ?>/img/png-icons/search-icon.png" alt="" width="16" height="16" style="vertical-align: top;">
                                             </svg>
                                         </button>
                                     </form>
@@ -424,15 +424,19 @@
                 </header><!-- .header -->
 
 
-                
+
                 <div class="clearfix"></div>
 
                 <section id="main">
-                    <article class="content">
+                    <header class="page-header">
                         <div class="container">
-                            <?php echo $content; ?>
-                        </div>  
-                    </article>
+                            <h1 class="title">Product Category</h1>
+                        </div>	
+                    </header>
+                    <div class="container">
+                        <?php echo $content; ?>
+                    </div>  
+
                 </section><!-- #main -->
 
             </div><!-- .page-box-content -->
@@ -553,54 +557,54 @@
         <div class="clearfix"></div>
 
         <!--[if (!IE)|(gt IE 8)]><!-->
-        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery-2.1.3.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery-2.1.3.min.js"></script>
         <!--<![endif]-->
 
         <!--[if lte IE 8]>
-          <script src="<?php echo Yii::getAlias('@web')?>/js/jquery-1.9.1.min.js"></script>
+          <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery-1.9.1.min.js"></script>
         <![endif]-->
-        <script src="<?php echo Yii::getAlias('@web')?>/js/bootstrap.min.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/price-regulator/jshashtable-2.1_src.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/price-regulator/jquery.numberformatter-1.2.3.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/price-regulator/tmpl.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/price-regulator/jquery.dependClass-0.1.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/price-regulator/draggable-0.1.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/price-regulator/jquery.slider.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.carouFredSel-6.2.1-packed.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.touchwipe.min.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.elevateZoom-3.0.8.min.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.imagesloaded.min.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.appear.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.sparkline.min.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.easypiechart.min.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.easing.1.3.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.fancybox.pack.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/isotope.pkgd.min.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.knob.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.selectBox.min.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.royalslider.min.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.tubular.1.0.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/SmoothScroll.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/country.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/spin.min.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/ladda.min.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/masonry.pkgd.min.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/morris.min.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/raphael.min.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/video.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/pixastic.custom.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/livicons-1.4.min.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/layerslider/greensock.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/layerslider/layerslider.transitions.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/layerslider/layerslider.kreaturamedia.jquery.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/revolution/jquery.themepunch.tools.min.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/revolution/jquery.themepunch.revolution.min.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/bootstrapValidator.min.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/bootstrap-datepicker.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/jplayer/jquery.jplayer.min.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/jplayer/jplayer.playlist.min.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/jquery.scrollbar.min.js"></script>
-        <script src="<?php echo Yii::getAlias('@web')?>/js/main.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/bootstrap.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/price-regulator/jshashtable-2.1_src.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/price-regulator/jquery.numberformatter-1.2.3.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/price-regulator/tmpl.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/price-regulator/jquery.dependClass-0.1.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/price-regulator/draggable-0.1.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/price-regulator/jquery.slider.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery.touchwipe.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery.elevateZoom-3.0.8.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery.imagesloaded.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery.appear.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery.sparkline.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery.easypiechart.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery.easing.1.3.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery.fancybox.pack.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/isotope.pkgd.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery.knob.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery.selectBox.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery.royalslider.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery.tubular.1.0.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/SmoothScroll.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/country.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/spin.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/ladda.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/masonry.pkgd.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/morris.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/raphael.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/video.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/pixastic.custom.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/livicons-1.4.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/layerslider/greensock.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/layerslider/layerslider.transitions.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/layerslider/layerslider.kreaturamedia.jquery.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/revolution/jquery.themepunch.tools.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/revolution/jquery.themepunch.revolution.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/bootstrapValidator.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/bootstrap-datepicker.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/jplayer/jquery.jplayer.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/jplayer/jplayer.playlist.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery.scrollbar.min.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/main.js"></script>
 
     </body>
 

@@ -1,10 +1,8 @@
 <div class="row">
-    <div id="catalog" class="col-sm-12 col-md-9 <?php echo Yii::getAlias('@web') ?>/content pull-right">
-        <div class="category-img">
-            <div class="description">Tài liệu mới nhất</div>
-        </div>
+    <div id="catalog" class="col-sm-12 col-md-9 content pull-right">
 
         <div class="toolbar clearfix">
+        <div class="clearfix"></div>
             <div class="grid-list">
                 <span class="grid">
                     <span class="glyphicon glyphicon-th-large"></span>
@@ -52,7 +50,7 @@
 
         <div class="products grid row">
             <?php foreach ($models as $item): ?>
-                <div class="col-sm-4 col-md-4 col-sm-4 col-md-4 product">
+                <div class="col-sm-4 col-md-4 col-sm-4 col-md-4 product rotation">
                     <div class="default">
                         <span class="sale top"></span>
                         <a href="shop-product-view.html" class="product-image">
@@ -121,7 +119,7 @@
             </ul>
             <i class="pagination-text">Displaying 1 to 10 (of 100 posts)</i>
         </div><!-- .pagination-box -->
-    </div><!-- .<?php echo Yii::getAlias('@web') ?>/content -->
-</div>
-<?php
+    </div><!-- .<?php //echo Yii::getAlias('@web') ?>/content -->
+    <?php
 echo Yii::$app->view->render('sideBar', ['subjects' => $subjects])?>
+</div>
