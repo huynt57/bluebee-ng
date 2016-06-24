@@ -134,5 +134,10 @@ class Util {
     {
        
     }
+    
+    public static function checkTopDocument($doc_id)
+    {
+        
+    }
 
 }

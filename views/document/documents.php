@@ -1,77 +1,36 @@
+<?php
+
+use yii\widgets\LinkPager;
+use yii\helpers\Url;?>
 <div class="row">
     <div id="catalog" class="col-sm-12 col-md-9 content pull-right">
-
-        <div class="toolbar clearfix">
-        <div class="clearfix"></div>
-            <div class="grid-list">
-                <span class="grid">
-                    <span class="glyphicon glyphicon-th-large"></span>
-                </span>
-                <a href="shop-catalog-list.html" class="list">
-                    <span class="glyphicon glyphicon-th-list"></span>
-                </a>
-            </div>
-
-            <div class="sort-catalog">
-                <div class="btn-group sort-by btn-select">
-                    <a class="btn dropdown-toggle btn-default" role="button" data-toggle="dropdown" href="#">Sort by: <span>Rating</span> <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Price</a></li>
-                        <li><a href="#">Rating</a></li>
-                        <li><a href="#">Name</a></li>
-                    </ul>
-                </div><!-- .sort-by -->
-                <button type="button" class="btn up-down btn-default" data-toggle="button"><span></span></button>
-            </div><!-- .sort-catalog -->
-
-            <div class="sort-catalog">
-                <div class="btn-group show-by btn-select">
-                    <a class="btn dropdown-toggle btn-default" role="button" data-toggle="dropdown" href="#">Show: <span>12</span> <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">6</a></li>
-                        <li><a href="#">7</a></li>
-                        <li><a href="#">8</a></li>
-                        <li><a href="#">9</a></li>
-                        <li><a href="#">10</a></li>
-                        <li><a href="#">11</a></li>
-                        <li><a href="#">12</a></li>
-                    </ul>
-                </div><!-- .show -->
-                <span class="per-page">per page</span>
-            </div><!-- .sort-catalog -->
-        </div>
 
         <div class="clearfix"></div>
 
         <div class="products grid row">
-            <?php foreach ($models as $item): ?>
-                <div class="col-sm-4 col-md-4 col-sm-4 col-md-4 product rotation">
+<?php foreach ($models as $item): ?>
+                <div class="col-sm-4 col-md-4 col-sm-4 col-md-4 product rotation" style="float: left !important;">
                     <div class="default">
                         <span class="sale top"></span>
-                        <a href="shop-product-view.html" class="product-image">
+                        <a href="<?php echo Url::to(['item', 'id'=>$item->id])?>" class="product-image">
                             <img class="replace-2x" src="<?php echo Yii::getAlias('@web') . '/' . $item->preview ?>" alt="" title="" width="270" height="270">
                         </a>
                         <div class="product-description">
                             <div class="vertical">
                                 <h3 class="product-name">
-                                    <a href="shop-product-view.html"><?php echo $item->name ?></a>
+                                    <a href="<?php echo Url::to(['item', 'id'=>$item->id])?>"><?php echo $item->name ?></a>
                                 </h3>
-                                <div class="price">$1, 449.00</div>	
+                               
                             </div>
                         </div>
                     </div>
-
+                    <a href="<?php echo Url::to(['item', 'id'=>$item->id])?>">
                     <div class="product-hover">
                         <h3 class="product-name">
-                            <a href="shop-product-view.html"><?php echo $item->name ?></a>
+                            <a href="<?php echo Url::to(['item', 'id'=>$item->id])?>"><?php echo $item->name ?></a>
                         </h3>
                         <p>
-                            <?php echo $item->description; ?>
+    <?php echo $item->description; ?>
 
                         </p>
                         <div class="actions">
@@ -104,22 +63,22 @@
                             </a>
                         </div><!-- .actions -->
                     </div><!-- .product-hover -->
+                    </a>
                 </div><!-- .product -->
-            <?php endforeach; ?>
+<?php endforeach; ?>
         </div>
+<?php if($pages->getPageCount() > 1):?>
         <div class="pagination-box">
-            <ul class="pagination">
-                <li class="disabled"><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li class="disabled"><a href="#">...</a></li>
-                <li><a href="#">9</a></li>
-                <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-            </ul>
+            <?php
+            echo LinkPager::widget([
+                'pagination' => $pages,
+            ]);
+            ?>
+           
             <i class="pagination-text">Displaying 1 to 10 (of 100 posts)</i>
+           
         </div><!-- .pagination-box -->
-    </div><!-- .<?php //echo Yii::getAlias('@web') ?>/content -->
-    <?php
-echo Yii::$app->view->render('sideBar', ['subjects' => $subjects])?>
+        <?php endif;?>
+    </div><!-- .<?php //echo Yii::getAlias('@web')  ?>/content -->
+<?php echo Yii::$app->view->render('sideBar', ['subjects' => $subjects]) ?>
 </div>

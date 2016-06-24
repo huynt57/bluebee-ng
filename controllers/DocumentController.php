@@ -34,16 +34,18 @@ class DocumentController extends \yii\web\Controller {
     }
 
     public function actionGetLatestDocuments() {
+        Yii::$app->view->title = 'Tài liệu mới nhất';
         $data = Documents::getAllLatestDocuments();
         return $this->render('documents', $data);
     }
 
-    public function actionGetDocumentById() {
+    public function actionItem() {
         $request = Yii::$app->request;
         try {
             $id = $request->get('id', '');
             $document = Documents::getDocumentById($id);
-            return $this->render('read', ['data' => $document]);
+            Yii::$app->view->title = $document['name'];
+            return $this->render('item', ['data' => $document]);
         } catch (Exception $ex) {
             
         }
@@ -52,30 +54,29 @@ class DocumentController extends \yii\web\Controller {
     public function actionGetDocumentBySubject() {
         $request = Yii::$app->request;
         try {
-            $subject = $request->get('subject', '');
+            $subject = $request->get('id', '');
             $documents = Documents::getDocumentsBySubject($subject);
             $subject_name = Subjects::findOne(['id' => $subject])->name;
-            return $this->render('documents', ['documents' => $documents, 'title' => $subject_name]);
+            Yii::$app->view->title = 'Tài liệu môn ' . $subject_name;
+            return $this->render('documents', $documents);
         } catch (Exception $ex) {
             
         }
     }
-        
+
     public function actionAddWishlist() {
         $request = Yii::$app->request;
         try {
             $doc = $request->post('doc_id', '');
             $user = $request->post('user_id', '');
-            
         } catch (Exception $ex) {
             
         }
     }
+
     //Download file tam thoi
-    public function actionDownload()
-    {
+    public function actionDownload() {
         $request = Yii::$app->request;
-        
     }
 
 }

@@ -34,9 +34,10 @@ class Documents extends BaseDocuments {
     }
 
     public static function getAllLatestDocuments() {
-        $query = Documents::find()->orderBy('id', 'SORT_DESC');
+        $query = Documents::find()->orderBy('id desc');
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $pages->defaultPageSize = 12;
         $models = $query->offset($pages->offset)
                 ->limit($pages->limit)
                 ->all();
@@ -54,13 +55,13 @@ class Documents extends BaseDocuments {
         $retVal['id'] = $document->id;
         $retVal['name'] = $document->name;
         $retVal['description'] = $document->description;
-        $retVal['created_at'] = Date($document->created_at, 'd/m/Y');
-        $retVal['updated_at'] = Date($document->updated_at, 'd/m/Y');
+        $retVal['created_at'] = Date('d/m/Y', $document->created_at);
+        $retVal['updated_at'] = Date('d/m/Y', $document->updated_at);
         $retVal['preview'] = $document->preview;
         $retVal['original_url'] = $document->original_url;
         $retVal['money_url'] = $document->money_url;
         $retVal['subject'] = Subjects::findOne(['id' => $document->subject])->name;
-        $retVal['user'] = Users::findOne(['id' => $document->user])->name;
+        $retVal['user'] = Users::findOne(['id' => $document->user]);
         $retVal['number_download'] = $document->number_download;
         return $retVal;
     }
@@ -72,15 +73,17 @@ class Documents extends BaseDocuments {
     }
 
     public static function getDocumentsBySubject($subject) {
-        $query = Documents::find()->where(['subject' => $subject]);
+        $query = Documents::find()->where(['subject' => $subject])->orderBy('id desc');;
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count()]);
         $models = $query->offset($pages->offset)
                 ->limit($pages->limit)
                 ->all();
+        $subjects = Subjects::find()->orderBy('name', 'desc')->all();
         return [
             'models' => $models,
             'pages' => $pages,
+            'subjects'=>$subjects
         ];
     }
 
