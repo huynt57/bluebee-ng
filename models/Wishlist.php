@@ -10,7 +10,7 @@ use \app\models\base\Wishlist as BaseWishlist;
  */
 class Wishlist extends BaseWishlist
 {
-    public function add($doc_id, $user_id)
+    public static function add($doc_id, $user_id)
     {
         $model = new  Wishlist;
         $model->user_id = $user_id;
@@ -22,7 +22,7 @@ class Wishlist extends BaseWishlist
         return false;
     }
     
-    public function getWishlistByUser($user_id)
+    public static function getWishlistByUser($user_id)
     {
         $query = Wishlist::find()->where(['user_id' => $user_id]);
         $countQuery = clone $query;

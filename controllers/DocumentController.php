@@ -6,6 +6,7 @@ use app\models\Documents;
 use Yii;
 use app\components\Util;
 use app\models\Subjects;
+use app\models\Wishlist;
 
 class DocumentController extends \yii\web\Controller {
 
@@ -67,8 +68,10 @@ class DocumentController extends \yii\web\Controller {
     public function actionAddWishlist() {
         $request = Yii::$app->request;
         try {
-            $doc = $request->post('doc_id', '');
-            $user = $request->post('user_id', '');
+            $doc_id = $request->post('doc_id', '');
+            $user_id = $request->post('user_id', '');
+            $result = Wishlist::add($doc_id, $user_id);
+            return $result;
         } catch (Exception $ex) {
             
         }

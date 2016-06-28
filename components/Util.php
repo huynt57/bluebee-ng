@@ -130,6 +130,24 @@ class Util {
         return $retVal;
     }
     
+    public static function getGender($gender)
+    {
+        $result = '';
+        $gender = strtolower($gender);
+        switch ($gender) {
+            case 'male':
+                $result =  'Nam';
+                break;
+            case 'female':
+                $result =  'Nữ';
+                break;
+            default:
+                $result =  'Chưa cập nhật';
+                break;
+        }
+        return $result;
+    }
+    
     public static function getSideBar()
     {
        

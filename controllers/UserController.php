@@ -30,4 +30,15 @@ class UserController extends \yii\web\Controller {
         }
     }
 
+    public function actionProfile() {
+        $request = Yii::$app->request;
+        try {
+            $id = $request->get('id', '');
+            $data = Users::getUserById($id);
+            return $this->render('profile', ['profile' => $data]);
+        } catch (Exception $ex) {
+            
+        }
+    }
+
 }
