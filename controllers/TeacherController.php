@@ -29,5 +29,17 @@ class TeacherController extends \yii\web\Controller
             
         }
     }
+    
+    public function actionRateTeacher()
+    {
+        $request = Yii::$app->request;
+        try {
+            $teacher = $request->post('teacher', '');
+            $stars = $request->post('stars', '');
+           
+        } catch (Exception $ex) {
+            
+        }
+    }
 
 }

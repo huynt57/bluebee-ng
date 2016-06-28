@@ -46,7 +46,6 @@ class Teachers extends BaseTeachers {
 
     public static function getTeachersBySubject($subject) {
         $query = Teachers::find()->where(['subject' => $subject])->orderBy('id desc');
-        ;
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count()]);
         $models = $query->offset($pages->offset)
@@ -58,6 +57,16 @@ class Teachers extends BaseTeachers {
             'pages' => $pages,
             'subjects' => $subjects
         ];
+    }
+
+    public static function rateTeacher($teacher, $stars) {
+        $model = Teachers::findOne(['id' => $id]);
+        $model->number_rated++;
+        $model->stars+=$stars;
+        if ($model->save(FALSE)) {
+            return true;
+        }
+        return false;
     }
 
 }
