@@ -60,7 +60,7 @@ class Teachers extends BaseTeachers {
     }
 
     public static function rateTeacher($teacher, $stars) {
-        $model = Teachers::findOne(['id' => $id]);
+        $model = Teachers::findOne(['id' => $teacher]);
         $model->number_rated++;
         $model->stars+=$stars;
         if ($model->save(FALSE)) {

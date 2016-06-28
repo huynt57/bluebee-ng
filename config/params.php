@@ -8,5 +8,6 @@ return [
     'SCRIBD_SECRET' => 'b2rlvg8kxwwpkz9fo3i02mo9vo',
     'PREVIEW_HEIGHT' => 270,
     'PREVIEW_WIDTH' => 270,
-    'PREVIEW_IMAGE' => ''
+    'PREVIEW_IMAGE' => '',
+    'moss_user_id' => '',
 ];
