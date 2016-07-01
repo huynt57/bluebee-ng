@@ -80,6 +80,14 @@ class DocumentController extends \yii\web\Controller {
     //Download file tam thoi
     public function actionDownload() {
         $request = Yii::$app->request;
+        try {
+            $doc_id = $request->post('doc_id', '');
+            $user_id = $request->post('user_id', '');
+            $result = Wishlist::add($doc_id, $user_id);
+            return $result;
+        } catch (Exception $ex) {
+            
+        }
     }
 
 }

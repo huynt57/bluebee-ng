@@ -20,7 +20,7 @@ class MossController extends \yii\web\Controller {
         $moss->addByWildcard('test/*');
         $moss->addBaseFile('Example.java');
         $moss->setCommentString("This is a test");
-        print_r($moss->send());
+        $moss->send();
     }
 
 }

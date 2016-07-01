@@ -118,9 +118,9 @@
                                                         <li class="item item-primary item-bg">
                                                             <a href="<?php echo Url::to(['user/my-page']) ?>">Trang của tôi</a>   
                                                         </li>
-                                                        <li class="item item-primary item-bg">
+<!--                                                        <li class="item item-primary item-bg">
                                                             <a href="<?php echo Url::to(['user/my-page']) ?>">Thống kê</a>   
-                                                        </li>
+                                                        </li>-->
                                                       
                                                     </ul>
                                                 </nav>

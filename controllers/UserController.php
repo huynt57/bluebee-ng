@@ -30,7 +30,7 @@ class UserController extends \yii\web\Controller {
         }
     }
 
-    public function actionProfile() {
+    public function actionMyPage() {
         $request = Yii::$app->request;
         try {
             $id = $request->get('id', '');
@@ -39,6 +39,11 @@ class UserController extends \yii\web\Controller {
         } catch (Exception $ex) {
             
         }
+    }
+    
+    public function actionStatistic()
+    {
+        
     }
 
 }
