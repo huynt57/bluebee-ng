@@ -56,7 +56,4 @@ class Users extends BaseUsers {
         $retVal['email'] = $user->email;
         return $retVal;
     }
-    
-    
-
 }

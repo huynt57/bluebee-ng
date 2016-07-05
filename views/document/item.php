@@ -1,4 +1,5 @@
-<?php use \yii\helpers\Url; ?>
+<?php use \yii\helpers\Url; 
+use app\components\Util; ?>
 <div class="row">
     <article class="content product-page col-sm-12 col-md-12">
         <div class="row">
@@ -6,7 +7,7 @@
                 <div class="image-box">
                     <span class="sale top"></span>
                     <div class="general">
-                        <img class="replace-2x" alt="" src="<?php echo Yii::getAlias('@web').'/'.$data['preview'] ?>" data-zoom-image="<?php echo Yii::getAlias('@web') ?>/content/img/single-1.jpg" width="700" height="700">
+                        <img class="replace-2x" alt="" src="<?php echo Util::makeUrlImage($data['preview']) ?>" data-zoom-image="<?php echo Yii::getAlias('@web') ?>/content/img/single-1.jpg" width="700" height="700">
                     </div><!-- .general-img -->
                 </div>
             </div>

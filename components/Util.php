@@ -61,6 +61,13 @@ class Util {
         return $ouo;
     }
 
+    public static function makeUrlImage($url) {
+        if (strpos($url, 'http') === false) {
+            $url = Yii::getAlias('@web') . '/' . $url;
+        }
+        return $url;
+    }
+
     public function downloadFile($url, $path) {
         $newfname = $path;
         $file = fopen($url, 'rb');
@@ -90,12 +97,12 @@ class Util {
         $file = UploadedFile::getInstanceByName($fileName);
         $relative_path = '/uploads/document/' . Date('d-m-Y') . '/';
         $storeFolder = Yii::getAlias('@webroot') . $relative_path;
-         
+
         if (!file_exists($storeFolder)) {
             mkdir($storeFolder, 0777, true);
         }
         $save = $storeFolder . time() . $file->baseName . '.' . $file->extension;
-        $original_url = $relative_path. time() . $file->baseName . '.' . $file->extension;
+        $original_url = $relative_path . time() . $file->baseName . '.' . $file->extension;
         $pdf_path = $storeFolder . time() . $file->baseName . '.pdf';
         $file->saveAs($save);
         $extension = strtolower($file->extension);
@@ -106,9 +113,10 @@ class Util {
                 break;
             case 'doc':
             case 'docx':
-                $file_scribd = $scribd->uploadFromUrl($save);
-                $pdf = $scribd->downloadPdfFromUrl($file_scribd['doc_id'], 'pdf');
-                $this->downloadFile($pdf, $pdf_path);
+                //echo $save; die;
+                $file_scribd = $scribd->upload($save);
+                //$pdf = $scribd->downloadPdfFromUrl($file_scribd['doc_id'], 'pdf');
+                //$this->downloadFile($pdf, $pdf_path);
                 $preview = $scribd->getPreviewImage($file_scribd['doc_id'], $width, $height);
                 break;
             case 'jpeg':
@@ -122,39 +130,36 @@ class Util {
                 $preview = Yii::$app->params['PREVIEW_IMAGE'];
                 break;
         }
-        
+
         $retVal['preview'] = $preview;
         $retVal['path'] = $save;
         $retVal['pdf'] = $pdf;
         $retVal['original_url'] = $original_url;
         return $retVal;
     }
-    
-    public static function getGender($gender)
-    {
+
+    public static function getGender($gender) {
         $result = '';
         $gender = strtolower($gender);
         switch ($gender) {
             case 'male':
-                $result =  'Nam';
+                $result = 'Nam';
                 break;
             case 'female':
-                $result =  'Nữ';
+                $result = 'Nữ';
                 break;
             default:
-                $result =  'Chưa cập nhật';
+                $result = 'Chưa cập nhật';
                 break;
         }
         return $result;
     }
-    
-    public static function getSideBar()
-    {
-       
+
+    public static function getSideBar() {
+        
     }
-    
-    public static function checkTopDocument($doc_id)
-    {
+
+    public static function checkTopDocument($doc_id) {
         
     }
 

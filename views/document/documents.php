@@ -1,7 +1,8 @@
 <?php
 
 use yii\widgets\LinkPager;
-use yii\helpers\Url;?>
+use yii\helpers\Url;
+use app\components\Util; ?>
 <div class="row">
     <div id="catalog" class="col-sm-12 col-md-9 content pull-right">
 
@@ -13,7 +14,7 @@ use yii\helpers\Url;?>
                     <div class="default">
                         <span class="sale top"></span>
                         <a href="<?php echo Url::to(['item', 'id'=>$item->id])?>" class="product-image">
-                            <img class="replace-2x" src="<?php echo Yii::getAlias('@web') . '/' . $item->preview ?>" alt="" title="" width="270" height="270">
+                            <img class="replace-2x" src="<?php echo Util::makeUrlImage($item->preview) ?>" alt="" title="" width="270" height="270">
                         </a>
                         <div class="product-description">
                             <div class="vertical">

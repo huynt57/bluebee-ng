@@ -1,22 +1,22 @@
 <?php
 
 namespace app\controllers;
+
 use Yii;
 use app\models\Teachers;
 
-class TeacherController extends \yii\web\Controller
-{
-    public function actionIndex()
-    {
+class TeacherController extends \yii\web\Controller {
+
+    public function actionIndex() {
         return $this->render('index');
     }
-    
+
     public function actionGetTeachers() {
         Yii::$app->view->title = 'Danh sách giáo viên';
         $data = Teachers::getAllLatestTeachers();
         return $this->render('teachers', $data);
     }
-    
+
     public function actionGetTeachersBySubject() {
         $request = Yii::$app->request;
         try {
@@ -29,14 +29,14 @@ class TeacherController extends \yii\web\Controller
             
         }
     }
-    
-    public function actionRateTeacher()
-    {
+
+    public function actionRateTeacher() {
         $request = Yii::$app->request;
         try {
             $teacher = $request->post('teacher', '');
             $stars = $request->post('stars', '');
-           
+            $result = Teachers::rateTeacher($teacher, $stars);
+            Util::arraySuccess('Success', $result);
         } catch (Exception $ex) {
             
         }
