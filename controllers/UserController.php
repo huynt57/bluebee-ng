@@ -24,7 +24,7 @@ class UserController extends \yii\web\Controller {
             $value['description'] = $request->post('description', '');
             $value['fb_id'] = $request->post('fb_id', '');
             $result = Users::facebookLogin($value);
-            Util::arraySuccess('Success', $result);
+            return Util::arraySuccess('Success', $result);
         } catch (Exception $ex) {
             
         }
@@ -40,9 +40,12 @@ class UserController extends \yii\web\Controller {
             
         }
     }
-    
-    public function actionStatistic()
-    {
+
+    public function actionOther() {
+        
+    }
+
+    public function actionStatistic() {
         
     }
 

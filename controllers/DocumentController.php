@@ -45,8 +45,9 @@ class DocumentController extends \yii\web\Controller {
         try {
             $id = $request->get('id', '');
             $document = Documents::getDocumentById($id);
+            $related_documents = Documents::getRelatedDocuments();
             Yii::$app->view->title = $document['name'];
-            return $this->render('item', ['data' => $document]);
+            return $this->render('item', ['data' => $document, 'related_documents'=>$related_documents]);
         } catch (Exception $ex) {
             
         }

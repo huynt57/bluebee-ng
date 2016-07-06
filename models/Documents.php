@@ -32,6 +32,17 @@ class Documents extends BaseDocuments {
         }
         return 'Error !';
     }
+    
+    public static function getRelatedDocuments()
+    {
+       // $retVal = array();
+        $documents = Documents::find()->orderBy(new \yii\db\Expression('rand()'))->limit(5)->all();
+//        foreach($documents as $document)
+//        {
+//            $retVal[] = self::getDocumentById($document->id);
+//        }
+        return $documents;
+    }
 
     public static function getAllLatestDocuments() {
         $query = Documents::find()->orderBy('id desc');

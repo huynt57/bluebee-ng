@@ -10,4 +10,5 @@ return [
     'PREVIEW_WIDTH' => 270,
     'PREVIEW_IMAGE' => '',
     'moss_user_id' => '',
+    'FB_APP_ID'=>'1428478800723370'
 ];

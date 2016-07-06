@@ -1,7 +1,10 @@
 
 <!doctype html>
 <html>
-<?php use yii\helpers\Url; ?>
+    <?php
+
+    use yii\helpers\Url;
+    ?>
 
     <head>
         <meta charset="utf-8">
@@ -51,6 +54,85 @@
         <![endif]-->
     </head>
     <body class="fixed-header">
+        <div id="fb-root"></div>
+        <script>(function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.4&appId=<?php echo Yii::$app->params['FB_APP_ID'] ?>";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+        <script>
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '<?php echo Yii::$app->params['FB_APP_ID'] ?>',
+                    xfbml: true,
+                    version: 'v2.4'
+                });
+                FB.getLoginStatus(function (response) {
+                    if (response.status === 'connected') {
+                        console.log('Logged in.');
+                    }
+                });
+            };
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.4&appId=<?php echo Yii::$app->params['FB_APP_ID'] ?>";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+// Only works after `FB.init` is called
+            function myFacebookLogin() {
+                FB.login(function (response) {
+                    if (response.authResponse) {
+                        FB.api('/me?fields=id,name,email,picture, gender,  birthday', function (response) {
+                            console.log(response);
+                            $.ajax({
+                                url: '<?php echo Url::to(['user/login-with-facebook'])  ?>',
+                                type: 'POST',
+                                data: {
+                                    token: '<?php echo Yii::$app->request->csrfToken?>',
+                                    facebook_id: response.id,
+                                    gender: response.gender,
+                                    name: response.name,
+                                    email: response.email,
+                                   
+                                    birthday: response.birthday,
+                                    //photo: 'https://graph.facebook.com/' + response.id + '/picture?type=large',
+                                    
+                                },
+                                dataType: 'json',
+                                success: function (response) {
+                                    if (response.status === 1) {
+                                        //console.log(response);
+                                        location.reload();
+                                    }
+                                },
+                            });
+                        });
+                    }
+                }, {scope: 'publish_actions, public_profile, email'});
+            }
+            function myFacebookLogout() {
+                FB.logout(function (response) {
+                    // user is now logged out
+                });
+            }
+        </script>
+        <script>(function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.4&appId=<?php echo Yii::$app->params['FB_APP_ID'] ?>";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
         <div class="page-box">
             <div class="page-box-content">
 
@@ -115,13 +197,16 @@
                                                         <li class="item item-primary item-bg">
                                                             <a href="<?php echo Url::to(['check/moss']) ?>">Kiểm tra sao chép</a>   
                                                         </li>
+                                                        <?php if(Yii::$app->session['user_id']):?>
                                                         <li class="item item-primary item-bg">
                                                             <a href="<?php echo Url::to(['user/my-page']) ?>">Trang của tôi</a>   
                                                         </li>
-<!--                                                        <li class="item item-primary item-bg">
-                                                            <a href="<?php echo Url::to(['user/my-page']) ?>">Thống kê</a>   
-                                                        </li>-->
-                                                      
+                                                        <?php else:?>
+                                                        <li class="item item-primary item-bg">
+                                                            <a href="#" onclick="myFacebookLogin()">Đăng nhập</a>   
+                                                        </li>
+                                                        <?php endif; ?>
+
                                                     </ul>
                                                 </nav>
                                             </div>
@@ -159,11 +244,11 @@
                 <section id="main">
                     <header class="page-header">
                         <div class="container">
-                            <h1 class="title"><?php echo $this->title?></h1>
+                            <h1 class="title"><?php echo $this->title ?></h1>
                         </div>	
                     </header>
                     <div class="container">
-                        <?php echo $content; ?>
+<?php echo $content; ?>
                     </div>  
 
                 </section><!-- #main -->
@@ -189,7 +274,7 @@
                             <div class="clearfix"></div>
                         </aside>
 
-                     
+
 
                         <aside class="col-xs-12 col-sm-6 col-md-3 widget links">
                             <div class="title-block">
@@ -224,7 +309,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="copyright col-xs-12 col-sm-3 col-md-3">
-                            Copyright © ItemBridge Inc., 2013
+                            Copyright © Bluebee., 2016
                         </div>
 
                         <div class="phone col-xs-6 col-sm-3 col-md-3">
@@ -235,8 +320,8 @@
                                       M11.001,12H5V2h6V12z"></path>
                                 </svg>
                             </div>
-                            <strong class="title">Call Us:</strong> +1 (877) 123-45-67 <br>
-                            <strong>or</strong> +1 (777) 123-45-67
+                            <strong class="title">Gọi cho tôi:</strong> +84 1679263615 <br>
+                            
                         </div>
 
                         <div class="address col-xs-6 col-sm-3 col-md-3">
@@ -254,7 +339,7 @@
                                 </g>
                                 </svg>
                             </div>
-                            49 Archdale, 2B Charleston 5655, Excel Tower<br> OPG Rpad, 4538FH
+                            Nguyễn Thế Huy, Web Developer<br> VED
                         </div>
 
                         <div class="col-xs-12 col-sm-3 col-md-3">

@@ -33,7 +33,7 @@ use yii\helpers\Url;?>
     <?php echo $item->description; ?>
 
                         </p>
-                        <div class="actions">
+<!--                        <div class="actions">
                             <a href="shop-product-view.html" class="add-cart">
                                 <svg x="0" y="0" width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
                                 <g>
@@ -61,7 +61,7 @@ use yii\helpers\Url;?>
                                 <path fill="#1e1e1e" d="M15,7H3V5L0,7.938L3,11V9h12c0.553,0,1-0.447,1-1S15.553,7,15,7z"></path>
                                 </svg>
                             </a>
-                        </div><!-- .actions -->
+                        </div> .actions -->
                     </div><!-- .product-hover -->
                     </a>
                 </div><!-- .product -->

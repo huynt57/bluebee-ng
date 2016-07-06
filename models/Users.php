@@ -13,6 +13,7 @@ class Users extends BaseUsers {
     public static function facebookLogin($value) {
         $check = Users::findOne(['fb_id' => $value['fb_id']]);
         if ($check) {
+            Yii::$app->session['user_id'] = $check->id;
             return 'User created !';
         }
         $user = new Users;
@@ -23,10 +24,11 @@ class Users extends BaseUsers {
         if ($user->save()) {
             return 'Success';
         }
+        Yii::$app->session['user_id'] = $user->id;
     }
 
     public static function getTopUser() {
-        $data = Users::findAll()->order('points')->limit(10);
+        $data = Users::find()->order('points')->limit(10)->all();
         return $data;
     }
 
