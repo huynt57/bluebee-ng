@@ -7,17 +7,17 @@ use yii\helpers\Url;?>
 
         <div class="clearfix"></div>
 
-        <div class="products grid row">
+        <div class="employees grid row">
 <?php foreach ($models as $item): ?>
-                <div class="col-sm-4 col-md-4 col-sm-4 col-md-4 product rotation" style="float: left !important;">
+                <div class="col-sm-4 col-md-4 col-sm-4 col-md-4 employee rotation" style="float: left !important;">
                     <div class="default">
                         <span class="sale top"></span>
-                        <a href="<?php echo Url::to(['item', 'id'=>$item->id])?>" class="product-image">
+                        <a href="<?php echo Url::to(['item', 'id'=>$item->id])?>" class="employee-image">
                             <img class="replace-2x" src="<?php echo Yii::getAlias('@web') . '/' . $item->preview ?>" alt="" title="" width="270" height="270">
                         </a>
-                        <div class="product-description">
+                        <div class="employee-description">
                             <div class="vertical">
-                                <h3 class="product-name">
+                                <h3 class="employee-name">
                                     <a href="<?php echo Url::to(['item', 'id'=>$item->id])?>"><?php echo $item->name ?></a>
                                 </h3>
                                
@@ -25,8 +25,8 @@ use yii\helpers\Url;?>
                         </div>
                     </div>
                     <a href="<?php echo Url::to(['item', 'id'=>$item->id])?>">
-                    <div class="product-hover">
-                        <h3 class="product-name">
+                    <div class="employee-hover">
+                        <h3 class="employee-name">
                             <a href="<?php echo Url::to(['item', 'id'=>$item->id])?>"><?php echo $item->name ?></a>
                         </h3>
                         <p>
@@ -34,7 +34,7 @@ use yii\helpers\Url;?>
 
                         </p>
 <!--                        <div class="actions">
-                            <a href="shop-product-view.html" class="add-cart">
+                            <a href="shop-employee-view.html" class="add-cart">
                                 <svg x="0" y="0" width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
                                 <g>
                                 <path fill="#1e1e1e" d="M15.001,4h-0.57l-3.707-3.707c-0.391-0.391-1.023-0.391-1.414,0c-0.391,0.391-0.391,1.023,0,1.414L11.603,4
@@ -62,9 +62,9 @@ use yii\helpers\Url;?>
                                 </svg>
                             </a>
                         </div> .actions -->
-                    </div><!-- .product-hover -->
+                    </div><!-- .employee-hover -->
                     </a>
-                </div><!-- .product -->
+                </div><!-- .employee -->
 <?php endforeach; ?>
         </div>
 <?php if($pages->getPageCount() > 1):?>

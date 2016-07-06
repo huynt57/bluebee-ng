@@ -33,7 +33,7 @@ class UserController extends \yii\web\Controller {
     public function actionMyPage() {
         $request = Yii::$app->request;
         try {
-            $id = $request->get('id', '');
+            $id = Yii::$app->session['user_id'];
             $data = Users::getUserById($id);
             return $this->render('profile', ['profile' => $data]);
         } catch (Exception $ex) {
