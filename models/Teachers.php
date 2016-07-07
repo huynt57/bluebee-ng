@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use \app\models\base\Teachers as BaseTeachers;
+use yii\data\Pagination;
 
 /**
  * This is the model class for table "teachers".
@@ -18,11 +19,11 @@ class Teachers extends BaseTeachers {
         $models = $query->offset($pages->offset)
                 ->limit($pages->limit)
                 ->all();
-        $subjects = Subjects::find()->orderBy('name', 'desc')->all();
+        $departments = Departments::find()->orderBy('name', 'desc')->all();
         return [
             'models' => $models,
             'pages' => $pages,
-            'subjects' => $subjects,
+            'departments' => $departments,
         ];
     }
 
@@ -36,7 +37,7 @@ class Teachers extends BaseTeachers {
         $retVal['email'] = $teacher->email;
         $retVal['phone'] = $teacher->phone;
         $retVal['website'] = $teacher->website;
-        $retVal['stars'] = $teacher->stars;
+        $retVal['stars'] = round($teacher->stars / $teacher->number_rated);
         $retVal['number_rated'] = $teacher->number_rated;
         $retVal['department'] = Departments::findOne(['id' => $teacher->department])->name;
         $retVal['created_at'] = Date('d/m/Y', $teacher->created_at);
@@ -51,11 +52,11 @@ class Teachers extends BaseTeachers {
         $models = $query->offset($pages->offset)
                 ->limit($pages->limit)
                 ->all();
-        $subjects = Subjects::find()->orderBy('name', 'desc')->all();
+        $departments = Departments::find()->orderBy('name', 'desc')->all();
         return [
             'models' => $models,
             'pages' => $pages,
-            'subjects' => $subjects
+            'departments' => $departments,
         ];
     }
 
@@ -67,6 +68,11 @@ class Teachers extends BaseTeachers {
             return true;
         }
         return false;
+    }
+
+    public static function getRelatedTeachers() {
+        $teachers = Teachers::find()->orderBy(new \yii\db\Expression('rand()'))->limit(5)->all();
+        return $teachers;
     }
 
 }

@@ -9,9 +9,9 @@ class ContactController extends \yii\web\Controller
         return $this->render('index');
     }
     
-    public function actionAdd()
+    public function actionUs()
     {
-        return $this->render('add');
+        return $this->render('about');
     }
 
 }

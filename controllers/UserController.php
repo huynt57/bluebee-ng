@@ -22,19 +22,19 @@ class UserController extends \yii\web\Controller {
             $value['dob'] = $request->post('dob', '');
             $value['name'] = $request->post('name', '');
             $value['description'] = $request->post('description', '');
-            $value['fb_id'] = $request->post('fb_id', '');
+            $value['fb_id'] = $request->post('facebook_id', '');
             $result = Users::facebookLogin($value);
-            return Util::arraySuccess('Success', $result);
+            return json_encode(Util::arraySuccess('Success', $result));
         } catch (Exception $ex) {
             
         }
     }
 
     public function actionMyPage() {
-        $request = Yii::$app->request;
         try {
             $id = Yii::$app->session['user_id'];
             $data = Users::getUserById($id);
+            Yii::$app->view->title = $data['name'] . ', chào mừng trở lại';
             return $this->render('profile', ['profile' => $data]);
         } catch (Exception $ex) {
             

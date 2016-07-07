@@ -14,6 +14,7 @@ class Users extends BaseUsers {
         $check = Users::findOne(['fb_id' => $value['fb_id']]);
         if ($check) {
             Yii::$app->session['user_id'] = $check->id;
+            Yii::$app->session['user'] = $check;
             return 'User created !';
         }
         $user = new Users;
@@ -25,6 +26,7 @@ class Users extends BaseUsers {
             return 'Success';
         }
         Yii::$app->session['user_id'] = $user->id;
+        Yii::$app->session['user'] = $user;
     }
 
     public static function getTopUser() {
@@ -46,6 +48,7 @@ class Users extends BaseUsers {
         $retVal['id'] = $user->id;
         $retVal['name'] = $user->name;
         $retVal['avatar'] = $user->avatar;
+        $retVal['fb_id'] = $user->fb_id;
         $retVal['description'] = $user->description;
         $retVal['created_at'] = Date('d/m/Y', $user->created_at);
         $retVal['updated_at'] = Date('d/m/Y', $user->updated_at);

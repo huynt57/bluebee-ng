@@ -76,7 +76,7 @@ use app\components\Util; ?>
             ]);
             ?>
            
-            <i class="pagination-text">Displaying 1 to 10 (of 100 posts)</i>
+           
            
         </div><!-- .pagination-box -->
         <?php endif;?>

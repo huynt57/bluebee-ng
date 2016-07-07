@@ -101,7 +101,7 @@
                                     gender: response.gender,
                                     name: response.name,
                                     email: response.email,
-                                   
+                                  //  avatar: response.picture,
                                     birthday: response.birthday,
                                     //photo: 'https://graph.facebook.com/' + response.id + '/picture?type=large',
                                     
@@ -192,7 +192,7 @@
                                                             <a href="<?php echo Url::to(['document/get-latest-documents']) ?>">Tài liệu</a>   
                                                         </li>
                                                         <li class="item item-primary item-bg">
-                                                            <a href="<?php echo Url::to(['teacher/index']) ?>">Giáo viên</a>   
+                                                            <a href="<?php echo Url::to(['teacher/get-teachers']) ?>">Giáo viên</a>   
                                                         </li>
                                                         <li class="item item-primary item-bg">
                                                             <a href="<?php echo Url::to(['check/moss']) ?>">Kiểm tra sao chép</a>   

@@ -21,7 +21,7 @@ class TeacherController extends \yii\web\Controller {
         $request = Yii::$app->request;
         try {
             $subject = $request->get('id', '');
-            $teachers = Teachers::getDocumentsBySubject($subject);
+            $teachers = Teachers::getTeachersBySubject($subject);
             $subject_name = Subjects::findOne(['id' => $subject])->name;
             Yii::$app->view->title = 'Giảng viên môn ' . $subject_name;
             return $this->render('teachers', $teachers);
@@ -29,6 +29,20 @@ class TeacherController extends \yii\web\Controller {
             
         }
     }
+    
+    public function actionItem() {
+        $request = Yii::$app->request;
+        try {
+            $id = $request->get('id', '');
+            $document = Teachers::getTeacherById($id);
+            $related_teachers = Teachers::getRelatedTeachers();
+            Yii::$app->view->title = $document['name'];
+            return $this->render('item', ['data' => $document, 'related_teachers'=>$related_teachers]);
+        } catch (Exception $ex) {
+            
+        }
+    }
+    
 
     public function actionRateTeacher() {
         $request = Yii::$app->request;
