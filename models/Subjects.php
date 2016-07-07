@@ -10,4 +10,9 @@ use \app\models\base\Subjects as BaseSubjects;
  */
 class Subjects extends BaseSubjects
 {
+    public static function searchSubjects($query)
+    {
+        return Subjects::find()->filterWhere(['like', 'name', $query]);
+    }
+    
 }

@@ -20,7 +20,7 @@ class Documents extends BaseDocuments {
         $document->created_at = time();
         $document->updated_at = time();
         $document->user = $value['user'];
-        
+
 //        $user = Users::findOne(['id' => $value['user']]);
 //        if (!$user) {
 //            return 'Error !';
@@ -32,10 +32,9 @@ class Documents extends BaseDocuments {
         }
         return 'Error !';
     }
-    
-    public static function getRelatedDocuments()
-    {
-       // $retVal = array();
+
+    public static function getRelatedDocuments() {
+        // $retVal = array();
         $documents = Documents::find()->orderBy(new \yii\db\Expression('rand()'))->limit(5)->all();
 //        foreach($documents as $document)
 //        {
@@ -56,7 +55,7 @@ class Documents extends BaseDocuments {
         return [
             'models' => $models,
             'pages' => $pages,
-            'subjects'=>$subjects,
+            'subjects' => $subjects,
         ];
     }
 
@@ -84,7 +83,8 @@ class Documents extends BaseDocuments {
     }
 
     public static function getDocumentsBySubject($subject) {
-        $query = Documents::find()->where(['subject' => $subject])->orderBy('id desc');;
+        $query = Documents::find()->where(['subject' => $subject])->orderBy('id desc');
+        ;
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count()]);
         $models = $query->offset($pages->offset)
@@ -94,8 +94,12 @@ class Documents extends BaseDocuments {
         return [
             'models' => $models,
             'pages' => $pages,
-            'subjects'=>$subjects
+            'subjects' => $subjects
         ];
+    }
+
+    public static function searchDocuments($query) {
+        return Documents::find()->filterWhere(['like', 'name', $query]);
     }
 
 }

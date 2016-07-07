@@ -225,7 +225,7 @@
                                 <div class="search-active col-sm-9 col-md-9">
                                     <a href="#" class="close"><span>đóng</span>×</a>
                                     <form name="search-form" class="search-form">
-                                        <input class="search-string form-control" type="search" placeholder="Search here" name="search-string">
+                                        <input class="search-string form-control" type="search" placeholder="Tìm kiếm nào !" name="search-string">
                                         <button class="search-submit">
                                             <svg x="0" y="0" width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
                                             <path fill="#231F20" d="M12.001,10l-0.5,0.5l-0.79-0.79c0.806-1.021,1.29-2.308,1.29-3.71c0-3.313-2.687-6-6-6C2.687,0,0,2.687,0,6
@@ -448,6 +448,7 @@
         <script src="<?php echo Yii::getAlias('@web') ?>/js/jplayer/jplayer.playlist.min.js"></script>
         <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery.scrollbar.min.js"></script>
         <script src="<?php echo Yii::getAlias('@web') ?>/js/main.js"></script>
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/custom.js"></script>
 
     </body>
 

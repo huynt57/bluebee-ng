@@ -74,10 +74,7 @@ use app\components\Util; ?>
             echo LinkPager::widget([
                 'pagination' => $pages,
             ]);
-            ?>
-           
-           
-           
+            ?>       
         </div><!-- .pagination-box -->
         <?php endif;?>
     </div><!-- .<?php //echo Yii::getAlias('@web')  ?>/content -->

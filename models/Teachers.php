@@ -74,5 +74,10 @@ class Teachers extends BaseTeachers {
         $teachers = Teachers::find()->orderBy(new \yii\db\Expression('rand()'))->limit(5)->all();
         return $teachers;
     }
+    
+    public static function searchTeacher($query)
+    {
+        return Teachers::find()->filterWhere(['like', 'name', $query]);
+    }
 
 }
