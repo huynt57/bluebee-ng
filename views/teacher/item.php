@@ -5,7 +5,7 @@ use app\components\Util;?>
 <div class="row">
     <article class="content product-page col-sm-12 col-md-12">
         <div class="row">
-            <div class="col-sm-4 col-md-4">
+            <div class="col-sm-3 col-md-3">
                 <div class="image-box">
                    
                     <div class="general">
@@ -14,7 +14,7 @@ use app\components\Util;?>
                 </div>
             </div>
 
-            <div class="col-sm-8 col-md-8">
+            <div class="col-sm-9 col-md-9">
                 <div class="reviews-box">
                     <div class="rating-box">
                         <div style="width: 80%" class="rating">

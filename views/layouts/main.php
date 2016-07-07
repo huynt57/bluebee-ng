@@ -8,7 +8,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Creative Home \ Progressive — Responsive Multipurpose HTML Template</title>
+        <title>Bluebee-uet.com | Mọi thứ bạn cần để trở thành một UET-er</title>
         <meta name="keywords" content="HTML5 Template">
         <meta name="description" content="Progressive — Responsive Multipurpose HTML Template">
         <meta name="author" content="itembridge.com">
@@ -93,18 +93,18 @@
                         FB.api('/me?fields=id,name,email,picture, gender,  birthday', function (response) {
                             console.log(response);
                             $.ajax({
-                                url: '<?php echo Url::to(['user/login-with-facebook'])  ?>',
+                                url: '<?php echo Url::to(['user/login-with-facebook']) ?>',
                                 type: 'POST',
                                 data: {
-                                    token: '<?php echo Yii::$app->request->csrfToken?>',
+                                    token: '<?php echo Yii::$app->request->csrfToken ?>',
                                     facebook_id: response.id,
                                     gender: response.gender,
                                     name: response.name,
                                     email: response.email,
-                                  //  avatar: response.picture,
+                                    //  avatar: response.picture,
                                     birthday: response.birthday,
                                     //photo: 'https://graph.facebook.com/' + response.id + '/picture?type=large',
-                                    
+
                                 },
                                 dataType: 'json',
                                 success: function (response) {
@@ -197,16 +197,20 @@
                                                         <li class="item item-primary item-bg">
                                                             <a href="<?php echo Url::to(['check/moss']) ?>">Kiểm tra sao chép</a>   
                                                         </li>
-                                                        <?php if(Yii::$app->session['user_id']):?>
-                                                        <li class="item item-primary item-bg">
-                                                            <a href="<?php echo Url::to(['user/my-page']) ?>">Trang của tôi</a>   
-                                                        </li>
-                                                        <?php else:?>
-                                                        <li class="item item-primary item-bg">
-                                                            <a href="#" onclick="myFacebookLogin()">Đăng nhập</a>   
-                                                        </li>
+                                                        <?php if (Yii::$app->session['user_id']): ?>
+                                                            <li class="item item-primary item-bg">
+                                                                <a href="<?php echo Url::to(['user/my-page']) ?>">Trang của tôi</a>   
+                                                            </li>
+                                                        <?php else: ?>
+                                                            <li class="item item-primary item-bg">
+                                                                <a href="#" onclick="myFacebookLogin()">Đăng nhập</a>   
+                                                            </li>
                                                         <?php endif; ?>
-
+                                                        <?php if (Yii::$app->session['user_id']): ?>
+                                                            <li class="item item-primary item-bg">
+                                                                <a href="#" data-toggle="modal" data-target="#upload">Đăng tài liệu</a>   
+                                                            </li>
+                                                        <?php endif; ?>
                                                     </ul>
                                                 </nav>
                                             </div>
@@ -248,7 +252,7 @@
                         </div>	
                     </header>
                     <div class="container">
-<?php echo $content; ?>
+                        <?php echo $content; ?>
                     </div>  
 
                 </section><!-- #main -->
@@ -321,7 +325,7 @@
                                 </svg>
                             </div>
                             <strong class="title">Gọi cho tôi:</strong> +84 1679263615 <br>
-                            
+
                         </div>
 
                         <div class="address col-xs-6 col-sm-3 col-md-3">
@@ -352,6 +356,48 @@
             </div><!-- .footer-bottom -->
         </footer>
         <div class="clearfix"></div>
+        <div class="modal fade" tabindex="-1" role="dialog" id="upload">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Đăng tài liệu</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">Tên tài liệu</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <label class="checkbox">
+                                        <input type="checkbox"> Remember me
+                                    </label> 
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputFile">File input</label>
+                                <input type="file" id="exampleInputFile">
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-primary">Đăng</button>
+                    </div>
+                </div><!-- /.modal-content -->
+                </form>
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
 
         <!--[if (!IE)|(gt IE 8)]><!-->
         <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery-2.1.3.min.js"></script>
