@@ -195,7 +195,7 @@
                                                             <a href="<?php echo Url::to(['teacher/get-teachers']) ?>">Giáo viên</a>   
                                                         </li>
                                                         <li class="item item-primary item-bg">
-                                                            <a href="<?php echo Url::to(['check/moss']) ?>">Kiểm tra sao chép</a>   
+                                                            <a href="<?php echo Url::to(['moss/check']) ?>">Kiểm tra sao chép</a>   
                                                         </li>
                                                         <?php if (Yii::$app->session['user_id']): ?>
                                                             <li class="item item-primary item-bg">

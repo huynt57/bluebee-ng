@@ -33,7 +33,7 @@ class Documents extends BaseDocuments {
             $user->number_upload += 1;
             $user->points+=3;
             $user->save();
-            return Util::arraySuccess('Success');
+            return Util::arraySuccess('Success', $document->id);
         }
         return Util::arrayError('Error !');
     }

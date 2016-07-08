@@ -138,6 +138,15 @@ class Util {
         return $retVal;
     }
 
+    public static function multipleUpload($fileName) {
+        $files = UploadedFile::getInstanceByName($fileName);
+       // var_dump($files); die;
+        foreach ($files as $file) {
+            $file->saveAs('uploads/' . $file->baseName . '.' . $file->extension);
+        }
+        return true;
+    }
+
     public static function getGender($gender) {
         $result = '';
         $gender = strtolower($gender);

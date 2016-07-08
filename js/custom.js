@@ -60,11 +60,13 @@ $(document).ready(function () {
             {
                 $('#modal-error').modal('show');
             },
-            success: function ()
+            dataType: 'json',
+            success: function (response)
             {
                 $("#form-upload")[0].reset();
                 hideProgressBar();
                 $('#modal-upload').modal('hide');
+                $('#message-success').html('Tài liệu của bạn đã được đăng thành công. Bạn có thể kiểm tra tại <a href="/document/item/'+response.data+'">đây</a>');
                 $('#modal-success').modal('show');
             }
         });

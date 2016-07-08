@@ -20,7 +20,7 @@ use app\components\Util;
 
                     <span>Đăng bởi <a href="<?php echo Url::to(['user/other', 'id' => $data['user']->id]) ?>"><?php echo $data['user']->name ?></a></span>
                     <span class="separator">|</span>
-                    <a href="#reviews" class="add-review">Đăng tài liệu của bạn</a>
+                    <a data-toggle="modal" data-target="#modal-upload" href="#">Đăng tài liệu của bạn</a>
                 </div>
 
                 <div class="description">

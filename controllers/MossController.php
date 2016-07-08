@@ -2,18 +2,26 @@
 
 namespace app\controllers;
 
-class MossController extends \yii\web\Controller
-{
-    public function actionIndex()
-    {
+use Yii;
+use app\components\Util;
+
+class MossController extends \yii\web\Controller {
+
+    public function actionIndex() {
+        return $this->render('index');
+    }
+
+    public function actionCheck() {
+        Yii::$app->view->title = 'Kiểm tra sao chép code';
+        
         return $this->render('index');
     }
     
-    public function actionCheck()
+    public function actionUpload()
     {
-        
+        $result = Util::multipleUpload('file');
     }
-    
-    
+
+   
 
 }
