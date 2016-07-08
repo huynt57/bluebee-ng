@@ -134,7 +134,7 @@ class Util {
         $retVal['preview'] = $preview;
         $retVal['path'] = $save;
         $retVal['pdf'] = $pdf;
-        $retVal['original_url'] = $original_url;
+        $retVal['original_url'] = Yii::getAlias('@web') . $original_url;
         return $retVal;
     }
 

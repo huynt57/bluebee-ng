@@ -2147,7 +2147,7 @@ $(document).ready(function(){
   //Country
   if ($.fn.county){
     $('#count-down').county({
-			endDateTime: new Date('2016/12/29 10:00:00'),
+			endDateTime: new Date('2016/10/28 10:00:00'),
 			reflection: false
 		}).addClass('count-loaded');
 	}

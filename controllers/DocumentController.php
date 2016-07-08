@@ -28,6 +28,7 @@ class DocumentController extends \yii\web\Controller {
             $value['preview'] = $uploaded['preview'];
             $value['pdf'] = $uploaded['pdf'];
             $value['original_url'] = $uploaded['original_url'];
+            
             $message = Documents::upload($value);
             return $message;
         }
@@ -47,7 +48,7 @@ class DocumentController extends \yii\web\Controller {
             $document = Documents::getDocumentById($id);
             $related_documents = Documents::getRelatedDocuments();
             Yii::$app->view->title = $document['name'];
-            return $this->render('item', ['data' => $document, 'related_documents'=>$related_documents]);
+            return $this->render('item', ['data' => $document, 'related_documents' => $related_documents]);
         } catch (Exception $ex) {
             
         }
@@ -82,10 +83,9 @@ class DocumentController extends \yii\web\Controller {
     public function actionDownload() {
         $request = Yii::$app->request;
         try {
-            $doc_id = $request->post('doc_id', '');
-            $user_id = $request->post('user_id', '');
-            $result = Wishlist::add($doc_id, $user_id);
-            return json_encode(Util::arraySuccess('Thành công', $result));
+            $token = $request->get('token', '');
+            $document = Document::findOne(['token' => $token]);
+            Yii::$app->response->sendFile($document->original_url);
         } catch (Exception $ex) {
             
         }

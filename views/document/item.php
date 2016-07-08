@@ -30,7 +30,7 @@ use app\components\Util;
 
 
                 <form class="form-inline add-cart-form">
-                    <button class="btn add-cart btn-default btn-lg">Download</button>
+                    <a class="btn add-cart btn-default btn-lg" href="<?php echo $data['money_url'] ?>" target="_blank" >Download</a>
 
                 </form>
 
@@ -56,7 +56,7 @@ use app\components\Util;
             <h3 class="title" style="
                 margin-top: 50px;
                 ">Bình luận</h3>
-                <div class="fb-comments " data-href="<?php echo Url::to(['document/item', 'id' => $data['id']], true) ?>" data-numposts="5" data-width="100%"></div>
+            <div class="fb-comments " data-href="<?php echo Url::to(['document/item', 'id' => $data['id']], true) ?>" data-numposts="5" data-width="100%"></div>
         </div>
 
         <div class="clearfix"></div>

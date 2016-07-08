@@ -143,7 +143,7 @@
                                 <div class="col-xs-6 col-md-2 col-lg-3 logo-box">
                                     <div class="logo">
                                         <a href="index-2.html">
-                                            <img src="<?php echo Yii::getAlias('@web') ?>/img/logo.svg" class="logo-img" alt="">
+                                            <img src="<?php echo Yii::getAlias('@web') ?>/img/logo.jpg" class="logo-img" alt="" style="width: auto!important">
                                         </a>
                                     </div>
                                 </div><!-- .logo-box -->
@@ -364,38 +364,33 @@
                         <h4 class="modal-title">Đăng tài liệu</h4>
                     </div>
                     <div class="modal-body">
-                        <form class="form-horizontal" role="form">
+                        <form role="form">
                             <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-2 control-label">Tên tài liệu</label>
-                                <div class="col-sm-10">
-                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                                </div>
+                                <label for="name">Tên tài liệu</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Điền tên tài liệu">
                             </div>
                             <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-                                <div class="col-sm-10">
-                                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                                </div>
+                                <label for="subject">Môn học</label>
+                                <select class="form-control" id="subject" name="subject">
+                                    <option value="1">1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <label class="checkbox">
-                                        <input type="checkbox"> Remember me
-                                    </label> 
-                                </div>
+                                <label for="document">Đính kèm file</label>
+                                <input type="file" id="document" name="file">
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputFile">File input</label>
-                                <input type="file" id="exampleInputFile">
-                                <p class="help-block">Example block-level help text here.</p>
-                            </div>
+                        </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
                         <button type="button" class="btn btn-primary">Đăng</button>
                     </div>
                 </div><!-- /.modal-content -->
-                </form>
+
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
 

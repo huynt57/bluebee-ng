@@ -6,6 +6,7 @@ use Yii;
 use app\models\Users;
 use \app\models\base\Documents as BaseDocuments;
 use yii\data\Pagination;
+use app\components\Util;
 
 /**
  * This is the model class for table "documents".
@@ -20,26 +21,25 @@ class Documents extends BaseDocuments {
         $document->created_at = time();
         $document->updated_at = time();
         $document->user = $value['user'];
-
-//        $user = Users::findOne(['id' => $value['user']]);
-//        if (!$user) {
-//            return 'Error !';
-//        }
+        $token = Util::generateToken(15, 40);
+        $document->token = $token;
+        $document->money_url = Util::makeOuoUrl(Yii::$app->urlManager->createAbsoluteUrl(['document/download', 'token' => $token]));
+        
+        $user = Users::findOne(['id' => $value['user']]);
+        if (!$user) {
+            return 'Error !';
+        }
         if ($document->save()) {
-            //$user->number_upload += 1;
-            //$user->save();
+            $user->number_upload += 1;
+            $user->points+=3;
+            $user->save();
             return 'Success';
         }
         return 'Error !';
     }
 
     public static function getRelatedDocuments() {
-        // $retVal = array();
         $documents = Documents::find()->orderBy(new \yii\db\Expression('rand()'))->limit(5)->all();
-//        foreach($documents as $document)
-//        {
-//            $retVal[] = self::getDocumentById($document->id);
-//        }
         return $documents;
     }
 
@@ -79,6 +79,8 @@ class Documents extends BaseDocuments {
     public static function download($id) {
         $document = Documents::findOne(['id' => $id]);
         $document->number_download += 1;
+        $user = User::findOne(['id' => $document->user_id]);
+        $user->points+=2;
         $document->save();
     }
 
