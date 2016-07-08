@@ -18,7 +18,7 @@ class DocumentController extends \yii\web\Controller {
         $fileName = 'file';
         $request = Yii::$app->request;
         $value = array();
-        $value['user'] = $request->post('user', '');
+        $value['user'] = Yii::$app->session['user_id'];
         $value['name'] = $request->post('name', '');
         $value['description'] = $request->post('description', '');
         $value['subject'] = $request->post('subject', '');
@@ -28,9 +28,9 @@ class DocumentController extends \yii\web\Controller {
             $value['preview'] = $uploaded['preview'];
             $value['pdf'] = $uploaded['pdf'];
             $value['original_url'] = $uploaded['original_url'];
-            
+
             $message = Documents::upload($value);
-            return $message;
+            return json_encode($message);
         }
         return false;
     }

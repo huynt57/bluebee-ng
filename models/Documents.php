@@ -21,21 +21,21 @@ class Documents extends BaseDocuments {
         $document->created_at = time();
         $document->updated_at = time();
         $document->user = $value['user'];
-        $token = Util::generateToken(15, 40);
+        $token = Util::generateRandomStringCode(20);
         $document->token = $token;
         $document->money_url = Util::makeOuoUrl(Yii::$app->urlManager->createAbsoluteUrl(['document/download', 'token' => $token]));
         
         $user = Users::findOne(['id' => $value['user']]);
         if (!$user) {
-            return 'Error !';
+            return Util::arrayError('Error !');
         }
         if ($document->save()) {
             $user->number_upload += 1;
             $user->points+=3;
             $user->save();
-            return 'Success';
+            return Util::arraySuccess('Success');
         }
-        return 'Error !';
+        return Util::arrayError('Error !');
     }
 
     public static function getRelatedDocuments() {

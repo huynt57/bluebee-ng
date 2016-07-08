@@ -208,7 +208,7 @@
                                                         <?php endif; ?>
                                                         <?php if (Yii::$app->session['user_id']): ?>
                                                             <li class="item item-primary item-bg">
-                                                                <a href="#" data-toggle="modal" data-target="#upload">Đăng tài liệu</a>   
+                                                                <a href="#" data-toggle="modal" data-target="#modal-upload">Đăng tài liệu</a>   
                                                             </li>
                                                         <?php endif; ?>
                                                     </ul>
@@ -356,7 +356,7 @@
             </div><!-- .footer-bottom -->
         </footer>
         <div class="clearfix"></div>
-        <div class="modal fade" tabindex="-1" role="dialog" id="upload">
+        <div class="modal fade" tabindex="-1" role="dialog" id="modal-upload">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -364,10 +364,14 @@
                         <h4 class="modal-title">Đăng tài liệu</h4>
                     </div>
                     <div class="modal-body">
-                        <form role="form">
+                        <form role="form" id="form-upload">
                             <div class="form-group">
                                 <label for="name">Tên tài liệu</label>
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Điền tên tài liệu">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Miêu tả</label>
+                                <textarea type="text" class="form-control" id="description" name="description" placeholder="Điền miêu tả tài liệu"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="subject">Môn học</label>
@@ -380,14 +384,54 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="document">Đính kèm file</label>
+                                <label for="file">Đính kèm file</label>
                                 <input type="file" id="document" name="file">
                             </div>
                         </form>
+                        <div class="progress progress-striped active" id="progress-upload" style="display: none">
+                            <div class="progress-bar progress-bar-info" style="width: 80%;" id="progress-info"></div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                        <button type="button" class="btn btn-primary">Đăng</button>
+                        <button type="button" class="btn btn-primary" id="btn-upload-doc">Đăng</button>
+                    </div>
+                </div><!-- /.modal-content -->
+
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <div class="modal fade" tabindex="-1" role="dialog" id="modal-success">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Thành công</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p id="message-success">Tài liệu của bạn đã được đăng thành công</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Đóng</button>
+
+                    </div>
+                </div><!-- /.modal-content -->
+
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+         <div class="modal fade" tabindex="-1" role="dialog" id="modal-error">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Thất bại</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p id="message-error">Có lỗi xảy ra, bạn vui lòng thử lại sau</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+
                     </div>
                 </div><!-- /.modal-content -->
 
@@ -442,6 +486,7 @@
         <script src="<?php echo Yii::getAlias('@web') ?>/js/jplayer/jquery.jplayer.min.js"></script>
         <script src="<?php echo Yii::getAlias('@web') ?>/js/jplayer/jplayer.playlist.min.js"></script>
         <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery.scrollbar.min.js"></script>
+
         <script src="<?php echo Yii::getAlias('@web') ?>/js/main.js"></script>
         <script src="<?php echo Yii::getAlias('@web') ?>/js/custom.js"></script>
 
