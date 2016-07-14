@@ -24,7 +24,7 @@ class Documents extends BaseDocuments {
         $token = Util::generateRandomStringCode(20);
         $document->token = $token;
         $document->money_url = Util::makeOuoUrl(Yii::$app->urlManager->createAbsoluteUrl(['document/download', 'token' => $token]));
-        
+
         $user = Users::findOne(['id' => $value['user']]);
         if (!$user) {
             return Util::arrayError('Error !');
@@ -86,7 +86,6 @@ class Documents extends BaseDocuments {
 
     public static function getDocumentsBySubject($subject) {
         $query = Documents::find()->where(['subject' => $subject])->orderBy('id desc');
-        ;
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count()]);
         $models = $query->offset($pages->offset)
@@ -102,6 +101,36 @@ class Documents extends BaseDocuments {
 
     public static function searchDocuments($query) {
         return Documents::find()->filterWhere(['like', 'name', $query]);
+    }
+
+    public static function getDocumentsByUser($user) {
+        $query = Documents::find()->where(['user' => $user])->orderBy('id desc');
+        $countQuery = clone $query;
+        $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $models = $query->offset($pages->offset)
+                ->limit($pages->limit)
+                ->all();
+        $subjects = Subjects::find()->orderBy('name', 'desc')->all();
+        return [
+            'models' => $models,
+            'pages' => $pages,
+            'subjects' => $subjects
+        ];
+    }
+
+    public static function getDocumentsByWishlist($user) {
+        $query = Documents::find()->join('JOIN', 'wishlist', '`wishlist`.`doc_id`=`documents`.`id`')->where(['wishlist.user_id' => $user])->orderBy('documents.id desc');
+        $countQuery = clone $query;
+        $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $models = $query->offset($pages->offset)
+                ->limit($pages->limit)
+                ->all();
+        $subjects = Subjects::find()->orderBy('name', 'desc')->all();
+        return [
+            'models' => $models,
+            'pages' => $pages,
+            'subjects' => $subjects
+        ];
     }
 
 }

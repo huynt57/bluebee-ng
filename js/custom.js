@@ -1,10 +1,11 @@
 $(document).ready(function () {
     $('.add-wishlist').click(function (e) {
+        doc_id = $(this).attr('data-id');
         e.stopPropagation();
         $.ajax({
             type: 'POST',
             url: '/document/add-wishlist',
-            data: {doc_id: '1'},
+            data: {doc_id: doc_id},
             success: function (response)
             {
                 console.log(response);
@@ -66,7 +67,7 @@ $(document).ready(function () {
                 $("#form-upload")[0].reset();
                 hideProgressBar();
                 $('#modal-upload').modal('hide');
-                $('#message-success').html('Tài liệu của bạn đã được đăng thành công. Bạn có thể kiểm tra tại <a href="/document/item/'+response.data+'">đây</a>');
+                $('#message-success').html('Tài liệu của bạn đã được đăng thành công. Bạn có thể kiểm tra tại <a href="/document/item/' + response.data + '">đây</a>');
                 $('#modal-success').modal('show');
             }
         });

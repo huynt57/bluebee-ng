@@ -185,9 +185,7 @@
 
                                                 <nav class="collapse collapsing navbar-collapse">
                                                     <ul class="nav navbar-nav navbar-center">
-                                                        <li class="item item-primary item-bg">
-                                                            <a href="index-2.html">Trang chủ</a>   
-                                                        </li>
+                                                        
                                                         <li class="item item-primary item-bg">
                                                             <a href="<?php echo Url::to(['document/get-latest-documents']) ?>">Tài liệu</a>   
                                                         </li>
@@ -196,6 +194,9 @@
                                                         </li>
                                                         <li class="item item-primary item-bg">
                                                             <a href="<?php echo Url::to(['moss/check']) ?>">Kiểm tra sao chép</a>   
+                                                        </li>
+                                                        <li class="item item-primary item-bg">
+                                                            <a href="<?php echo Url::to(['news/index']) ?>">Tin tức</a>   
                                                         </li>
                                                         <?php if (Yii::$app->session['user_id']): ?>
                                                             <li class="item item-primary item-bg">
@@ -298,10 +299,10 @@
                             </div>
                             <nav>
                                 <ul>
-                                    <li><a href="#">Tài khoản của tôi</a></li>
-                                    <li><a href="#">Lịch sử tải lên</a></li>
-                                    <li><a href="#">Mục đánh dấu</a></li>
-                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="/user/my-page">Tài khoản của tôi</a></li>
+                                    <li><a href="/user/my-upload">Lịch sử tải lên</a></li>
+                                    <li><a href="/user/my-wishlist">Mục đánh dấu</a></li>
+                                    <li><a href="/news">Blog</a></li>
                                 </ul>
                             </nav>
                         </aside>
