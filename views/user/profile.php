@@ -11,12 +11,12 @@ use yii\helpers\Url;?>
                 </div>
 
                 <div class="employee-description col-sm-8 col-md-8">
-                    <h3 class="name">Mett Rayan</h3>
-                    <div class="role">Manager</div>
+                    <h3 class="name"><?php echo $profile['name']?></h3>
+                    <div class="role">Cám ơn bạn đã sử dụng Bluebee. Hãy thường xuyên ghé thăm upload và download tài liệu nhé :D</div>
                     <div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae corporis porro ad deleniti odio pariatur fugit dignissimos vero architecto placeat nemo cum ipsum molestiae quae eos et omnis sed magni.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda cupiditate laboriosam deserunt numquam impedit unde alias ab delectus modi voluptate iure aliquid fugiat debitis quas id magnam ipsum. Rerum expedita quos esse quasi fugit facilis sed aut qui minima hic pariatur officiis sint ab quas magnam dolores eaque vitae cumque.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint delectus tenetur voluptate similique adipisci excepturi commodi omnis non aspernatur amet reiciendis incidunt ex nobis ipsam unde expedita doloribus natus perferendis.</p>                       
+                        <p>Bấm vào <a href="/user/my-upload">đây</a> để xem danh mục tài liệu đã upload</p>
+                        <p>Bấm vào <a href="/user/my-wishlist">đây</a> để xem danh mục tài liệu đã đánh dấu</p>
+                        <p></p>                       
                     </div>                    
                 </div>
                 <div class="clearfix"></div>

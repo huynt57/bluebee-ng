@@ -46,7 +46,8 @@ class UserController extends \yii\web\Controller {
         try {
             $id = Yii::$app->session['user_id'];
             $data = Documents::getDocumentsByUser($id);
-            Yii::$app->view->title ='';// Yii::$app->session['user'] . name . ', đây là tài liệu bạn đã tải lên';
+            $user = Users::findOne(['id' => $id]);
+            Yii::$app->view->title = $user->name . ', đây là tài liệu bạn đã tải lên';
             return $this->render('//document/documents', $data);
         } catch (Exception $ex) {
             
@@ -57,7 +58,8 @@ class UserController extends \yii\web\Controller {
         try {
             $id = Yii::$app->session['user_id'];
             $data = Documents::getDocumentsByWishlist($id);
-            Yii::$app->view->title ='';// Yii::$app->session['user'] . name . ', đây là tài liệu bạn đã đánh dấu';
+            $user = Users::findOne(['id' => $id]);
+            Yii::$app->view->title = $user->name . ', đây là tài liệu bạn đã đánh dấu';
             return $this->render('//document/documents', $data);
         } catch (Exception $ex) {
             

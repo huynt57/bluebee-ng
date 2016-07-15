@@ -1,13 +1,14 @@
 <?php
 
 use \yii\helpers\Url;
-use app\components\Util;?>
+use app\components\Util;
+?>
 <div class="row">
     <article class="content product-page col-sm-12 col-md-12">
         <div class="row">
             <div class="col-sm-3 col-md-3">
                 <div class="image-box">
-                   
+
                     <div class="general">
                         <img class="replace-2x" alt="" src="<?php echo Util::makeUrlImage($data['avatar']) ?>" data-zoom-image="<?php echo Yii::getAlias('@web') ?>/content/img/single-1.jpg" width="700" height="700">
                     </div><!-- .general-img -->
@@ -29,11 +30,14 @@ use app\components\Util;?>
                     </div>
                     <span><?php echo $data['number_rated'] ?> đánh giá</span>
                     <span class="separator">|</span>
-                    <a href="#reviews" class="add-review">Thêm đánh giá của bạn</a>
+                    <a href="#" data-toggle="modal" data-target="#modal-review" class="add-review">Thêm đánh giá của bạn</a>
                 </div>
 
                 <div class="description">
-                    <?php echo $data['description'] ?>
+                    <p> <?php echo $data['description'] ?></p>
+                    <p> SĐT: <?php echo $data['phone'] ?></p>
+                    <p> Email: <?php echo $data['email'] ?></p>
+                    <p> Trang cá nhân: <a href="<?php echo $data['website'] ?>" target="_blank"><?php echo $data['website'] ?></a></p>
                 </div>
 
 
@@ -41,26 +45,69 @@ use app\components\Util;?>
 
             </div>
         </div>
-<!--        <div id="reviews">
-            <h3 class="title">Để lại đánh giá của bạn</h3>
-            <form class="comments-form">
-                <div class="evaluation-box">
-                    <div class="evaluation">
-                        <div class="pull-left">Đánh giá <span class="required">*</span></div>
-                        <div class="add-rating">
-                            <label class="radio"><input type="radio" name="radio"><span class="number">1</span></label>
-                            <label class="radio"><input type="radio" name="radio"><span class="number">2</span></label>
-                            <label class="radio"><input type="radio" name="radio"><span class="number">3</span></label>
-                            <label class="radio"><input type="radio" name="radio"><span class="number">4</span></label>
-                            <label class="radio"><input type="radio" name="radio"><span class="number">5</span></label>
+        <!--        <div id="reviews">
+                    <h3 class="title">Để lại đánh giá của bạn</h3>
+                    <form class="comments-form">
+                        <div class="evaluation-box">
+                            <div class="evaluation">
+                                <div class="pull-left">Đánh giá <span class="required">*</span></div>
+                                <div class="add-rating">
+                                    <label class="radio"><input type="radio" name="radio"><span class="number">1</span></label>
+                                    <label class="radio"><input type="radio" name="radio"><span class="number">2</span></label>
+                                    <label class="radio"><input type="radio" name="radio"><span class="number">3</span></label>
+                                    <label class="radio"><input type="radio" name="radio"><span class="number">4</span></label>
+                                    <label class="radio"><input type="radio" name="radio"><span class="number">5</span></label>
+                                </div>
+                            </div>
                         </div>
+                        <div class="col-sm-12 col-md-12">
+                            <button class="btn btn-default">Gửi</button>
+                        </div>
+                    </form> .comments-form 
+                </div>-->
+        <div class="modal fade" tabindex="-1" role="dialog" id="modal-review">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Để lại đánh giá giảng viên: <?php echo $data['name'] ?></h4>
                     </div>
-                </div>
-                <div class="col-sm-12 col-md-12">
-                    <button class="btn btn-default">Gửi</button>
-                </div>
-            </form> .comments-form 
-        </div>-->
+                     <br>
+                    <div class="modal-body">
+                        <form role="form" id="form-upload">
+                            <div class="evaluation-box">
+                                <div class="evaluation">
+                               
+
+                                    <div class="pull-left">Đánh giá <span class="required">*</span></div>
+<!--                                        <label for="description">Đánh giá <span class="required">*</span></label>-->
+                                    <div class="add-rating">
+                                        <label class="radio"><input type="radio" name="radio"><span class="number">1</span></label>
+                                        <label class="radio"><input type="radio" name="radio"><span class="number">2</span></label>
+                                        <label class="radio"><input type="radio" name="radio"><span class="number">3</span></label>
+                                        <label class="radio"><input type="radio" name="radio"><span class="number">4</span></label>
+                                        <label class="radio"><input type="radio" name="radio"><span class="number">5</span></label>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="description">Một vài comment</label>
+                                <textarea type="text" class="form-control" id="description" name="description" placeholder="Điền miêu tả tài liệu"></textarea>
+                                <p class="help-block">Bọn mình không hiển thị những dữ liệu này, bạn đừng ngại nhé :D</p>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-primary" id="btn-upload-doc">Đăng</button>
+                    </div>
+                </div><!-- /.modal-content -->
+
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
         <h3 class="title" style="
             margin-top: 50px;
             ">Bình luận</h3>

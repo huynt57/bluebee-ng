@@ -186,7 +186,9 @@
 
                                                 <nav class="collapse collapsing navbar-collapse">
                                                     <ul class="nav navbar-nav navbar-center">
-
+                                                        <!--                                                         <li class="item item-primary item-bg">
+                                                                                                                    <a href="<?php echo Url::to(['program/index']) ?>">Chương trình học</a>   
+                                                                                                                </li>-->
                                                         <li class="item item-primary item-bg">
                                                             <a href="<?php echo Url::to(['document/get-latest-documents']) ?>">Tài liệu</a>   
                                                         </li>
@@ -196,6 +198,7 @@
                                                         <li class="item item-primary item-bg">
                                                             <a href="<?php echo Url::to(['moss/check']) ?>">Kiểm tra sao chép</a>   
                                                         </li>
+
                                                         <li class="item item-primary item-bg">
                                                             <a href="<?php echo Url::to(['news/index']) ?>">Tin tức</a>   
                                                         </li>
@@ -273,7 +276,7 @@
                             </div>
                             <p>Theo dõi chúng tôi trên mạng xã hội</p>
                             <div class="social-list">
-                                <a class="icon rounded icon-facebook" href="#"><i class="fa fa-facebook"></i></a>
+                                <a class="icon rounded icon-facebook" href="https://www.facebook.com/hotrohoctapUET/?fref=ts"><i class="fa fa-facebook"></i></a>
                                 <a class="icon rounded icon-twitter" href="#"><i class="fa fa-twitter"></i></a>
                                 <a class="icon rounded icon-google" href="#"><i class="fa fa-google"></i></a>
                                 <a class="icon rounded icon-linkedin" href="#"><i class="fa fa-linkedin"></i></a>
@@ -380,10 +383,10 @@
                                 <label for="subject">Môn học</label>
                                 <select class="form-control" id="subject" name="subject">
                                     <option value="1">1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    <option value="1">1</option>
+                                    <option value="1">1</option>
+                                    <option value="1">1</option>
+                                    <option value="1">1</option>
                                 </select>
                             </div>
                             <div class="form-group">

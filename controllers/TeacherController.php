@@ -36,7 +36,7 @@ class TeacherController extends \yii\web\Controller {
             $id = $request->get('id', '');
             $document = Teachers::getTeacherById($id);
             $related_teachers = Teachers::getRelatedTeachers();
-            Yii::$app->view->title = $document['name'];
+            Yii::$app->view->title = 'Giảng viên:' .$document['name'];
             return $this->render('item', ['data' => $document, 'related_teachers'=>$related_teachers]);
         } catch (Exception $ex) {
             
