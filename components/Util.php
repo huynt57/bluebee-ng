@@ -171,5 +171,17 @@ class Util {
     public static function checkTopDocument($doc_id) {
         
     }
+    
+    public static function excerpt($text, $numb) {
+        $text = preg_replace("/<img[^>]+\>/i", "(ảnh) ", $text);
+        if (strlen($text) > $numb) {
+            $text = strip_tags($text);
+            $text = substr($text, 0, $numb);
+            $text = substr($text, 0, strrpos($text, " "));
+            $etc = " ...";
+            $text = $text . $etc;
+        }
+        return $text;
+    }
 
 }

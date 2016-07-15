@@ -1,12 +1,21 @@
+<?php
+
+use yii\widgets\LinkPager;
+use yii\helpers\Url;
+use app\components\Util;
+?>
 <div class="row">
     <div class="content col-sm-12 col-md-12">
         <div class="row">
-            <div class="col-sm-3 col-md-3">
-                <?php foreach($models as $item):?>
-                <h6><?php echo $item->name?></h6>
-                <div class="text-small"><?php echo $item->description; ?></div>
-                <?php endforeach;?>
-            </div>
+         
+            <?php foreach ($models as $item): ?>
+                <div class="col-sm-3 col-md-3">
+
+                    <h6><a><?php echo $item->name ?></a></h6>
+                    <div class="text-small"><?php echo Util::excerpt($item->description, 213); ?></div>
+
+                </div>
+            <?php endforeach; ?>
         </div>
         <?php if ($pages->getPageCount() > 1): ?>
             <div class="pagination-box">
