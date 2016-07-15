@@ -12,16 +12,14 @@ class MossController extends \yii\web\Controller {
     }
 
     public function actionCheck() {
+        $languages = Yii::$app->params['moss_languages'];
         Yii::$app->view->title = 'Kiểm tra sao chép code';
-        
-        return $this->render('index');
-    }
-    
-    public function actionUpload()
-    {
-        $result = Util::multipleUpload('file');
+
+        return $this->render('index', ['languages' => $languages]);
     }
 
-   
+    public function actionUpload() {
+        $result = Util::multipleUpload('file');
+    }
 
 }
