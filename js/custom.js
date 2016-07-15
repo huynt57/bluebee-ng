@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $('.add-wishlist').click(function (e) {
+        e.preventDefault();
         doc_id = $(this).attr('data-id');
         e.stopPropagation();
         $.ajax({
@@ -8,7 +9,21 @@ $(document).ready(function () {
             data: {doc_id: doc_id},
             success: function (response)
             {
-                console.log(response);
+                $.toast({
+                    heading: 'Thành công',
+                    text: 'Bạn đã đánh dấu tài liệu này thành công !',
+                    showHideTransition: 'slide',
+                    icon: 'success'
+                });
+            },
+            error: function (response)
+            {
+                $.toast({
+                    heading: 'Lỗi !',
+                    text: 'Có lỗi xảy ra, bạn vui lòng thử lại sau nhé :(',
+                    showHideTransition: 'slide',
+                    icon: 'success'
+                });
             }
         });
     });

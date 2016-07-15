@@ -119,7 +119,7 @@ class Documents extends BaseDocuments {
     }
 
     public static function getDocumentsByWishlist($user) {
-        $query = Documents::find()->join('JOIN', 'wishlist', '`wishlist`.`doc_id`=`documents`.`id`')->where(['wishlist.user_id' => $user])->orderBy('documents.id desc');
+        $query = Documents::find()->join('JOIN', 'wishlist', '`wishlist`.`doc_id`=`documents`.`id`')->where(['wishlist.user_id' => $user])->orderBy('wishlist.created_at desc');
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count()]);
         $models = $query->offset($pages->offset)

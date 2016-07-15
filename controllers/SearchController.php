@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\Subjects;
 use app\models\Teachers;
 use app\models\Documents;
+use Yii;
 
 class SearchController extends \yii\web\Controller {
 
@@ -15,7 +16,7 @@ class SearchController extends \yii\web\Controller {
     public function actionByAttributes() {
         $request = Yii::$app->request;
         try {
-            $query = $request->get('query', '');
+            $query = $request->get('search-string', '');
             $teachers = Teachers::searchTeachers(strtolower($query));
             $subjects = Subjects::searchSubjects(strtolower($query));
             $documents = Documents::searchDocuments(strtolower($query));

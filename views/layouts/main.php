@@ -36,6 +36,7 @@
         <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/ladda.min.css">
         <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/datepicker.css">
         <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/jquery.scrollbar.css">
+        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/jquery.toast.css">
 
         <!-- Theme CSS -->
         <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/style.css">
@@ -185,7 +186,7 @@
 
                                                 <nav class="collapse collapsing navbar-collapse">
                                                     <ul class="nav navbar-nav navbar-center">
-                                                        
+
                                                         <li class="item item-primary item-bg">
                                                             <a href="<?php echo Url::to(['document/get-latest-documents']) ?>">Tài liệu</a>   
                                                         </li>
@@ -225,7 +226,7 @@
                                 </div>
                                 <div class="search-active col-sm-9 col-md-9">
                                     <a href="#" class="close"><span>đóng</span>×</a>
-                                    <form name="search-form" class="search-form">
+                                    <form name="search-form" class="search-form" action="/search/by-attributes">
                                         <input class="search-string form-control" type="search" placeholder="Tìm kiếm nào !" name="search-string">
                                         <button class="search-submit">
                                             <svg x="0" y="0" width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
@@ -420,7 +421,7 @@
 
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
-         <div class="modal fade" tabindex="-1" role="dialog" id="modal-error">
+        <div class="modal fade" tabindex="-1" role="dialog" id="modal-error">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -487,7 +488,7 @@
         <script src="<?php echo Yii::getAlias('@web') ?>/js/jplayer/jquery.jplayer.min.js"></script>
         <script src="<?php echo Yii::getAlias('@web') ?>/js/jplayer/jplayer.playlist.min.js"></script>
         <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery.scrollbar.min.js"></script>
-
+        <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery.toast.js"></script>
         <script src="<?php echo Yii::getAlias('@web') ?>/js/main.js"></script>
         <script src="<?php echo Yii::getAlias('@web') ?>/js/custom.js"></script>
 

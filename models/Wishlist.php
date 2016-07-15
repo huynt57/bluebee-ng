@@ -11,7 +11,7 @@ use \app\models\base\Wishlist as BaseWishlist;
 class Wishlist extends BaseWishlist {
 
     public static function add($doc_id, $user_id) {
-        $model = Wishlist::find()->where(['doc_id' => $doc_id, 'user_id' => $user_id])->all();
+        $model = Wishlist::find()->where(['doc_id' => $doc_id, 'user_id' => $user_id])->one();
         if (!$model) {
             $model = new Wishlist;
         }

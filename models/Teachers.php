@@ -75,7 +75,7 @@ class Teachers extends BaseTeachers {
         return $teachers;
     }
     
-    public static function searchTeacher($query)
+    public static function searchTeachers($query)
     {
         return Teachers::find()->filterWhere(['like', 'name', $query]);
     }
