@@ -10,18 +10,27 @@ use Yii;
 class SearchController extends \yii\web\Controller {
 
     public function actionIndex() {
-        return $this->render('index');
-    }
-
-    public function actionByAttributes() {
         $request = Yii::$app->request;
         try {
             $query = $request->get('search-string', '');
-            $teachers = Teachers::searchTeachers(strtolower($query));
-            $subjects = Subjects::searchSubjects(strtolower($query));
-            $documents = Documents::searchDocuments(strtolower($query));
             Yii::$app->view->title = 'Kết quả tìm kiếm cho ' . $query;
-            return $this->render('index', ['teachers' => $teachers, 'subjects' => $subjects, 'documents' => $documents]);
+            $attr = $request->get('attr', '');
+            switch ($attr) {
+                case 'teacher':
+                    $data = Teachers::searchTeachers(strtolower($query));
+                    break;
+                case 'document':
+                    $data = Documents::searchDocuments(strtolower($query));
+                    break;
+                case 'subject':
+                    $data = Subjects::searchSubjects(strtolower($query));
+                    break;
+                default:
+                    break;
+            }
+            $data['attr'] = $attr;
+            $data['query'] = $query;
+            return $this->render('index', $data);
         } catch (Exception $ex) {
             
         }

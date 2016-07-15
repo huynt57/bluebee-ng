@@ -99,8 +99,17 @@ class Documents extends BaseDocuments {
         ];
     }
 
-    public static function searchDocuments($query) {
-        return Documents::find()->filterWhere(['like', 'name', $query]);
+    public static function searchDocuments($search) {
+        $query = Documents::find()->filterWhere(['like', 'name', $search]);
+        $countQuery = clone $query;
+        $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $models = $query->offset($pages->offset)
+                ->limit($pages->limit)
+                ->all();
+        return [
+            'models' => $models,
+            'pages' => $pages,
+        ];
     }
 
     public static function getDocumentsByUser($user) {
