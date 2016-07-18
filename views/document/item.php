@@ -6,16 +6,17 @@ use app\components\Util;
 <div class="row">
     <article class="content product-page col-sm-12 col-md-12">
         <div class="row">
-            <div class="col-sm-4 col-md-4">
+            <div class="col-sm-8 col-md-8">
                 <div class="image-box">
-                    <span class="sale top"></span>
+<!--                    <span class="sale top"></span>-->
                     <div class="general">
-                        <img class="replace-2x" alt="" src="<?php echo Util::makeUrlImage($data['preview']) ?>" data-zoom-image="<?php echo Yii::getAlias('@web') ?>/content/img/single-1.jpg" width="700" height="700">
+                        <!--<img class="replace-2x" alt="" src="<?php echo Util::makeUrlImage($data['preview']) ?>" data-zoom-image="<?php echo Yii::getAlias('@web') ?>/content/img/single-1.jpg" width="700" height="700">-->
+                        <iframe id="iframe" src = "/bbng/js/ViewerJS/#<?php echo \yii\helpers\Url::home(true) . '/' . $data['pdf'] ?>" width="800" height="800" allowfullscreen webkitallowfullscreen></iframe> 
                     </div><!-- .general-img -->
                 </div>
             </div>
 
-            <div class="col-sm-8 col-md-8">
+            <div class="col-sm-4 col-md-4">
                 <div class="reviews-box">
 
                     <span>Đăng bởi <a href="<?php echo Url::to(['user/other', 'id' => $data['user']->id]) ?>"><?php echo $data['user']->name ?></a></span>
@@ -29,10 +30,10 @@ use app\components\Util;
 
 
 
-                <form class="form-inline add-cart-form">
+                <div class="form-inline add-cart-form">
                     <a class="btn add-cart btn-default btn-lg" href="<?php echo $data['money_url'] ?>" target="_blank" >Download</a>
 
-                </form>
+                </div>
 
                 <div class="actions">
                     <a href="#" class="add-wishlist">
@@ -52,6 +53,7 @@ use app\components\Util;
                 </div>
             </div>
         </div>
+
         <div>
             <h3 class="title" style="
                 margin-top: 50px;
@@ -85,4 +87,5 @@ use app\components\Util;
             </div>
         </div><!-- .recommended-product -->
 </div>
+
 

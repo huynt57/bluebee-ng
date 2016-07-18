@@ -90,4 +90,10 @@ $(document).ready(function () {
 
 });
 
+$('#iframe').ready(function() {
+   setTimeout(function() {
+      $('#iframe').contents().find('#download').remove();
+   }, 100);
+});
+
 

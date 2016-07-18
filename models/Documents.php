@@ -23,8 +23,9 @@ class Documents extends BaseDocuments {
         $document->user = $value['user'];
         $token = Util::generateRandomStringCode(20);
         $document->token = $token;
-        $document->money_url = Util::makeOuoUrl(Yii::$app->urlManager->createAbsoluteUrl(['document/download', 'token' => $token]));
-
+        // echo \yii\helpers\Url::home(true) . $value['original_url'];die;
+        $document->money_url = Util::makeOuoUrl(\yii\helpers\Url::home(true) . $value['original_url']);
+        $value['user'] = 1; //for testing
         $user = Users::findOne(['id' => $value['user']]);
         if (!$user) {
             return Util::arrayError('Error !');
@@ -73,6 +74,7 @@ class Documents extends BaseDocuments {
         $retVal['subject'] = Subjects::findOne(['id' => $document->subject])->name;
         $retVal['user'] = Users::findOne(['id' => $document->user]);
         $retVal['number_download'] = $document->number_download;
+        $retVal['pdf'] = $document->pdf;
         return $retVal;
     }
 

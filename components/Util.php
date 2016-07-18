@@ -104,13 +104,15 @@ class Util {
         }
         $save = $storeFolder . time() . $file->baseName . '.' . $file->extension;
         $original_url = $relative_path . time() . $file->baseName . '.' . $file->extension;
-        $pdf_path = $storeFolder . time() . $file->baseName . '.pdf';
+        $pdf_url = time() . $file->baseName . '.pdf';
+        //$pdf_path = $storeFolder . time() . $file->baseName . '.pdf';
         $file->saveAs($save);
         $extension = strtolower($file->extension);
         switch ($extension) {
             case 'pdf':
-                $file_scribd = $scribd->uploadFromUrl(Yii::getAlias('@web') . $save);
+                $file_scribd = $scribd->upload($save);
                 $preview = $scribd->getPreviewImage($file_scribd['doc_id'], $width, $height);
+                $pdf = $original_url;
                 break;
             case 'doc':
             case 'docx':
@@ -126,7 +128,8 @@ class Util {
             case 'pjepg':
             case 'gif':
                 $preview = ImageResize::resize_image($save, NULL, $width, $height);
-                self::image2Pdf($save, $pdf_path);
+                self::image2Pdf($save, $storeFolder . $pdf_url);
+                $pdf = $relative_path . $pdf_url;
                 break;
             default:
                 $preview = Yii::$app->params['PREVIEW_IMAGE'];
@@ -136,7 +139,7 @@ class Util {
         $retVal['preview'] = $preview;
         $retVal['path'] = $save;
         $retVal['pdf'] = $pdf;
-        $retVal['original_url'] = Yii::getAlias('@web') . $original_url;
+        $retVal['original_url'] = $original_url;
         return $retVal;
     }
 
