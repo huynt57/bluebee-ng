@@ -11,7 +11,7 @@ use app\components\Util;
 <!--                    <span class="sale top"></span>-->
                     <div class="general">
                         <!--<img class="replace-2x" alt="" src="<?php echo Util::makeUrlImage($data['preview']) ?>" data-zoom-image="<?php echo Yii::getAlias('@web') ?>/content/img/single-1.jpg" width="700" height="700">-->
-                        <iframe id="iframe" src = "/bbng/js/ViewerJS/#<?php echo \yii\helpers\Url::home(true) . '/' . $data['pdf'] ?>" width="800" height="800" allowfullscreen webkitallowfullscreen></iframe> 
+                        <iframe id="iframe" src = "/js/ViewerJS/#<?php echo \yii\helpers\Url::home(true) . '/' . $data['pdf'] ?>" width="800" height="800" allowfullscreen webkitallowfullscreen></iframe> 
                     </div><!-- .general-img -->
                 </div>
             </div>
