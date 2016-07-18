@@ -21,7 +21,8 @@
         "veyselsahin/yii2-giix":"*",
         "schmunk42/yii2-giiant":"@stable",
         "tpmanc/yii2-imagick": "*",
-        "nikkobautista/scribd": "dev-master"
+        "nikkobautista/scribd": "dev-master",
+        "mpdf/mpdf":"@stable"
 
     },
     "require-dev": {

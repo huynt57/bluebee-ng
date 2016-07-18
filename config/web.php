@@ -15,6 +15,10 @@ $config = [
 
             'class' => 'app\components\ImageResize',
         ],
+        'messengerBot' => [
+
+            'class' => 'app\components\MessengerBot',
+        ],
         'scribd' => [
 
             'class' => 'app\components\Scribd',

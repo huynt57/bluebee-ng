@@ -12,6 +12,7 @@ use yii\web\UploadedFile;
 use Yii;
 use app\components\Scribd;
 use app\components\ImageResize;
+use mPDF;
 
 class Util {
 
@@ -125,6 +126,7 @@ class Util {
             case 'pjepg':
             case 'gif':
                 $preview = ImageResize::resize_image($save, NULL, $width, $height);
+                self::image2Pdf($save, $pdf_path);
                 break;
             default:
                 $preview = Yii::$app->params['PREVIEW_IMAGE'];
@@ -140,7 +142,7 @@ class Util {
 
     public static function multipleUpload($fileName) {
         $files = UploadedFile::getInstanceByName($fileName);
-       // var_dump($files); die;
+        // var_dump($files); die;
         foreach ($files as $file) {
             $file->saveAs('uploads/' . $file->baseName . '.' . $file->extension);
         }
@@ -171,7 +173,7 @@ class Util {
     public static function checkTopDocument($doc_id) {
         
     }
-    
+
     public static function excerpt($text, $numb) {
         $text = preg_replace("/<img[^>]+\>/i", "(ảnh) ", $text);
         if (strlen($text) > $numb) {
@@ -182,6 +184,14 @@ class Util {
             $text = $text . $etc;
         }
         return $text;
+    }
+
+    public static function image2Pdf($inputPath, $outputPath) {
+        $mpdf = new \mPDF();
+        $html = '<img src="' . $inputPath . '"/>';
+        $mpdf->WriteHTML($html);
+        $mpdf->Output($outputPath, 'F');
+        $mpdf->debug = true;
     }
 
 }
