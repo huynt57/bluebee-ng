@@ -224,7 +224,7 @@
                                 </div>
 
                                 <div class="phone-active col-sm-9 col-md-9">
-                                    <a href="#" class="close"><span>close</span>×</a>
+                                    <a href="#" class="close"><span>Đóng</span>×</a>
                                     <span class="title">Cần hỗ trợ ?</span> <strong>01679263615</strong>
                                 </div>
                                 <div class="search-active col-sm-9 col-md-9">
@@ -382,11 +382,10 @@
                             <div class="form-group">
                                 <label for="subject">Môn học</label>
                                 <select class="form-control" id="subject" name="subject">
-                                    <option value="1">1</option>
-                                    <option value="1">1</option>
-                                    <option value="1">1</option>
-                                    <option value="1">1</option>
-                                    <option value="1">1</option>
+                                    <?php $subjects = \app\components\Util::getSubjects();?>
+                                    <?php foreach($subjects as $subject):?>
+                                         <option value="<?php echo $subject->id?>"><?php echo $subject->name?></option>
+                                    <?php endforeach;?>
                                 </select>
                             </div>
                             <div class="form-group">

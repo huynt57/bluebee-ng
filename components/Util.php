@@ -13,6 +13,7 @@ use Yii;
 use app\components\Scribd;
 use app\components\ImageResize;
 use mPDF;
+use app\models\Subjects;
 
 class Util {
 
@@ -144,12 +145,19 @@ class Util {
     }
 
     public static function multipleUpload($fileName) {
-        $files = UploadedFile::getInstanceByName($fileName);
-        // var_dump($files); die;
+        $retVal = array();
+        $relative_path = '/uploads/moss/' . Date('d-m-Y') . '/' . time() . '/';
+        $storeFolder = Yii::getAlias('@webroot') . $relative_path;
+        $files = UploadedFile::getInstancesByName($fileName);
         foreach ($files as $file) {
-            $file->saveAs('uploads/' . $file->baseName . '.' . $file->extension);
+            if (!file_exists($storeFolder)) {
+                mkdir($storeFolder, 0777, true);
+            }
+            $save = $storeFolder . time() . $file->baseName . '.' . $file->extension;
+            $file->saveAs($save);
+            $retVal[] = $save;
         }
-        return true;
+        return $storeFolder;
     }
 
     public static function getGender($gender) {
@@ -175,6 +183,10 @@ class Util {
 
     public static function checkTopDocument($doc_id) {
         
+    }
+
+    public static function getSubjects() {
+        return Subjects::find()->all();
     }
 
     public static function excerpt($text, $numb) {

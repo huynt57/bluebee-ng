@@ -16,5 +16,6 @@ return [
         "scheme" => "Scheme", "haskell" => "Haskell", "fortran" => "Fortran",
         "ascii" => "ASCII", "perl" => "Perl", "matlab" => "Matlab", "python" => "Python",
         "prolog" => "Prolog", "vb" => "Visual Basic", "csharp" => "C#",
-        "javascript" => "Javascript", "verilog" => "Verilog"]
+        "javascript" => "Javascript", "verilog" => "Verilog"],
+    'moss_id' => '7967497'
 ];

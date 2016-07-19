@@ -14,9 +14,10 @@ use yii\helpers\Url;?>
                     <h3 class="name"><?php echo $profile['name']?></h3>
                     <div class="role">Cám ơn bạn đã sử dụng Bluebee. Hãy thường xuyên ghé thăm upload và download tài liệu nhé :D</div>
                     <div>
+                        <p>Số điểm bạn đang sở hữu: <?php echo $profile['points']?></p> 
                         <p>Bấm vào <a href="/user/my-upload">đây</a> để xem danh mục tài liệu đã upload</p>
                         <p>Bấm vào <a href="/user/my-wishlist">đây</a> để xem danh mục tài liệu đã đánh dấu</p>
-                        <p></p>                       
+                                              
                     </div>                    
                 </div>
                 <div class="clearfix"></div>
