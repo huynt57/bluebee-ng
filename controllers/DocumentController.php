@@ -62,7 +62,7 @@ class DocumentController extends \yii\web\Controller {
             ]);
             Yii::$app->view->registerMetaTag([
                 'property' => 'og:image',
-                'content' => $document['preview']
+                'content' => \yii\helpers\Url::home(true) . $document['preview']
             ]);
             return $this->render('item', ['data' => $document, 'related_documents' => $related_documents]);
         } catch (Exception $ex) {
