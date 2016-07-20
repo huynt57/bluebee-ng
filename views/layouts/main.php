@@ -11,8 +11,10 @@
         <title>Bluebee-uet.com | Mọi thứ bạn cần để trở thành một UET-er</title>
         <?php
         $metaTags = Yii::$app->view->metaTags;
-        foreach ($metaTags as $meta) {
-            echo $meta;
+        if (!empty($metaTags)) {
+            foreach ($metaTags as $meta) {
+                echo $meta;
+            }
         }
         ?>
         <meta class="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
@@ -206,20 +208,20 @@
                                                         <li class="item item-primary item-bg">
                                                             <a href="<?php echo Url::to(['news/index']) ?>">Tin tức</a>   
                                                         </li>
-<?php if (Yii::$app->session['user_id']): ?>
+                                                        <?php if (Yii::$app->session['user_id']): ?>
                                                             <li class="item item-primary item-bg">
                                                                 <a href="<?php echo Url::to(['user/my-page']) ?>">Trang của tôi</a>   
                                                             </li>
-<?php else: ?>
+                                                        <?php else: ?>
                                                             <li class="item item-primary item-bg">
                                                                 <a href="#" onclick="myFacebookLogin()">Đăng nhập</a>   
                                                             </li>
-<?php endif; ?>
+                                                        <?php endif; ?>
                                                         <?php if (Yii::$app->session['user_id']): ?>
                                                             <li class="item item-primary item-bg">
                                                                 <a href="#" data-toggle="modal" data-target="#modal-upload">Đăng tài liệu</a>   
                                                             </li>
-<?php endif; ?>
+                                                        <?php endif; ?>
                                                     </ul>
                                                 </nav>
                                             </div>
@@ -262,7 +264,7 @@
                         </div>	
                     </header>
                     <div class="container">
-<?php echo $content; ?>
+                        <?php echo $content; ?>
                     </div>  
 
                 </section><!-- #main -->
@@ -386,7 +388,7 @@
                             <div class="form-group">
                                 <label for="subject">Môn học</label>
                                 <select class="form-control" id="subject" name="subject">
-<?php $subjects = \app\components\Util::getSubjects(); ?>
+                                    <?php $subjects = \app\components\Util::getSubjects(); ?>
                                     <?php foreach ($subjects as $subject): ?>
                                         <option value="<?php echo $subject->id ?>"><?php echo $subject->name ?></option>
                                     <?php endforeach; ?>
