@@ -6,12 +6,20 @@ use app\components\Util;
 <div class="row">
     <article class="content product-page col-sm-12 col-md-12">
         <div class="row">
+            <div class="alert alert-info">
+                <strong>Hey !</strong> Các bạn hãy sử dụng nút Download để ủng hộ Bluebee và uploader nha :D.
+            </div>
             <div class="col-sm-8 col-md-8">
                 <div class="image-box">
 <!--                    <span class="sale top"></span>-->
                     <div class="general">
-                        <!--<img class="replace-2x" alt="" src="<?php echo Util::makeUrlImage($data['preview']) ?>" data-zoom-image="<?php echo Yii::getAlias('@web') ?>/content/img/single-1.jpg" width="700" height="700">-->
-                        <iframe id="iframe" src = "/js/ViewerJS/#<?php echo \yii\helpers\Url::home(true) . '/' . $data['pdf'] ?>" width="800" height="800" allowfullscreen webkitallowfullscreen></iframe> 
+                        <?php if ($data['scribd_id'] != ''): ?>
+                            <!--                        <img class="replace-2x" alt="" src="<?php echo $data['original_url'] ?>" width="700" height="700">-->
+
+                            <iframe class="scribd_iframe_embed" id="iframe" src="http://www.scribd.com/embeds/<?php echo $data['scribd_id'] ?>/content?start_page=1&view_mode=scroll&access_key=key-OB9jZjUxA79CuGCm7tof&show_recommendations=false&show_upsell=false" data-auto-height="false" data-aspect-ratio="0.7729220222793488" scrolling="no" width="700" height="700" frameborder="0"></iframe>
+                        <?php else: ?>
+                            <img class="replace-2x" alt="" src="<?php echo $data['original_url'] ?>" width="700" height="700">
+                        <?php endif; ?>
                     </div><!-- .general-img -->
                 </div>
             </div>
@@ -30,10 +38,9 @@ use app\components\Util;
 
 
 
-                <div class="form-inline add-cart-form">
-                    <a class="btn add-cart btn-default btn-lg" href="<?php echo $data['money_url'] ?>" target="_blank" >Download</a>
-
-                </div>
+                <form class="form-inline add-cart-form">
+                    <button class="btn btn add-cart btn-default btn-lg" id="download-doc" data-href="<?php echo $data['money_url'] ?>" target="_blank" >Download</button>
+                </form>
 
                 <div class="actions">
                     <a href="#" class="add-wishlist">
@@ -43,13 +50,7 @@ use app\components\Util;
                               s2-2,3.334-2c1.47,0,2.666,1.196,2.666,2.667C14.001,9.321,9.867,12.49,8,13.684z"></path>
                         </svg>
                     </a>
-                    <a href="#" class="add-compare">
-                        <svg x="0" y="0" width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
-                        <path fill="#1e1e1e" d="M16,3.063L13,0v2H1C0.447,2,0,2.447,0,3s0.447,1,1,1h12v2L16,3.063z"></path>
-                        <path fill="#1e1e1e" d="M16,13.063L13,10v2H1c-0.553,0-1,0.447-1,1s0.447,1,1,1h12v2L16,13.063z"></path>
-                        <path fill="#1e1e1e" d="M15,7H3V5L0,7.938L3,11V9h12c0.553,0,1-0.447,1-1S15.553,7,15,7z"></path>
-                        </svg>
-                    </a>
+
                 </div>
             </div>
         </div>
@@ -86,6 +87,7 @@ use app\components\Util;
                 </div>
             </div>
         </div><!-- .recommended-product -->
+    </article>
 </div>
 
 

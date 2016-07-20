@@ -28,7 +28,7 @@ class DocumentController extends \yii\web\Controller {
             $value['preview'] = $uploaded['preview'];
             $value['pdf'] = $uploaded['pdf'];
             $value['original_url'] = $uploaded['original_url'];
-
+            $value['scribd_id'] = $uploaded['scribd_id'];
             $message = Documents::upload($value);
             return json_encode($message);
         }
@@ -48,6 +48,22 @@ class DocumentController extends \yii\web\Controller {
             $document = Documents::getDocumentById($id);
             $related_documents = Documents::getRelatedDocuments();
             Yii::$app->view->title = $document['name'];
+            Yii::$app->view->registerMetaTag([
+                'name' => 'description',
+                'content' => $document['description']
+            ]);
+            Yii::$app->view->registerMetaTag([
+                'property' => 'og:title',
+                'content' => $document['name']
+            ]);
+            Yii::$app->view->registerMetaTag([
+                'property' => 'og:description',
+                'content' => $document['description']
+            ]);
+            Yii::$app->view->registerMetaTag([
+                'property' => 'og:image',
+                'content' => $document['preview']
+            ]);
             return $this->render('item', ['data' => $document, 'related_documents' => $related_documents]);
         } catch (Exception $ex) {
             

@@ -75,6 +75,7 @@ class Documents extends BaseDocuments {
         $retVal['user'] = Users::findOne(['id' => $document->user]);
         $retVal['number_download'] = $document->number_download;
         $retVal['pdf'] = $document->pdf;
+        $retVal['scribd_id'] = $document->scribd_id;
         return $retVal;
     }
 

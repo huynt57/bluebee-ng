@@ -2,6 +2,11 @@ $(document).ready(function () {
     $('.selectBox-dropdown').hide();
     $('#subject').show();
     $('#language').show();
+
+    $('#download-doc').click(function (e) {
+        var url = $(this).attr('data-href');
+        window.open(url, '_blank');
+    })
     $('#btn-review').click(function (e) {
         e.stopPropagation();
         var form = $('#form-review');
@@ -183,8 +188,11 @@ $(document).ready(function () {
 
 $('#iframe').ready(function () {
     setTimeout(function () {
-        $('#iframe').contents().find('#download').remove();
+        // $('#iframe').contents().find('#download').remove();
+        $('#iframe').contents().find('.right_tools').remove();
     }, 100);
 });
+
+
 
 

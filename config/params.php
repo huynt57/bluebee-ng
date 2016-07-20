@@ -8,7 +8,7 @@ return [
     'SCRIBD_SECRET' => 'b2rlvg8kxwwpkz9fo3i02mo9vo',
     'PREVIEW_HEIGHT' => 270,
     'PREVIEW_WIDTH' => 270,
-    'PREVIEW_IMAGE' => '',
+    'PREVIEW_IMAGE' => 'https://lh3.googleusercontent.com/4wa-jqETSvgBAzCO0823PfAOBLxJ6MDqqvrMsZHTPOx-WOEOpvSVGGV4iqrPpmVaUQ=w300',
     'moss_user_id' => '',
     'FB_APP_ID' => '1428478800723370',
     'moss_languages' => ["c" => "C", "cc" => "C++", "java" => "Java",

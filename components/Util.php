@@ -94,6 +94,7 @@ class Util {
         $width = Yii::$app->params['PREVIEW_WIDTH'];
         $height = Yii::$app->params['PREVIEW_HEIGHT'];
         $pdf = '';
+        $scribd_id = '';
         $preview = null;
         $retVal = array();
         $file = UploadedFile::getInstanceByName($fileName);
@@ -103,10 +104,12 @@ class Util {
         if (!file_exists($storeFolder)) {
             mkdir($storeFolder, 0777, true);
         }
-        $save = $storeFolder . time() . $file->baseName . '.' . $file->extension;
-        $original_url = $relative_path . time() . $file->baseName . '.' . $file->extension;
-        $pdf_url = time() . $file->baseName . '.pdf';
-        //$pdf_path = $storeFolder . time() . $file->baseName . '.pdf';
+        $slug = self::slugify($file->baseName);
+        $name = '[Bluebee-uet.com]' . time() . $slug;
+        $save = $storeFolder . $name . '.' . $file->extension;
+        $original_url = $relative_path . $name . '.' . $file->extension;
+        $pdf_url = $name . '.pdf';
+        //$pdf_path = $storeFolder . $name . '.pdf';
         $file->saveAs($save);
         $extension = strtolower($file->extension);
         switch ($extension) {
@@ -114,6 +117,7 @@ class Util {
                 $file_scribd = $scribd->upload($save);
                 $preview = $scribd->getPreviewImage($file_scribd['doc_id'], $width, $height);
                 $pdf = $original_url;
+                $scribd_id = $file_scribd['doc_id'];
                 break;
             case 'doc':
             case 'docx':
@@ -122,6 +126,7 @@ class Util {
                 //$pdf = $scribd->downloadPdfFromUrl($file_scribd['doc_id'], 'pdf');
                 //$this->downloadFile($pdf, $pdf_path);
                 $preview = $scribd->getPreviewImage($file_scribd['doc_id'], $width, $height);
+                $scribd_id = $file_scribd['doc_id'];
                 break;
             case 'jpeg':
             case 'jpg':
@@ -129,14 +134,14 @@ class Util {
             case 'pjepg':
             case 'gif':
                 $preview = ImageResize::resize_image($save, NULL, $width, $height);
-                self::image2Pdf($save, $storeFolder . $pdf_url);
-                $pdf = $relative_path . $pdf_url;
+                //   self::image2Pdf($save, $storeFolder . $pdf_url);
+                // $pdf = $relative_path . $pdf_url;
                 break;
             default:
                 $preview = Yii::$app->params['PREVIEW_IMAGE'];
                 break;
         }
-
+        $retVal['scribd_id'] = $scribd_id;
         $retVal['preview'] = $preview;
         $retVal['path'] = $save;
         $retVal['pdf'] = $pdf;
@@ -153,7 +158,7 @@ class Util {
             if (!file_exists($storeFolder)) {
                 mkdir($storeFolder, 0777, true);
             }
-            $save = $storeFolder . time() . $file->baseName . '.' . $file->extension;
+            $save = $storeFolder . $name . '.' . $file->extension;
             $file->saveAs($save);
             $retVal[] = $save;
         }
@@ -207,6 +212,32 @@ class Util {
         $mpdf->WriteHTML($html);
         $mpdf->Output($outputPath, 'F');
         $mpdf->debug = true;
+    }
+
+    public static function slugify($text) {
+        // replace non letter or digits by -
+        $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+
+        // transliterate
+        $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+
+        // remove unwanted characters
+        $text = preg_replace('~[^-\w]+~', '', $text);
+
+        // trim
+        $text = trim($text, '-');
+
+        // remove duplicate -
+        $text = preg_replace('~-+~', '-', $text);
+
+        // lowercase
+        $text = strtolower($text);
+
+        if (empty($text)) {
+            return 'n-a';
+        }
+
+        return $text;
     }
 
 }

@@ -5,6 +5,7 @@
 namespace app\models\base;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the base-model class for table "documents".
@@ -16,11 +17,15 @@ use Yii;
  * @property string $original_url
  * @property string $preview
  * @property string $description
- * @property integer $created_at
- * @property integer $updated_at
  * @property integer $subject
  * @property integer $user
  * @property integer $status
+ * @property integer $number_download
+ * @property string $pdf
+ * @property string $token
+ * @property string $scribd_id
+ * @property integer $created_at
+ * @property integer $updated_at
  * @property string $aliasModel
  */
 abstract class Documents extends \yii\db\ActiveRecord
@@ -40,11 +45,23 @@ abstract class Documents extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+            ],
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function rules()
     {
         return [
-            [['path', 'money_url', 'original_url', 'preview', 'description'], 'string'],
-            [['created_at', 'updated_at', 'subject', 'user', 'status'], 'integer'],
+            [['path', 'money_url', 'original_url', 'preview', 'description', 'pdf', 'token', 'scribd_id'], 'string'],
+            [['subject', 'user', 'status', 'number_download'], 'integer'],
             [['name'], 'string', 'max' => 255]
         ];
     }
@@ -67,6 +84,10 @@ abstract class Documents extends \yii\db\ActiveRecord
             'subject' => 'Subject',
             'user' => 'User',
             'status' => 'Status',
+            'number_download' => 'Number Download',
+            'pdf' => 'Pdf',
+            'token' => 'Token',
+            'scribd_id' => 'Scribd ID',
         ];
     }
 

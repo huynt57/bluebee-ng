@@ -9,9 +9,7 @@
     <head>
         <meta charset="utf-8">
         <title>Bluebee-uet.com | Mọi thứ bạn cần để trở thành một UET-er</title>
-        <meta name="keywords" content="HTML5 Template">
-        <meta name="description" content="Progressive — Responsive Multipurpose HTML Template">
-        <meta name="author" content="itembridge.com">
+        <?php $this->head() ?>
         <meta class="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -43,7 +41,8 @@
 
         <!-- Custom CSS -->
         <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/customizer/pages.css">
-        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/customizer/home-pages-customizer.css">
+<!--        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/customizer/home-pages-customizer.css">-->
+        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/customizer/shop-pages-customizer.css">
 
         <!-- IE Styles-->
         <link rel='stylesheet' href="<?php echo Yii::getAlias('@web') ?>/css/ie/ie.css">
@@ -382,10 +381,10 @@
                             <div class="form-group">
                                 <label for="subject">Môn học</label>
                                 <select class="form-control" id="subject" name="subject">
-                                    <?php $subjects = \app\components\Util::getSubjects();?>
-                                    <?php foreach($subjects as $subject):?>
-                                         <option value="<?php echo $subject->id?>"><?php echo $subject->name?></option>
-                                    <?php endforeach;?>
+                                    <?php $subjects = \app\components\Util::getSubjects(); ?>
+                                    <?php foreach ($subjects as $subject): ?>
+                                        <option value="<?php echo $subject->id ?>"><?php echo $subject->name ?></option>
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="form-group">
