@@ -23,7 +23,6 @@
         "tpmanc/yii2-imagick": "*",
         "nikkobautista/scribd": "dev-master",
         "mpdf/mpdf":"@stable"
-
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
