@@ -191,7 +191,7 @@ class Util {
     }
 
     public static function getSubjects() {
-        return Subjects::find()->all();
+        return Subjects::find()->orderBy('name')->all();
     }
 
     public static function excerpt($text, $numb) {
