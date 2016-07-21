@@ -48,7 +48,7 @@ class Documents extends BaseDocuments {
         $query = Documents::find()->orderBy('id desc');
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count()]);
-        $pages->defaultPageSize = 12;
+        $pages->defaultPageSize = 27;
         $models = $query->offset($pages->offset)
                 ->limit($pages->limit)
                 ->all();

@@ -158,7 +158,7 @@ class Util {
             if (!file_exists($storeFolder)) {
                 mkdir($storeFolder, 0777, true);
             }
-            $save = $storeFolder . $name . '.' . $file->extension;
+            $save = $storeFolder . $file->baseName . '.' . $file->extension;
             $file->saveAs($save);
             $retVal[] = $save;
         }
