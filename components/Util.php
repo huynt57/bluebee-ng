@@ -14,6 +14,8 @@ use app\components\Scribd;
 use app\components\ImageResize;
 use mPDF;
 use app\models\Subjects;
+use yii\validators\FileValidator;
+use yii\helpers\FileHelper;
 
 class Util {
 
@@ -90,6 +92,15 @@ class Util {
     }
 
     public static function upload($fileName) {
+        $ext_arr = ['pdf', 'jpg', 'doc', 'docx', 'jpeg', 'png', 'pjepg', 'gif'];
+        $mime_arr = [
+            'image/jpeg',
+            'image/png',
+            'application/pdf',
+            'application/msword',
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            'image/gif'
+        ];
         $scribd = new Scribd(Yii::$app->params['SCRIBD_KEY'], Yii::$app->params['SCRIBD_SECRET']);
         $width = Yii::$app->params['PREVIEW_WIDTH'];
         $height = Yii::$app->params['PREVIEW_HEIGHT'];
@@ -108,10 +119,19 @@ class Util {
         $name = '[Bluebee-uet.com]' . time() . $slug;
         $save = $storeFolder . $name . '.' . $file->extension;
         $original_url = $relative_path . $name . '.' . $file->extension;
-        $pdf_url = $name . '.pdf';
-        //$pdf_path = $storeFolder . $name . '.pdf';
-        $file->saveAs($save);
         $extension = strtolower($file->extension);
+        $mime = FileHelper::getMimeType($file);
+        if (!in_array($extension, $ext_arr)) {
+            return;
+        }
+        if ($file->size > Yii::$app->params['MAX_FILE_SIZE']) {
+            return;
+        }
+        if (!in_array($mime, $mime_arr)) {
+            return;
+        }
+        $file->saveAs($save);
+
         switch ($extension) {
             case 'pdf':
                 $file_scribd = $scribd->upload($save);

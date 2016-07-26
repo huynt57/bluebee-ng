@@ -17,5 +17,6 @@ return [
         "ascii" => "ASCII", "perl" => "Perl", "matlab" => "Matlab", "python" => "Python",
         "prolog" => "Prolog", "vb" => "Visual Basic", "csharp" => "C#",
         "javascript" => "Javascript", "verilog" => "Verilog"],
-    'moss_id' => '7967497'
+    'moss_id' => '7967497',
+    'MAX_FILE_SIZE' => 8 * 1024 * 1024
 ];
