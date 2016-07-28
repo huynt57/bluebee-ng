@@ -73,6 +73,11 @@ $config = [
         'defaultRoute' => 'document/get-latest-documents',
     ],
     'params' => $params,
+    'modules' => [
+        'admin' => [
+            'class' => 'app\modules\AdminModule',
+        ],
+    ],
 ];
 
 if (YII_ENV_DEV) {
