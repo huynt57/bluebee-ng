@@ -79,7 +79,13 @@
                         </div>	
                     </header>
                     <div class="container">
-                        <?php echo $content; ?>
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-9">
+                                <?php echo $content; ?>
+                            </div>
+                        </div>
+                        
                     </div>  
 
                 </section><!-- #main -->

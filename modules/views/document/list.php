@@ -1,36 +1,42 @@
-<div class="bs-example">
-    <table class="table table-bordered">
-        <thead>
+<?php
+
+use yii\widgets\LinkPager;
+use yii\helpers\Url;
+use app\components\Util;
+use app\models\Users;
+use app\models\Subjects;
+?>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Image</th>
+            <th>User</th>
+            <th>Subject</th>
+            <th>Created at</th>
+        </tr>
+    </thead>
+    <tbody>
+<?php foreach ($models as $model): ?>
             <tr>
-                <th>ID</th>
-                <th>Image</th>
-                <th>User</th>
-                <th>Subject</th>
-                <th>Created at</th>
+                <td><?php echo $model->id; ?></td>
+                <td><img src="<?php echo Util::makeUrlImage($model->preview) ?>" style="max-height: 150px;"/></td>
+                <td><?php echo Users::findOne(['id' => $model->user])->name ?></td>
+                <td><?php echo Subjects::findOne(['id' => $model->subject])->name ?></td>
+                <td><?php echo Date('d/m/Y', $model->created_at) ?></td>
             </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@TwBootstrap</td>
-            </tr>
-            <tr>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@TwBootstrap</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
-    </table>
-</div><!-- /example -->
+<?php endforeach; ?>
+
+    </tbody>
+</table>
+    <?php if ($pages->getPageCount() > 1): ?>
+    <div class="pagination-box">
+        <?php
+        echo LinkPager::widget([
+            'pagination' => $pages,
+        ]);
+        ?>       
+    </div><!-- .pagination-box -->
+<?php endif; ?>
+
