@@ -70,7 +70,6 @@ $config = [
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ],
         ],
-        'defaultRoute' => 'document/get-latest-documents',
     ],
     'params' => $params,
     'modules' => [
@@ -78,6 +77,7 @@ $config = [
             'class' => 'app\modules\AdminModule',
         ],
     ],
+    'defaultRoute' => 'document/get-latest-documents',
 ];
 
 if (YII_ENV_DEV) {
