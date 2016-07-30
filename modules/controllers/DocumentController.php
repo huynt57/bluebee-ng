@@ -17,7 +17,7 @@ class DocumentController extends \yii\web\Controller {
     }
 
     public function actionEdit() {
-        
+        return $this->render('add');
     }
 
     public function actionUpdate() {
@@ -25,7 +25,7 @@ class DocumentController extends \yii\web\Controller {
     }
 
     public function actionAdd() {
-        
+       return $this->render('add'); 
     }
 
     public function actionDelete() {

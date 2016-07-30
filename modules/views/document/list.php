@@ -15,22 +15,24 @@ use app\models\Subjects;
             <th>User</th>
             <th>Subject</th>
             <th>Created at</th>
+            <th>ACtion</th>
         </tr>
     </thead>
     <tbody>
-<?php foreach ($models as $model): ?>
+        <?php foreach ($models as $model): ?>
             <tr>
                 <td><?php echo $model->id; ?></td>
                 <td><img src="<?php echo Util::makeUrlImage($model->preview) ?>" style="max-height: 150px;"/></td>
                 <td><?php echo Users::findOne(['id' => $model->user])->name ?></td>
                 <td><?php echo Subjects::findOne(['id' => $model->subject])->name ?></td>
                 <td><?php echo Date('d/m/Y', $model->created_at) ?></td>
+                <td><?php echo Date('d/m/Y', $model->created_at) ?></td>
             </tr>
-<?php endforeach; ?>
+        <?php endforeach; ?>
 
     </tbody>
 </table>
-    <?php if ($pages->getPageCount() > 1): ?>
+<?php if ($pages->getPageCount() > 1): ?>
     <div class="pagination-box">
         <?php
         echo LinkPager::widget([
