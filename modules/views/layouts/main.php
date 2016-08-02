@@ -61,31 +61,31 @@
         <![endif]-->
     </head>
     <body class="fixed-header">
-
-
         <div class="page-box" style="padding-top: 50px;">
             <div class="page-box-content">
-
-
-
-
-
                 <div class="clearfix"></div>
-
                 <section id="main" style="padding-top: 0px; padding-bottom: 80px;">
                     <header class="page-header">
-                        <div class="container">
+                        <div class="container-fluid">
                             <h1 class="title">11<?php echo $this->title ?></h1>
                         </div>	
                     </header>
-                    <div class="container">
+                    <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-3"></div>
+                            <div class="col-md-3">
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li class="active"><a href="#">Document management</a></li>
+                                    <li><a href="#">Teacher management</a></li>
+                                    <li><a href="#">Subject management</a></li>
+                                    <li><a href="#">Program management</a></li>
+                                    <li><a href="#">User management</a></li>
+                                </ul>
+                            </div>
                             <div class="col-md-9">
                                 <?php echo $content; ?>
                             </div>
                         </div>
-                        
+
                     </div>  
 
                 </section><!-- #main -->
@@ -97,7 +97,7 @@
             <div class="footer-top">
                 <div class="container">
                     <div class="row sidebar">
-                        
+
                     </div>
                 </div>
             </div><!-- .footer-top -->
@@ -149,7 +149,7 @@
             </div><!-- .footer-bottom -->
         </footer>
         <div class="clearfix"></div>
-        
+
 
         <!--[if (!IE)|(gt IE 8)]><!-->
         <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery-2.1.3.min.js"></script>
