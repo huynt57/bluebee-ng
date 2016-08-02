@@ -16,7 +16,11 @@ use app\models\Subjects;
             <th>User</th>
             <th>Subject</th>
             <th>Created at</th>
+<<<<<<< HEAD
             <th>Action</th>
+=======
+            <th>ACtion</th>
+>>>>>>> c4eef2a03be03692752385099615070cd31c0c70
         </tr>
     </thead>
     <tbody>
@@ -28,10 +32,14 @@ use app\models\Subjects;
                 <td><?php echo Users::findOne(['id' => $model->user])->name ?></td>
                 <td><?php echo Subjects::findOne(['id' => $model->subject])->name ?></td>
                 <td><?php echo Date('d/m/Y', $model->created_at) ?></td>
+<<<<<<< HEAD
                 <td>
                     <a class="btn btn-default">Edit</a>
                     <a class="btn btn-danger">Delete</a>
                 </td>
+=======
+                <td><?php echo Date('d/m/Y', $model->created_at) ?></td>
+>>>>>>> c4eef2a03be03692752385099615070cd31c0c70
             </tr>
         <?php endforeach; ?>
 
