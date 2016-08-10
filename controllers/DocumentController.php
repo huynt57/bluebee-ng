@@ -36,6 +36,7 @@ class DocumentController extends \yii\web\Controller {
     }
 
     public function actionGetLatestDocuments() {
+
         Yii::$app->view->title = 'Tài liệu mới nhất';
         $data = Documents::getAllLatestDocuments();
         return $this->render('documents', $data);

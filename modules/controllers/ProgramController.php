@@ -9,4 +9,13 @@ class ProgramController extends \yii\web\Controller
         return $this->render('index');
     }
 
+    public function actionAdd()
+    {
+        return $this->render('index');
+    }
+
+    public function actionUpdate() {
+
+    }
+
 }
