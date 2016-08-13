@@ -16,6 +16,7 @@ use mPDF;
 use app\models\Subjects;
 use yii\validators\FileValidator;
 use yii\helpers\FileHelper;
+use app\models\Program;
 
 class Util {
 
@@ -258,6 +259,17 @@ class Util {
         }
 
         return $text;
+    }
+
+    public static function suggest($department_id, $semester)
+    {
+        $args = [
+            'department_id' => $department_id,
+            'semester' => $semester
+        ];
+
+        $data = Program::getProgramByAttribute($args);
+        return $data;
     }
 
 }

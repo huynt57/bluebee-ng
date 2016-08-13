@@ -2,23 +2,31 @@
 
 namespace app\controllers;
 
-use app\models\TblSubject;
-use app\models\Subjects;
+use app\models\Departments;
+use Yii;
+
+
 
 class ProgramController extends \yii\web\Controller {
 
     public function actionIndex() {
+
         return $this->render('index');
+
+        $request = Yii::$app->request;
+
+        $department_id = $request->get('department_id');
+
+        $department_name = Departments::findOne(['id'=>$department_id])->name;
+
+        return $this->render('index', ['department_name' => $department_name]);
     }
 
     public function actionSuggest() {
-        try {
-            $request = Yii::$app->request;
-            $program_id = $request->get('id');
-        } catch (Exception $ex) {
-            
-        }
+
     }
+
+
 
 //    public function actionAddSub() {
 //        $o_subs = TblSubject::find()->all();
