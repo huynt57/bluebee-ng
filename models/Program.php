@@ -10,6 +10,23 @@ use \app\models\base\Program as BaseProgram;
  */
 class Program extends BaseProgram
 {
+
+    public static function getAllProgram()
+    {
+        $query = Program::find()->orderBy('id desc');
+        $countQuery = clone $query;
+        $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $pages->defaultPageSize = 27;
+        $models = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+        return [
+            'models' => $models,
+            'pages' => $pages,
+        ];
+    }
+
+
     public static function getProgramByAttribute($args)
     {
         $programs = Program::find()->where($args)->all();

@@ -24,4 +24,19 @@ class Subjects extends BaseSubjects {
         ];
     }
 
+    public static function getAllSubject()
+    {
+        $query = Subjects::find()->orderBy('id desc');
+        $countQuery = clone $query;
+        $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $pages->defaultPageSize = 27;
+        $models = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+        return [
+            'models' => $models,
+            'pages' => $pages,
+        ];
+    }
+
 }
