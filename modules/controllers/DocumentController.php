@@ -21,11 +21,29 @@ class DocumentController extends \yii\web\Controller {
     }
 
     public function actionUpdate() {
+        $request = \Yii::$app->request;
+
+        $data = $request->post();
+
+        Documents::updateAll($data, 'id = '.$data['id']);
+
+        return true;
         
     }
 
     public function actionAdd() {
-       return $this->render('add'); 
+
+        $request = \Yii::$app->request;
+
+        $data = $request->post();
+
+        $model = new Documents();
+        $model->attributes = $data;
+
+        $model->save();
+
+        return true;
+
     }
 
     public function actionDelete() {

@@ -14,7 +14,18 @@ class ProgramController extends \yii\web\Controller
 
     public function actionAdd()
     {
-        return $this->render('index');
+        $request = \Yii::$app->request;
+
+        $data = $request->post();
+
+        $model = new Program();
+        $model->attributes = $data;
+
+        $model->save();
+
+        return true;
+
+
     }
 
     public function actionUpdate() {
