@@ -3,12 +3,11 @@
 use yii\widgets\LinkPager;
 use yii\helpers\Url;
 use app\components\Util;
-use DateTime;
 
 ?>
 <div class="row" style="margin-bottom: 10px;">
     <div class="col-md-3">
-        <a class="btn btn-primary" href="#"data-toggle="modal" data-target="#modal-upload">Add</a>
+        <a class="btn btn-primary" href="#"data-toggle="modal" data-target="#modal-admin-add">Add</a>
     </div>
 </div>
 <div class="row">
@@ -30,14 +29,14 @@ use DateTime;
                 <tr>
                     <td><input type="checkbox" > </td>
                     <td><?php echo $model->id; ?></td>
-                    <td><?php echo $model->name ?></td>
-                    <td><?php echo $model->description ?></td>
+                    <td style="width: 20%;"><?php echo $model->name ?></td>
+                    <td style="width: 50%"><?php echo $model->description ?></td>
                     <td><?php echo Date('d/m/Y', $model->created_at) ?></td>
 
 
                     <td>
-                        <a class="btn btn-default">Edit</a>
-                        <a class="btn btn-danger">Delete</a>
+                        <a class="btn btn-default admin-update" href="#" data-toggle="modal" data-target="#modal-admin-update" data-id="<?php echo $model->id?>">Edit</a>
+                        <a class="btn btn-danger admin-delete" href="#" data-toggle="modal" data-target="#modal-admin-delete" data-id="<?php echo $model->id?>">Delete</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -56,3 +55,6 @@ use DateTime;
     </div>
 </div>
 <?php echo Yii::$app->view->render('add'); ?>
+<?php echo Yii::$app->view->render('update'); ?>
+
+

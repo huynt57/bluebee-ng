@@ -3,13 +3,15 @@
 namespace app\modules\controllers;
 
 use app\models\Subjects;
+use yii\web\Response;
+use Yii;
 
 class SubjectController extends \yii\web\Controller
 {
-    public function actionIndex()
+    public function actionList()
     {
         $data = Subjects::getAllSubject();
-        return $this->render('index', $data);
+        return $this->render('list', $data);
     }
 
     public function actionEdit()
@@ -19,10 +21,16 @@ class SubjectController extends \yii\web\Controller
 
     public function actionUpdate()
     {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+
         $request = \Yii::$app->request;
 
         $data = $request->post();
 
+        if ($data['name'] == '')
+        {
+            return ['status' => 0, 'message' => 'Không được để trống tên'];
+        }
         Documents::updateAll($data, 'id = ' . $data['id']);
 
         return true;
@@ -31,22 +39,28 @@ class SubjectController extends \yii\web\Controller
 
     public function actionAdd()
     {
-
+        Yii::$app->response->format = Response::FORMAT_JSON;
         $request = \Yii::$app->request;
 
         $data = $request->post();
 
-        $model = new Documents();
-        $model->attributes = $data;
+        if ($data['name'] == '')
+        {
+            return ['status' => 0, 'message' => 'Không được để trống tên'];
+        }
 
+        $model = new Subjects();
+        $model->attributes = $data;
         $model->save();
 
-        return true;
+        return  ['status' => 1, 'message' => 'Thành công'];
 
     }
 
     public function actionDelete()
     {
+
+
 
     }
 

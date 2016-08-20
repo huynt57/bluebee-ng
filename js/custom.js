@@ -184,6 +184,29 @@ $(document).ready(function () {
         });
     });
 
+
+    //submit admin
+
+    $('#btn-submit-admin').click(function() {
+        var data =$('#form-admin-add').serialize();
+        var url = $('#url').val();
+        $.ajax({
+            url: url,
+            type: 'post',
+            data: data,
+            success: function(response)
+            {
+                $('#modal-admin-add').modal('hide');
+            }
+
+
+        });
+    });
+
+    $('.admin-update').click(function() {
+        alert($(this).attr('data-id'));
+    });
+
 });
 
 $('#iframe').ready(function () {

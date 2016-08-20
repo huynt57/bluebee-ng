@@ -72,7 +72,7 @@
                     </header>
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <ul class="nav nav-pills nav-stacked">
                                     <li class="active"><a href="#">Document management</a></li>
                                     <li><a href="#">Teacher management</a></li>
@@ -81,7 +81,7 @@
                                     <li><a href="#">User management</a></li>
                                 </ul>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-md-10">
                                 <?php echo $content; ?>
                             </div>
                         </div>

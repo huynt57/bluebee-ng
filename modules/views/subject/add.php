@@ -1,4 +1,4 @@
-<div class="modal fade" tabindex="-1" role="dialog" id="modal-upload">
+<div class="modal fade" tabindex="-1" role="dialog" id="modal-admin-add">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -6,7 +6,7 @@
                 <h4 class="modal-title">Thêm môn học</h4>
             </div>
             <div class="modal-body">
-                <form role="form" id="form-upload">
+                <form role="form" id="form-admin-add">
                     <div class="form-group">
                         <label for="name">Tên</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Điền tên môn học">
@@ -19,10 +19,11 @@
                 <div class="progress progress-striped active" id="progress-upload" style="display: none">
                     <div class="progress-bar progress-bar-info" style="width: 80%;" id="progress-info"></div>
                 </div>
+                <input type="hidden" id="url" value="/admin/subject/add" >
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-primary" id="btn-upload-doc">Đăng</button>
+                <button type="button" class="btn btn-primary" id="btn-submit-admin">Đăng</button>
             </div>
         </div><!-- /.modal-content -->
 

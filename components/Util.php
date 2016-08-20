@@ -8,6 +8,7 @@
 
 namespace app\components;
 
+use app\models\Departments;
 use yii\web\UploadedFile;
 use Yii;
 use app\components\Scribd;
@@ -213,6 +214,10 @@ class Util {
 
     public static function getSubjects() {
         return Subjects::find()->orderBy('name')->all();
+    }
+
+    public static function getDepartments() {
+        return Departments::find()->orderBy('name')->all();
     }
 
     public static function excerpt($text, $numb) {

@@ -1,3 +1,4 @@
+<?php use app\components\Util;?>
 <div class="modal fade" tabindex="-1" role="dialog" id="modal-upload">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -9,7 +10,12 @@
                 <form role="form" id="form-upload">
                     <div class="form-group">
                         <label for="name">Department</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Điền tên tài liệu">
+                        <select class="form-control" id="department_id" name="department_id">
+                            <?php $departments = Util::getDepartments(); ?>
+                            <?php foreach ($departments as $department): ?>
+                                <option value="<?php echo $department->id ?>"><?php echo $department->name ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="subject">Học kỳ</label>
@@ -22,15 +28,11 @@
                     <div class="form-group">
                         <label for="subject">Môn học</label>
                         <select class="form-control" id="subject" name="subject">
-                            <?php $subjects = \app\components\Util::getSubjects(); ?>
+                            <?php $subjects = Util::getSubjects(); ?>
                             <?php foreach ($subjects as $subject): ?>
                                 <option value="<?php echo $subject->id ?>"><?php echo $subject->name ?></option>
                             <?php endforeach; ?>
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="file">Đính kèm file</label>
-                        <input type="file" id="document" name="file">
                     </div>
                 </form>
                 <div class="progress progress-striped active" id="progress-upload" style="display: none">

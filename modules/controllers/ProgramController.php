@@ -6,10 +6,10 @@ use app\models\Program;
 
 class ProgramController extends \yii\web\Controller
 {
-    public function actionIndex()
+    public function actionList()
     {
         $data = Program::getAllProgram();
-        return $this->render('index'. $data);
+        return $this->render('list', $data);
     }
 
     public function actionAdd()
