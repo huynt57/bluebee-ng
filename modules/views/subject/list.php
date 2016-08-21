@@ -57,4 +57,10 @@ use app\components\Util;
 <?php echo Yii::$app->view->render('add'); ?>
 <?php echo Yii::$app->view->render('update'); ?>
 
+<script>
+
+    var url_get_update = '/admin/subject/edit';
+    var url_update = '/admin/subject/update';
+</script>
+
 

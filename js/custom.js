@@ -188,7 +188,7 @@ $(document).ready(function () {
     //submit admin
 
     $('#btn-submit-admin').click(function() {
-        var data =$('#form-admin-add').serialize();
+        var data =$('#form-admin').serialize();
         var url = $('#url').val();
         $.ajax({
             url: url,
@@ -204,7 +204,19 @@ $(document).ready(function () {
     });
 
     $('.admin-update').click(function() {
-        alert($(this).attr('data-id'));
+
+        var data_id = $(this).attr('data-id');
+
+        $.ajax({
+            url: url_get_update,
+            type: 'get',
+            data: {'id': data_id},
+            success: function(response)
+            {
+                $('.modal-body').html(response);
+            }
+
+        });
     });
 
 });

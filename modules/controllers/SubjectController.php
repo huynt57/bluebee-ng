@@ -8,6 +8,10 @@ use Yii;
 
 class SubjectController extends \yii\web\Controller
 {
+    public $layout;
+
+    public $layoutPath;
+
     public function actionList()
     {
         $data = Subjects::getAllSubject();
@@ -16,7 +20,17 @@ class SubjectController extends \yii\web\Controller
 
     public function actionEdit()
     {
-        return $this->render('add');
+        $this->layout = '@app/modules/views/layouts/modal';
+        $this->layoutPath = 'main';
+
+        $request = \Yii::$app->request;
+        $id = $request->get('id');
+
+        $data = Subjects::findOne(['id'=>$id]);
+
+        return $this->render('form_update', ['data'=>$data]);
+
+
     }
 
     public function actionUpdate()

@@ -74,11 +74,11 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <ul class="nav nav-pills nav-stacked">
-                                    <li class="active"><a href="#">Document management</a></li>
-                                    <li><a href="#">Teacher management</a></li>
-                                    <li><a href="#">Subject management</a></li>
-                                    <li><a href="#">Program management</a></li>
-                                    <li><a href="#">User management</a></li>
+                                    <li class="active"><a href="/admin/document/list">Document management</a></li>
+                                    <li><a href="/admin/teacher/list">Teacher management</a></li>
+                                    <li><a href="/admin/subject/list">Subject management</a></li>
+                                    <li><a href="/admin/program/list">Program management</a></li>
+                                    <li><a href="/admin/user/list">User management</a></li>
                                 </ul>
                             </div>
                             <div class="col-md-10">
