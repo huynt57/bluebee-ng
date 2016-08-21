@@ -41,13 +41,14 @@ class SubjectController extends \yii\web\Controller
 
         $data = $request->post();
 
-        if ($data['name'] == '')
-        {
+        if ($data['name'] == '') {
             return ['status' => 0, 'message' => 'Không được để trống tên'];
         }
-        Documents::updateAll($data, 'id = ' . $data['id']);
 
-        return true;
+        $data['updated_at'] = time();
+        Subjects::updateAll($data, 'id = ' . $data['id']);
+
+        return  ['status' => 1, 'message' => 'Thành công'];
 
     }
 
@@ -58,10 +59,11 @@ class SubjectController extends \yii\web\Controller
 
         $data = $request->post();
 
-        if ($data['name'] == '')
-        {
+        if ($data['name'] == '') {
             return ['status' => 0, 'message' => 'Không được để trống tên'];
         }
+        $data['created_at'] = time();
+        $data['updated_at'] = time();
 
         $model = new Subjects();
         $model->attributes = $data;

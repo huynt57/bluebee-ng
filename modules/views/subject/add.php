@@ -6,7 +6,7 @@
                 <h4 class="modal-title">Thêm môn học</h4>
             </div>
             <div class="modal-body">
-                <form role="form" id="form-admin">
+                <form role="form" id="form-admin-add">
                     <div class="form-group">
                         <label for="name">Tên</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Điền tên môn học">
@@ -17,11 +17,11 @@
                     </div>
                 </form>
 
-                <input type="hidden" id="url" value="/admin/subject/add" >
+                <input type="hidden" id="url-add" value="/admin/subject/add" >
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-primary" id="btn-submit-admin">Đăng</button>
+                <button type="button" class="btn btn-primary" id="btn-submit-admin-add">Đăng</button>
             </div>
         </div><!-- /.modal-content -->
 

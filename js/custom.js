@@ -187,16 +187,37 @@ $(document).ready(function () {
 
     //submit admin
 
-    $('#btn-submit-admin').click(function() {
-        var data =$('#form-admin').serialize();
-        var url = $('#url').val();
+    $(document).on('click', '#btn-submit-admin-add', function() {
+        var data =$('form#form-admin-add').serialize();
+        var url = $('#url-add').val();
+
+        $.ajax({
+            url: url,
+            type: 'post',
+
+            data: data,
+            success: function(response)
+            {
+                $('#modal-admin-add').modal('hide')
+
+            }
+
+
+        });
+    });
+
+    $(document).on('click', '#btn-submit-admin-update', function() {
+        var data =$('form#form-admin-update').serialize();
+        var url = $('#url-update').val();
+
         $.ajax({
             url: url,
             type: 'post',
             data: data,
             success: function(response)
             {
-                $('#modal-admin-add').modal('hide');
+
+                $('#modal-admin-update').modal('hide');
             }
 
 
@@ -213,7 +234,8 @@ $(document).ready(function () {
             data: {'id': data_id},
             success: function(response)
             {
-                $('.modal-body').html(response);
+                $('#modal-body-update').html(response);
+                $('#btn-submit-admin-update').unbind('click');
             }
 
         });
