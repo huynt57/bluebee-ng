@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use \app\models\base\Users as BaseUsers;
+use yii\data\Pagination;
 
 /**
  * This is the model class for table "users".
@@ -60,5 +61,20 @@ class Users extends BaseUsers {
         $retVal['dob'] = $user->dob;
         $retVal['email'] = $user->email;
         return $retVal;
+    }
+
+    public static function getAll()
+    {
+        $query = Users::find()->orderBy('id desc');
+        $countQuery = clone $query;
+        $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $pages->defaultPageSize = 27;
+        $models = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+        return [
+            'models' => $models,
+            'pages' => $pages,
+        ];
     }
 }

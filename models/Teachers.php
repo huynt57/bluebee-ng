@@ -27,6 +27,21 @@ class Teachers extends BaseTeachers {
         ];
     }
 
+    public static function getAll()
+    {
+        $query = Teachers::find()->orderBy('id desc');
+        $countQuery = clone $query;
+        $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $pages->defaultPageSize = 27;
+        $models = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+        return [
+            'models' => $models,
+            'pages' => $pages,
+        ];
+    }
+
     public static function getTeacherById($id) {
         $teacher = Teachers::findOne(['id' => $id]);
         $retVal = array();

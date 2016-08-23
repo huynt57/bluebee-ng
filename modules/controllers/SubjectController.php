@@ -3,8 +3,10 @@
 namespace app\modules\controllers;
 
 use app\models\Subjects;
+use yii\base\Exception;
 use yii\web\Response;
 use Yii;
+use yii\data\Pagination;
 
 class SubjectController extends \yii\web\Controller
 {
@@ -26,9 +28,9 @@ class SubjectController extends \yii\web\Controller
         $request = \Yii::$app->request;
         $id = $request->get('id');
 
-        $data = Subjects::findOne(['id'=>$id]);
+        $data = Subjects::findOne(['id' => $id]);
 
-        return $this->render('form_update', ['data'=>$data]);
+        return $this->render('form_update', ['data' => $data]);
 
 
     }
@@ -36,7 +38,6 @@ class SubjectController extends \yii\web\Controller
     public function actionUpdate()
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
-
         $request = \Yii::$app->request;
 
         $data = $request->post();
@@ -46,9 +47,13 @@ class SubjectController extends \yii\web\Controller
         }
 
         $data['updated_at'] = time();
-        Subjects::updateAll($data, 'id = ' . $data['id']);
+        try {
+            Subjects::updateAll($data, 'id = ' . $data['id']);
+            return ['status' => 1, 'message' => 'Thành công'];
+        } catch (Exception $ex) {
+            return ['status' => 0, 'message' => 'Có lỗi xảy ra'];
+        }
 
-        return  ['status' => 1, 'message' => 'Thành công'];
 
     }
 
@@ -65,19 +70,39 @@ class SubjectController extends \yii\web\Controller
         $data['created_at'] = time();
         $data['updated_at'] = time();
 
-        $model = new Subjects();
-        $model->attributes = $data;
-        $model->save();
+        try {
 
-        return  ['status' => 1, 'message' => 'Thành công'];
+            $model = new Subjects();
+            $model->attributes = $data;
+            if ($model->save()) {
 
+                return ['status' => 1, 'message' => 'Thành công'];
+            }
+            return ['status' => 0, 'message' => 'Có lỗi xảy ra'];
+        } catch (Exception $ex) {
+            return ['status' => 0, 'message' => 'Có lỗi xảy ra'];
+        }
     }
 
     public function actionDelete()
     {
 
 
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        $request = \Yii::$app->request;
 
+        $data = $request->post();
+
+        $id = $data['id'];
+
+        try {
+
+            Subjects::findOne(['id'=>$id])->delete();
+
+            return ['status' => 1, 'message' => 'Thành công'];
+        } catch (Exception $ex) {
+            return ['status' => 0, 'message' => 'Có lỗi xảy ra'];
+        }
     }
 
 }

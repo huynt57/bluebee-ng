@@ -3,6 +3,7 @@
 namespace app\modules\controllers;
 
 use app\models\Documents;
+use yii\data\Pagination;
 
 class DocumentController extends \yii\web\Controller {
 
@@ -16,38 +17,89 @@ class DocumentController extends \yii\web\Controller {
         return $this->render('list', $data);
     }
 
-    public function actionEdit() {
-        return $this->render('add');
+    public function actionEdit()
+    {
+        $this->layout = '@app/modules/views/layouts/modal';
+        $this->layoutPath = 'main';
+
+        $request = \Yii::$app->request;
+        $id = $request->get('id');
+
+        $data = Subjects::findOne(['id' => $id]);
+
+        return $this->render('form_update', ['data' => $data]);
+
+
     }
 
-    public function actionUpdate() {
+    public function actionUpdate()
+    {
+        Yii::$app->response->format = Response::FORMAT_JSON;
         $request = \Yii::$app->request;
 
         $data = $request->post();
 
-        Documents::updateAll($data, 'id = '.$data['id']);
+        if ($data['name'] == '') {
+            return ['status' => 0, 'message' => 'Không được để trống tên'];
+        }
 
-        return true;
-        
+        $data['updated_at'] = time();
+        try {
+            Subjects::updateAll($data, 'id = ' . $data['id']);
+            return ['status' => 1, 'message' => 'Thành công'];
+        } catch (Exception $ex) {
+            return ['status' => 0, 'message' => 'Có lỗi xảy ra'];
+        }
+
+
     }
 
-    public function actionAdd() {
-
+    public function actionAdd()
+    {
+        Yii::$app->response->format = Response::FORMAT_JSON;
         $request = \Yii::$app->request;
 
         $data = $request->post();
 
-        $model = new Documents();
-        $model->attributes = $data;
+        if ($data['name'] == '') {
+            return ['status' => 0, 'message' => 'Không được để trống tên'];
+        }
+        $data['created_at'] = time();
+        $data['updated_at'] = time();
 
-        $model->save();
+        try {
 
-        return true;
+            $model = new Subjects();
+            $model->attributes = $data;
+            if ($model->save()) {
 
+                return ['status' => 1, 'message' => 'Thành công'];
+            }
+            return ['status' => 0, 'message' => 'Có lỗi xảy ra'];
+        } catch (Exception $ex) {
+            return ['status' => 0, 'message' => 'Có lỗi xảy ra'];
+        }
     }
 
-    public function actionDelete() {
-        
+    public function actionDelete()
+    {
+
+
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        $request = \Yii::$app->request;
+
+        $data = $request->post();
+
+        $id = $data['id'];
+
+        try {
+
+            Subjects::findOne(['id'=>$id])->delete();
+
+            return ['status' => 1, 'message' => 'Thành công'];
+        } catch (Exception $ex) {
+            return ['status' => 0, 'message' => 'Có lỗi xảy ra'];
+        }
     }
 
 }
