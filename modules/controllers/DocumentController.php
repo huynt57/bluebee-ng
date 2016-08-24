@@ -25,7 +25,7 @@ class DocumentController extends \yii\web\Controller {
         $request = \Yii::$app->request;
         $id = $request->get('id');
 
-        $data = Subjects::findOne(['id' => $id]);
+        $data = Documents::findOne(['id' => $id]);
 
         return $this->render('form_update', ['data' => $data]);
 
@@ -45,7 +45,7 @@ class DocumentController extends \yii\web\Controller {
 
         $data['updated_at'] = time();
         try {
-            Subjects::updateAll($data, 'id = ' . $data['id']);
+            Documents::updateAll($data, 'id = ' . $data['id']);
             return ['status' => 1, 'message' => 'Thành công'];
         } catch (Exception $ex) {
             return ['status' => 0, 'message' => 'Có lỗi xảy ra'];
@@ -56,35 +56,28 @@ class DocumentController extends \yii\web\Controller {
 
     public function actionAdd()
     {
-        Yii::$app->response->format = Response::FORMAT_JSON;
-        $request = \Yii::$app->request;
-
-        $data = $request->post();
-
-        if ($data['name'] == '') {
-            return ['status' => 0, 'message' => 'Không được để trống tên'];
+        $fileName = 'file';
+        $request = Yii::$app->request;
+        $value = array();
+        $value['user'] = Yii::$app->session['user_id'];
+        $value['name'] = $request->post('name', '');
+        $value['description'] = $request->post('description', '');
+        $value['subject'] = $request->post('subject', '');
+        if (isset($_FILES[$fileName])) {
+            $uploaded = Util::upload($fileName);
+            $value['path'] = $uploaded['path'];
+            $value['preview'] = $uploaded['preview'];
+            $value['pdf'] = $uploaded['pdf'];
+            $value['original_url'] = $uploaded['original_url'];
+            $value['scribd_id'] = $uploaded['scribd_id'];
+            $message = Documents::upload($value);
+            return json_encode($message);
         }
-        $data['created_at'] = time();
-        $data['updated_at'] = time();
-
-        try {
-
-            $model = new Subjects();
-            $model->attributes = $data;
-            if ($model->save()) {
-
-                return ['status' => 1, 'message' => 'Thành công'];
-            }
-            return ['status' => 0, 'message' => 'Có lỗi xảy ra'];
-        } catch (Exception $ex) {
-            return ['status' => 0, 'message' => 'Có lỗi xảy ra'];
-        }
+        return false;
     }
 
     public function actionDelete()
     {
-
-
         Yii::$app->response->format = Response::FORMAT_JSON;
         $request = \Yii::$app->request;
 
@@ -94,7 +87,7 @@ class DocumentController extends \yii\web\Controller {
 
         try {
 
-            Subjects::findOne(['id'=>$id])->delete();
+            Documents::findOne(['id'=>$id])->delete();
 
             return ['status' => 1, 'message' => 'Thành công'];
         } catch (Exception $ex) {

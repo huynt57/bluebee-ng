@@ -143,7 +143,6 @@ class Util {
                 break;
             case 'doc':
             case 'docx':
-                //echo $save; die;
                 $file_scribd = $scribd->upload($save);
                 //$pdf = $scribd->downloadPdfFromUrl($file_scribd['doc_id'], 'pdf');
                 //$this->downloadFile($pdf, $pdf_path);
