@@ -103,4 +103,20 @@ class Teachers extends BaseTeachers {
         ];
     }
 
+    public static function getTeachersByDepartment($department)
+    {
+        $query = Teachers::find()->where(['department' => $department])->orderBy('id desc');
+        $countQuery = clone $query;
+        $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $models = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+        $departments = Departments::find()->orderBy('name', 'desc')->all();
+        return [
+            'models' => $models,
+            'pages' => $pages,
+            'departments' => $departments,
+        ];
+    }
+
 }

@@ -2,9 +2,11 @@
 
 namespace app\controllers;
 
+use app\models\Departments;
 use Yii;
 use app\models\Teachers;
 use app\components\Util;
+use app\models\Subjects;
 
 class TeacherController extends \yii\web\Controller {
 
@@ -16,6 +18,20 @@ class TeacherController extends \yii\web\Controller {
         Yii::$app->view->title = 'Danh sách giáo viên';
         $data = Teachers::getAllLatestTeachers();
         return $this->render('teachers', $data);
+    }
+
+    public function actionGetTeachersByDepartment()
+    {
+        $request = Yii::$app->request;
+        try {
+            $department = $request->get('id', '');
+            $teachers = Teachers::getTeachersByDepartment($department);
+            $department_name = Departments::findOne(['id' => $department])->name;
+            Yii::$app->view->title = 'Giảng viên ngành: ' . $department_name;
+            return $this->render('teachers', $teachers);
+        } catch (Exception $ex) {
+
+        }
     }
 
     public function actionGetTeachersBySubject() {

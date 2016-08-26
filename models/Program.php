@@ -37,8 +37,9 @@ class Program extends BaseProgram
         foreach ($programs as $program)
         {
             $itemArr = array();
-            $itemArr['subject'] = Subjects::findOne(['subject'=>$program->subject])->name;
+            $itemArr['subject'] = Subjects::findOne(['id'=>$program->subject])->name;
             $itemArr['semester'] = $program->semester;
+            $itemArr['subject_id'] = $program->subject;
 
             $retVal[] = $itemArr;
         }

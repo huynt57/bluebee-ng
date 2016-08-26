@@ -50,6 +50,8 @@
         <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/customizer/pages.css">
 <!--        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/customizer/home-pages-customizer.css">-->
         <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/customizer/shop-pages-customizer.css">
+        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/customizer/elements-pages-customizer.css">
+
 
         <!-- IE Styles-->
         <link rel='stylesheet' href="<?php echo Yii::getAlias('@web') ?>/css/ie/ie.css">
@@ -206,7 +208,7 @@
                                                         </li>
 
                                                         <li class="item item-primary item-bg">
-                                                            <a href="<?php echo Url::to(['news/index']) ?>">Tin tức</a>   
+                                                            <a href="<?php echo Url::to(['program/index']) ?>">Chương trình đào tạo</a>
                                                         </li>
                                                         <?php if (Yii::$app->session['user_id']): ?>
                                                             <li class="item item-primary item-bg">
