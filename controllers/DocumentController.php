@@ -22,6 +22,20 @@ class DocumentController extends \yii\web\Controller {
         $value['name'] = $request->post('name', '');
         $value['description'] = $request->post('description', '');
         $value['subject'] = $request->post('subject', '');
+
+        $check_subject = Subjects::find()->where(['id'=>subject])->count();
+
+        if($check_subject == 0)
+        {
+            return json_encode(Util::arrayError('Không tồn tại môn học này', ''));
+        }
+
+        if(empty(Yii::$app->session['user_id']))
+        {
+            return json_encode(Util::arrayError('Bạn chưa đăng nhập', ''));
+        }
+
+
         if (isset($_FILES[$fileName])) {
             $uploaded = Util::upload($fileName);
             $value['path'] = $uploaded['path'];
@@ -90,8 +104,21 @@ class DocumentController extends \yii\web\Controller {
         try {
             $doc_id = $request->post('doc_id', '');
             $user_id = Yii::$app->session['user_id'];
+
+            $check_doc = Documents::find()->where(['id'=>$doc_id])->count();
+
+            if($check_doc == 0)
+            {
+                return json_encode(Util::arrayError('Không tồn tại tài liệu này', ''));
+            }
+
+            if(empty($user_id))
+            {
+                return json_encode(Util::arrayError('Bạn chưa đăng nhập', ''));
+            }
+
             $result = Wishlist::add($doc_id, $user_id);
-            return $result;
+            return json_encode(Util::arraySuccess('Thành công', $result));
         } catch (Exception $ex) {
             
         }

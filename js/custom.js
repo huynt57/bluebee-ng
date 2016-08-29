@@ -46,12 +46,21 @@ $(document).ready(function () {
             data: {doc_id: doc_id},
             success: function (response)
             {
-                $.toast({
-                    heading: 'Xong !',
-                    text: 'Bạn đã đánh dấu tài liệu này thành công !',
-                    showHideTransition: 'slide',
-                    icon: 'success'
-                });
+                if(response.status == 1) {
+                    $.toast({
+                        heading: 'Xong !',
+                        text: 'Bạn đã đánh dấu tài liệu này thành công !',
+                        showHideTransition: 'slide',
+                        icon: 'success'
+                    });
+                } else {
+                    $.toast({
+                        heading: 'Lỗi !',
+                        text: response.message,
+                        showHideTransition: 'slide',
+                        icon: 'error'
+                    });
+                }
             },
             error: function (response)
             {
