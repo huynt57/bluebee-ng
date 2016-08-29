@@ -33,10 +33,13 @@ use app\components\Util;
                 </div>
 
                 <div class="description">
+                    <p> Ngành: <?php echo $data['department'] ?></p>
                     <p> <?php echo $data['description'] ?></p>
                     <p> SĐT: <?php echo $data['phone'] ?></p>
                     <p> Email: <?php echo $data['email'] ?></p>
                     <p> Trang cá nhân: <a href="<?php echo $data['website'] ?>" target="_blank"><?php echo $data['website'] ?></a></p>
+                    <p> Nơi làm việc: <?php echo $data['address'] ?></p>
+                    <p> Lĩnh vực nghiên cứu: <?php echo $data['research'] ?></p>
                 </div>
             </div>
         </div>

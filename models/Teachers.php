@@ -56,6 +56,8 @@ class Teachers extends BaseTeachers
         $retVal['email'] = $teacher->email;
         $retVal['phone'] = $teacher->phone;
         $retVal['website'] = $teacher->website;
+        $retVal['address'] = $teacher->address;
+        $retVal['research'] = $teacher->research;
         if ($teacher->number_rated != 0) {
 
             $retVal['stars'] = round($teacher->stars / $teacher->number_rated);

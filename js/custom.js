@@ -15,6 +15,7 @@ $(document).ready(function () {
             type: 'POST',
             url: '/teacher/rate-teacher',
             data: data,
+            dataType: 'json',
             success: function (response)
             {
                 $.toast({
@@ -28,7 +29,7 @@ $(document).ready(function () {
             {
                 $.toast({
                     heading: 'Lỗi !',
-                    text: 'Có lỗi xảy ra, bạn vui lòng thử lại sau nhé :(',
+                    text: response.message,
                     showHideTransition: 'slide',
                     icon: 'error'
                 });

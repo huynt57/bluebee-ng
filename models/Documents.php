@@ -123,6 +123,7 @@ class Documents extends BaseDocuments {
         $models = $query->offset($pages->offset)
                 ->limit($pages->limit)
                 ->all();
+        $pages->defaultPageSize = 27;
         $subjects = Subjects::find()->orderBy('name', 'desc')->all();
         return [
             'models' => $models,
@@ -138,6 +139,7 @@ class Documents extends BaseDocuments {
         $models = $query->offset($pages->offset)
                 ->limit($pages->limit)
                 ->all();
+        $pages->defaultPageSize = 27;
         $subjects = Subjects::find()->orderBy('name', 'desc')->all();
         return [
             'models' => $models,
