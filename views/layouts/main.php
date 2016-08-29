@@ -201,7 +201,7 @@
                                                             <a href="<?php echo Url::to(['document/get-latest-documents']) ?>">Tài liệu</a>   
                                                         </li>
                                                         <li class="item item-primary item-bg">
-                                                            <a href="<?php echo Url::to(['teacher/get-teachers']) ?>">Giáo viên</a>   
+                                                            <a href="<?php echo Url::to(['teacher/get-teachers']) ?>">Giảng viên</a>
                                                         </li>
                                                         <li class="item item-primary item-bg">
                                                             <a href="<?php echo Url::to(['moss/check']) ?>">Kiểm tra sao chép</a>   

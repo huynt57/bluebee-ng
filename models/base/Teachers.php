@@ -5,6 +5,7 @@
 namespace app\models\base;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the base-model class for table "teachers".
@@ -16,12 +17,14 @@ use Yii;
  * @property string $email
  * @property string $phone
  * @property string $website
- * @property integer $created_at
- * @property integer $updated_at
  * @property double $stars
  * @property integer $number_rated
  * @property integer $department
  * @property integer $status
+ * @property string $address
+ * @property string $research
+ * @property integer $created_at
+ * @property integer $updated_at
  * @property string $aliasModel
  */
 abstract class Teachers extends \yii\db\ActiveRecord
@@ -41,12 +44,24 @@ abstract class Teachers extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+            ],
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function rules()
     {
         return [
-            [['description', 'avatar'], 'string'],
-            [['created_at', 'updated_at', 'number_rated', 'department', 'status'], 'integer'],
+            [['description', 'avatar', 'address', 'research'], 'string'],
             [['stars'], 'number'],
+            [['number_rated', 'department', 'status'], 'integer'],
             [['name', 'email', 'phone', 'website'], 'string', 'max' => 255]
         ];
     }
@@ -70,6 +85,8 @@ abstract class Teachers extends \yii\db\ActiveRecord
             'number_rated' => 'Number Rated',
             'department' => 'Department',
             'status' => 'Status',
+            'address' => 'Address',
+            'research' => 'Research',
         ];
     }
 

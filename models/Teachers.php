@@ -10,16 +10,18 @@ use app\models\TeacherSubject;
 /**
  * This is the model class for table "teachers".
  */
-class Teachers extends BaseTeachers {
+class Teachers extends BaseTeachers
+{
 
-    public static function getAllLatestTeachers() {
+    public static function getAllLatestTeachers()
+    {
         $query = Teachers::find()->orderBy('id desc');
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count()]);
         $pages->defaultPageSize = 12;
         $models = $query->offset($pages->offset)
-                ->limit($pages->limit)
-                ->all();
+            ->limit($pages->limit)
+            ->all();
         $departments = Departments::find()->orderBy('name', 'desc')->all();
         return [
             'models' => $models,
@@ -43,7 +45,8 @@ class Teachers extends BaseTeachers {
         ];
     }
 
-    public static function getTeacherById($id) {
+    public static function getTeacherById($id)
+    {
         $teacher = Teachers::findOne(['id' => $id]);
         $retVal = array();
         $retVal['id'] = $teacher->id;
@@ -53,28 +56,34 @@ class Teachers extends BaseTeachers {
         $retVal['email'] = $teacher->email;
         $retVal['phone'] = $teacher->phone;
         $retVal['website'] = $teacher->website;
-        $retVal['stars'] = round($teacher->stars / $teacher->number_rated);
-        $retVal['number_rated'] = $teacher->number_rated;
+        if ($teacher->number_rated != 0) {
+
+            $retVal['stars'] = round($teacher->stars / $teacher->number_rated);
+            $retVal['number_rated'] = $teacher->number_rated;
+        } else {
+            $retVal['stars'] = 1;
+            $retVal['number_rated'] = 1;
+        }
         $retVal['department'] = Departments::findOne(['id' => $teacher->department])->name;
         $retVal['created_at'] = Date('d/m/Y', $teacher->created_at);
         $retVal['updated_at'] = Date('d/m/Y', $teacher->updated_at);
         return $retVal;
     }
 
-    public static function getTeachersBySubject($subject) {
+    public static function getTeachersBySubject($subject)
+    {
         $query = TeacherSubject::find()->where(['subject_id' => $subject])->orderBy('id desc');
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count()]);
         $models = $query->offset($pages->offset)
-                ->limit($pages->limit)
-                ->all();
+            ->limit($pages->limit)
+            ->all();
         $departments = Departments::find()->orderBy('name', 'desc')->all();
 
         $returnArr = [];
 
-        foreach($models as $item)
-        {
-            $itemArr = Teachers::findOne(['id'=>$item->id]);
+        foreach ($models as $item) {
+            $itemArr = Teachers::findOne(['id' => $item->id]);
             $returnArr[] = $itemArr;
         }
 
@@ -85,28 +94,31 @@ class Teachers extends BaseTeachers {
         ];
     }
 
-    public static function rateTeacher($teacher, $stars) {
+    public static function rateTeacher($teacher, $stars)
+    {
         $model = Teachers::findOne(['id' => $teacher]);
         $model->number_rated++;
-        $model->stars+=$stars;
+        $model->stars += $stars;
         if ($model->save(FALSE)) {
             return true;
         }
         return false;
     }
 
-    public static function getRelatedTeachers() {
+    public static function getRelatedTeachers()
+    {
         $teachers = Teachers::find()->orderBy(new \yii\db\Expression('rand()'))->limit(5)->all();
         return $teachers;
     }
 
-    public static function searchTeachers($search) {
+    public static function searchTeachers($search)
+    {
         $query = Teachers::find()->filterWhere(['like', 'name', $search]);
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count()]);
         $models = $query->offset($pages->offset)
-                ->limit($pages->limit)
-                ->all();
+            ->limit($pages->limit)
+            ->all();
         return [
             'models' => $models,
             'pages' => $pages,

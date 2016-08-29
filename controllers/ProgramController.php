@@ -3,6 +3,8 @@
 namespace app\controllers;
 
 use app\models\Departments;
+use app\models\TblTeacher;
+use app\models\Teachers;
 use Yii;
 
 
@@ -44,5 +46,27 @@ class ProgramController extends \yii\web\Controller {
 //            $sub->save();
 //        }
 //    }
+
+
+    public function actionAddTeacher() {
+        $o_subs = TblTeacher::find()->all();
+        foreach ($o_subs as $item) {
+            $sub = new Teachers();
+            $sub->name = $item->teacher_acadamic_title .' '. $item->teacher_name;
+            $sub->description = $item->teacher_description;
+            $sub->updated_at = time();
+            $sub->created_at = time();
+            $sub->status = 1;
+            $sub->avatar = '';
+            $sub->phone = $item->teacher_phone;
+            $sub->email = $item->teacher_email;
+            $sub->address = $item->teacher_work_place;
+            $sub->website = $item->teacher_personal_page;
+            $sub->avatar = 'https://placeholdit.imgix.net/~text?txtsize=25&txt=270%C3%97270&w=270&h=270';
+            $sub->research = $item->teacher_research;
+            $sub->department = $item->teacher_dept;
+            $sub->save();
+        }
+    }
 
 }

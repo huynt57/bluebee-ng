@@ -18,7 +18,7 @@ $(document).ready(function () {
             success: function (response)
             {
                 $.toast({
-                    heading: 'Thành công',
+                    heading: 'Xong !',
                     text: 'Bạn đã gửi đánh giá thành công',
                     showHideTransition: 'slide',
                     icon: 'success'
@@ -46,7 +46,7 @@ $(document).ready(function () {
             success: function (response)
             {
                 $.toast({
-                    heading: 'Thành công',
+                    heading: 'Xong !',
                     text: 'Bạn đã đánh dấu tài liệu này thành công !',
                     showHideTransition: 'slide',
                     icon: 'success'
