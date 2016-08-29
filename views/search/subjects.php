@@ -12,7 +12,7 @@ use app\components\Util;
                 <div class="col-sm-3 col-md-3">
 
                     <h6><a href="<?php echo Url::to(['document/get-document-by-subject', 'id'=>$item->id])?>"><?php echo $item->name ?></a></h6>
-                    <div class="text-small"><?php echo Util::excerpt($item->description, 213); ?></div>
+                    <div class="text-small"><?php echo Util::excerpt($item->description, 150); ?></div>
 
                 </div>
             <?php endforeach; ?>

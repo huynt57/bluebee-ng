@@ -21,24 +21,26 @@ use app\components\Util;
         <div class="clearfix"></div>
 
 
-        <?php
-        switch ($attr) {
-            case 'teacher':
-                echo Yii::$app->view->render('teachers', ['models' => $models, 'pages' => $pages]);
-                break;
 
-            case 'document':
-                echo Yii::$app->view->render('documents', ['models' => $models, 'pages' => $pages]);
-                break;
-
-            case 'subject':
-                echo Yii::$app->view->render('subjects', ['models' => $models, 'pages' => $pages]);
-                break;
-            default:
-                break;
-        }
-        ?>
 
     </div><!-- .filter-box -->
 </div><!-- .content -->
-</div>
+<?php
+switch ($attr) {
+    case 'teacher':
+        echo Yii::$app->view->render('teachers', ['models' => $models, 'pages' => $pages]);
+        break;
+
+    case 'document':
+        echo Yii::$app->view->render('documents', ['models' => $models, 'pages' => $pages]);
+        break;
+
+    case 'subject':
+        echo Yii::$app->view->render('subjects', ['models' => $models, 'pages' => $pages]);
+        break;
+
+    default:
+        break;
+}
+?>
+

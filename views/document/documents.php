@@ -6,6 +6,14 @@ use app\components\Util; ?>
 <div class="row">
     <div id="catalog" class="col-sm-12 col-md-9 content pull-right">
 
+        <?php if(isset($subject_id)):?>
+            <div class="alert alert-success ">
+                <div class="fa fa-volume-up alert-icon"></div>
+                <strong>Tip!</strong> Bấm <a href="<?php echo Url::to(['teacher/get-teachers-by-subject', 'id'=>$subject_id])?>">đây</a> để xem ai dạy môn này nhé :D
+            </div>
+
+        <?php endif;?>
+
         <div class="clearfix"></div>
 
         <div class="products grid row">

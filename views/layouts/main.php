@@ -48,9 +48,9 @@
 
         <!-- Custom CSS -->
         <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/customizer/pages.css">
-<!--        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/customizer/home-pages-customizer.css">-->
+
         <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/customizer/shop-pages-customizer.css">
-        <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/css/customizer/elements-pages-customizer.css">
+
 
 
         <!-- IE Styles-->

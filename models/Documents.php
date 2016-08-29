@@ -98,7 +98,8 @@ class Documents extends BaseDocuments {
         return [
             'models' => $models,
             'pages' => $pages,
-            'subjects' => $subjects
+            'subjects' => $subjects,
+            'subject_id'=>$subject,
         ];
     }
 

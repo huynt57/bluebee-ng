@@ -5,6 +5,7 @@ namespace app\models;
 use Yii;
 use \app\models\base\Teachers as BaseTeachers;
 use yii\data\Pagination;
+use app\models\TeacherSubject;
 
 /**
  * This is the model class for table "teachers".
@@ -61,15 +62,24 @@ class Teachers extends BaseTeachers {
     }
 
     public static function getTeachersBySubject($subject) {
-        $query = Teachers::find()->where(['subject' => $subject])->orderBy('id desc');
+        $query = TeacherSubject::find()->where(['subject_id' => $subject])->orderBy('id desc');
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count()]);
         $models = $query->offset($pages->offset)
                 ->limit($pages->limit)
                 ->all();
         $departments = Departments::find()->orderBy('name', 'desc')->all();
+
+        $returnArr = [];
+
+        foreach($models as $item)
+        {
+            $itemArr = Teachers::findOne(['id'=>$item->id]);
+            $returnArr[] = $itemArr;
+        }
+
         return [
-            'models' => $models,
+            'models' => $returnArr,
             'pages' => $pages,
             'departments' => $departments,
         ];
