@@ -14,7 +14,10 @@ use app\components\Util;
             <div class="alert alert-info">
                 <strong>Hey !</strong> Các bạn hãy sử dụng nút Download để ủng hộ Bluebee và uploader nha :D.
             </div>
+
+
             <div class="col-sm-8 col-md-8">
+
                 <div class="image-box">
 <!--                    <span class="sale top"></span>-->
                     <div class="general">
@@ -59,6 +62,8 @@ use app\components\Util;
                 </div>
             </div>
         </div>
+        <br>
+        <div class="fb-like" data-href="<?php echo Url::to(['document/item', 'id' => $data['id']], true) ?>" data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
 
         <div>
             <h3 class="title" style="

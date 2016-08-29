@@ -47,8 +47,9 @@ class DocumentController extends \yii\web\Controller {
         try {
             $id = $request->get('id', '');
             $document = Documents::getDocumentById($id);
-            $related_documents = Documents::getRelatedDocuments();
             Yii::$app->view->title = $document['name'];
+            $related_documents = Documents::getRelatedDocuments();
+
             Yii::$app->view->registerMetaTag([
                 'name' => 'description',
                 'content' => $document['description']
