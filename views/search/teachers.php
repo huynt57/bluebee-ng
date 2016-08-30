@@ -14,22 +14,22 @@ use app\components\Util;
                 <div class="col-sm-3 col-md-3 col-sm-3 col-md-3 employee rotation" style="float: left !important;">
                     <div class="default">
 
-                        <a href="<?php echo Url::to(['item', 'id' => $item->id]) ?>" class="image">
+                        <a href="<?php echo Url::to(['teacher/item', 'id' => $item->id]) ?>" class="image">
                             <img class="replace-2x" src="<?php echo Util::makeUrlImage($item->avatar) ?>" alt="" title="" width="270" height="270">
                         </a>
                         <div class="description">
                             <div class="vertical">
                                 <h3 class="name">
-                                    <a href="<?php echo Url::to(['item', 'id' => $item->id]) ?>"><?php echo $item->name ?></a>
+                                    <a href="<?php echo Url::to(['teacher/item', 'id' => $item->id]) ?>"><?php echo $item->name ?></a>
                                 </h3>
 
                             </div>
                         </div>
                     </div>
-                    <a href="<?php echo Url::to(['item', 'id' => $item->id]) ?>">
+                    <a href="<?php echo Url::to(['teacher/item', 'id' => $item->id]) ?>">
                         <div class="employee-hover">
                             <h3 class="name">
-                                <a href="<?php echo Url::to(['item', 'id' => $item->id]) ?>"><?php echo $item->name ?></a>
+                                <a href="<?php echo Url::to(['teacher/item', 'id' => $item->id]) ?>"><?php echo $item->name ?></a>
                             </h3>
 
                             <div>

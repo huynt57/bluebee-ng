@@ -16,22 +16,22 @@ use app\components\Util;
                 <div class="col-sm-3 col-md-3 col-sm-3 col-md-3 product rotation" style="float: left !important;">
                     <div class="default">
                         <!--                        <span class="sale top"></span>-->
-                        <a href="<?php echo Url::to(['item', 'id'=>$item->id])?>" class="product-image">
+                        <a href="<?php echo Url::to(['document/item', 'id'=>$item->id])?>" class="product-image">
                             <img class="replace-2x" src="<?php echo Util::makeUrlImage($item->preview) ?>" alt="" title="" width="270" height="270">
                         </a>
                         <div class="product-description">
                             <div class="vertical">
                                 <h3 class="product-name">
-                                    <a href="<?php echo Url::to(['item', 'id'=>$item->id])?>"><?php echo $item->name ?></a>
+                                    <a href="<?php echo Url::to(['document/item', 'id'=>$item->id])?>"><?php echo $item->name ?></a>
                                 </h3>
 
                             </div>
                         </div>
                     </div>
-                    <a href="<?php echo Url::to(['item', 'id'=>$item->id])?>">
+                    <a href="<?php echo Url::to(['document/item', 'id'=>$item->id])?>">
                         <div class="product-hover">
                             <h3 class="product-name">
-                                <a href="<?php echo Url::to(['item', 'id'=>$item->id])?>"><?php echo $item->name ?></a>
+                                <a href="<?php echo Url::to(['document/item', 'id'=>$item->id])?>"><?php echo $item->name ?></a>
                             </h3>
                             <p>
                                 <?php echo $item->description; ?>

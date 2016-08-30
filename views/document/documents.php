@@ -33,10 +33,10 @@ use app\components\Util; ?>
                             </div>
                         </div>
                     </div>
-                    <a href="<?php echo Url::to(['item', 'id'=>$item->id])?>">
+                    <a href="<?php echo Url::to(['document/item', 'id'=>$item->id])?>">
                     <div class="product-hover">
                         <h3 class="product-name">
-                            <a href="<?php echo Url::to(['item', 'id'=>$item->id])?>"><?php echo $item->name ?></a>
+                            <a href="<?php echo Url::to(['document/item', 'id'=>$item->id])?>"><?php echo $item->name ?></a>
                         </h3>
                         <p>
     <?php echo $item->description; ?>

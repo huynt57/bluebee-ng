@@ -23,7 +23,7 @@ class DocumentController extends \yii\web\Controller {
         $value['description'] = $request->post('description', '');
         $value['subject'] = $request->post('subject', '');
 
-        $check_subject = Subjects::find()->where(['id'=>subject])->count();
+        $check_subject = Subjects::find()->where(['id'=> $request->post('subject', '')])->count();
 
         if($check_subject == 0)
         {
@@ -38,13 +38,22 @@ class DocumentController extends \yii\web\Controller {
 
         if (isset($_FILES[$fileName])) {
             $uploaded = Util::upload($fileName);
-            $value['path'] = $uploaded['path'];
-            $value['preview'] = $uploaded['preview'];
-            $value['pdf'] = $uploaded['pdf'];
-            $value['original_url'] = $uploaded['original_url'];
-            $value['scribd_id'] = $uploaded['scribd_id'];
-            $message = Documents::upload($value);
-            return json_encode($message);
+
+            if($uploaded['status'] == false)
+            {
+                return json_encode($uploaded['message']);
+            } else {
+
+                $value['path'] = $uploaded['path'];
+                $value['preview'] = $uploaded['preview'];
+                $value['pdf'] = $uploaded['pdf'];
+                $value['original_url'] = $uploaded['original_url'];
+                $value['scribd_id'] = $uploaded['scribd_id'];
+                $message = Documents::upload($value);
+                return json_encode($message);
+            }
+        } else {
+            return json_encode(Util::arrayError('Bạn phải đính kèm file', ''));
         }
         return false;
     }

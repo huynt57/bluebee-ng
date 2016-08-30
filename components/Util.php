@@ -122,16 +122,25 @@ class Util {
         $save = $storeFolder . $name . '.' . $file->extension;
         $original_url = $relative_path . $name . '.' . $file->extension;
         $extension = strtolower($file->extension);
-        $mime = FileHelper::getMimeType($file);
+      //  $mime = FileHelper::getMimeType($file);
         if (!in_array($extension, $ext_arr)) {
-            return;
+            return [
+                'status' => 0,
+                'message' => 'Phần mở rộng file của bạn không hợp lệ'
+            ];
         }
         if ($file->size > Yii::$app->params['MAX_FILE_SIZE']) {
-            return;
+            return [
+                'status' => 0,
+                'message' => 'Bạn không thể tải lên file quá 8MB'
+            ];
         }
-        if (!in_array($mime, $mime_arr)) {
-            return;
-        }
+//        if (!in_array($mime, $mime_arr)) {
+//            return [
+//                'status' => false,
+//                'message' => 'Loại file của bạn không hợp lệ'
+//            ];
+//        }
         $file->saveAs($save);
 
         switch ($extension) {
@@ -167,6 +176,7 @@ class Util {
         $retVal['path'] = $save;
         $retVal['pdf'] = $pdf;
         $retVal['original_url'] = $original_url;
+        $retVal['status'] = true;
         return $retVal;
     }
 

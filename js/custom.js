@@ -181,11 +181,17 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (response)
             {
-                $("#form-upload")[0].reset();
-                hideProgressBar();
-                $('#modal-upload').modal('hide');
-                $('#message-success').html('Tài liệu của bạn đã được đăng thành công. Bạn có thể kiểm tra tại <a href="/document/item/' + response.data + '" target="_blank">đây</a>');
-                $('#modal-success').modal('show');
+                if(response.status == 1) {
+                    $("#form-upload")[0].reset();
+                    hideProgressBar();
+                    $('#modal-upload').modal('hide');
+                    $('#message-success').html('Tài liệu của bạn đã được đăng thành công. Bạn có thể kiểm tra tại <a href="/document/item/' + response.data + '" target="_blank">đây</a>');
+                    $('#modal-success').modal('show');
+                } else {
+                    $("#form-upload")[0].reset();
+                    hideProgressBar();
+                    alert(response.message);
+                }
             },
             always: function ()
             {

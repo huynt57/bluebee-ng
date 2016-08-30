@@ -120,10 +120,11 @@ class Documents extends BaseDocuments {
         $query = Documents::find()->where(['user' => $user])->orderBy('id desc');
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $pages->defaultPageSize = 27;
         $models = $query->offset($pages->offset)
                 ->limit($pages->limit)
                 ->all();
-        $pages->defaultPageSize = 27;
+
         $subjects = Subjects::find()->orderBy('name', 'desc')->all();
         return [
             'models' => $models,
@@ -136,10 +137,11 @@ class Documents extends BaseDocuments {
         $query = Documents::find()->join('JOIN', 'wishlist', '`wishlist`.`doc_id`=`documents`.`id`')->where(['wishlist.user_id' => $user])->orderBy('wishlist.created_at desc');
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $pages->defaultPageSize = 27;
         $models = $query->offset($pages->offset)
                 ->limit($pages->limit)
                 ->all();
-        $pages->defaultPageSize = 27;
+
         $subjects = Subjects::find()->orderBy('name', 'desc')->all();
         return [
             'models' => $models,

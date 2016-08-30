@@ -211,8 +211,12 @@
                                                             <a href="<?php echo Url::to(['program/index']) ?>">Chương trình đào tạo</a>
                                                         </li>
                                                         <?php if (Yii::$app->session['user_id']): ?>
-                                                            <li class="item item-primary item-bg">
-                                                                <a href="<?php echo Url::to(['user/my-page']) ?>">Trang của tôi</a>   
+                                                            <li class="parent item item-primary item-bg">
+                                                                <a href="<?php echo Url::to(['user/my-page']) ?>">Trang của tôi</a>
+                                                                <ul class="sub">
+                                                                    <li><a href="/user/my-upload">Tài liệu đã upload</a></li>
+                                                                    <li><a href="/user/my-wishlist">Tài liệu đã đánh dấu</a></li>
+                                                                </ul>
                                                             </li>
                                                         <?php else: ?>
                                                             <li class="item item-primary item-bg">
