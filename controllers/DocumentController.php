@@ -10,9 +10,9 @@ use app\models\Wishlist;
 
 class DocumentController extends \yii\web\Controller {
 
-    public function actionIndex() {
-        return $this->render('index');
-    }
+//    public function actionIndex() {
+//        return $this->render('index');
+//    }
 
     public function actionUpload() {
         $fileName = 'file';

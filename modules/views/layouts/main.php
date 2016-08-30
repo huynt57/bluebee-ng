@@ -20,6 +20,11 @@
         <meta class="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+        <?php echo \yii\helpers\Html::csrfMetaTags() ?>
+
+
+
+
         <!-- Favicon -->
         <link rel="shortcut icon" href="<?php echo Yii::getAlias('@web') ?>/img/favicon.ico">
 
@@ -201,6 +206,16 @@
         <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery.scrollbar.min.js"></script>
         <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery.toast.js"></script>
         <script src="<?php echo Yii::getAlias('@web') ?>/js/main.js"></script>
+
+        <script>
+            var csrfToken = $('meta[name="csrf-token"]').attr("content")
+
+            $.ajaxSetup({
+                data: { token: csrfToken }
+            });
+
+        </script>
+
         <script src="<?php echo Yii::getAlias('@web') ?>/js/custom.js"></script>
 
     </body>

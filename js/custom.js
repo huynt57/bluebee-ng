@@ -44,6 +44,7 @@ $(document).ready(function () {
             type: 'POST',
             url: '/document/add-wishlist',
             data: {doc_id: doc_id},
+            dataType: 'json',
             success: function (response)
             {
                 if(response.status == 1) {

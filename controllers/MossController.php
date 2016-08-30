@@ -21,7 +21,13 @@ class MossController extends \yii\web\Controller {
 
     public function actionUpload() {
         $request = Yii::$app->request;
-        $lang = $request->post('language');
+        $lang = $request->post('language', '');
+
+        if($lang == '')
+        {
+            return json_encode(['data' => 'Lỗi, bạn phải chọn ngôn ngữ']);
+        }
+
         $result = Util::multipleUpload('file');
         $moss = new Moss(Yii::$app->params['moss_id']);
         $moss->setLanguage($lang);

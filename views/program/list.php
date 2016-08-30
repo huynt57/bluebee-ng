@@ -6,7 +6,7 @@
             <div class="post bg number twitter">
 
                 <div class="social-data">
-                <?php echo $department->name; ?>
+                <a href="<?php echo \yii\helpers\Url::to(['program/suggest', 'id'=>$department->id])?>"><?php echo $department->name; ?></a>
                 </div>
             </div>
         </article><!-- .isotope-item -->

@@ -9,6 +9,9 @@
     <head>
         <meta charset="utf-8">
         <title>Bluebee-uet.com | Mọi thứ bạn cần để trở thành một UET-er</title>
+        <meta name="robots" content="noodp,noydir"/>
+        <meta name="description" content="Bluebee-UET.com, website chia sẻ tài liệu tốt nhất cho sinh viên UET"/>
+        <?php echo \yii\helpers\Html::csrfMetaTags() ?>
         <?php
         $metaTags = Yii::$app->view->metaTags;
         if (!empty($metaTags)) {
@@ -56,6 +59,16 @@
         <!-- IE Styles-->
         <link rel='stylesheet' href="<?php echo Yii::getAlias('@web') ?>/css/ie/ie.css">
 
+        <style>
+            .alert > a {
+                color: white;
+            }
+
+            .social-data  > a {
+                color: white;
+            }
+        </style>
+
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.<?php echo Yii::getAlias('@web') ?>/js/1.4.2/respond.min.js"></script>
@@ -64,6 +77,11 @@
     </head>
     <body class="fixed-header">
         <div id="fb-root"></div>
+        <script>
+
+
+        </script>
+
         <script>(function (d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
                 if (d.getElementById(id))
@@ -404,10 +422,14 @@
                                 <label for="file">Đính kèm file</label>
                                 <input type="file" id="document" name="file">
                             </div>
+
+                            <input type="hidden" name="<?php echo \Yii::$app->request->csrfParam ?>" value="<?php echo \Yii::$app->request->csrfToken?>" >
                         </form>
                         <div class="progress progress-striped active" id="progress-upload" style="display: none">
                             <div class="progress-bar progress-bar-info" style="width: 80%;" id="progress-info"></div>
                         </div>
+
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
@@ -505,6 +527,16 @@
         <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery.scrollbar.min.js"></script>
         <script src="<?php echo Yii::getAlias('@web') ?>/js/jquery.toast.js"></script>
         <script src="<?php echo Yii::getAlias('@web') ?>/js/main.js"></script>
+        <script>
+
+            $.ajaxSetup({
+                data: <?php echo \yii\helpers\Json::encode([
+                \Yii::$app->request->csrfParam => \Yii::$app->request->csrfToken,
+            ]) ?>
+            });
+        </script>
+
+        </script>
         <script src="<?php echo Yii::getAlias('@web') ?>/js/custom.js"></script>
 
     </body>

@@ -25,7 +25,7 @@ class Documents extends BaseDocuments {
         $document->token = $token;
         // echo \yii\helpers\Url::home(true) . $value['original_url'];die;
         $document->money_url = Util::makeOuoUrl(\yii\helpers\Url::home(true) . $value['original_url']);
-        $value['user'] = 1; //for testing
+        //$value['user'] = 1; //for testing
         $user = Users::findOne(['id' => $value['user']]);
         if (!$user) {
             return Util::arrayError('Error !');

@@ -34,6 +34,12 @@ class UserController extends \yii\web\Controller {
     public function actionMyPage() {
         try {
             $id = Yii::$app->session['user_id'];
+
+            if(empty($id))
+            {
+                $this->redirect('http://bluebee-uet.com');
+            }
+
             $data = Users::getUserById($id);
             Yii::$app->view->title = $data['name'] . ', chào mừng trở lại';
             return $this->render('profile', ['profile' => $data]);

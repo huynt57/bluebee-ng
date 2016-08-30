@@ -25,6 +25,7 @@
                 <label for="file">Upload các file cần check</label>
                 <input type="file" id="file" name="file[]" multiple>
             </div>
+            <input type="hidden" name="<?php echo \Yii::$app->request->csrfParam ?>" value="<?php echo \Yii::$app->request->csrfToken?>" >
             <button class="btn btn-primary" type="submit" id="btn-moss">Gửi</button>
         </form>
         <div class="progress progress-striped active" id="progress-upload" style="display: none">
