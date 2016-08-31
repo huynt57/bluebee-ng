@@ -17,6 +17,23 @@ class ProgramController extends \yii\web\Controller {
 
         Yii::$app->view->title = 'Xem chương trình đào tạo các ngành';
 
+        Yii::$app->view->registerMetaTag([
+            'name' => 'description',
+            'content' => 'Bluebee-UET.com - Chương trình đào tạo chuẩn UET'
+        ]);
+        Yii::$app->view->registerMetaTag([
+            'property' => 'og:title',
+            'content' => 'Bluebee-UET.com - Chương trình đào tạo chuẩn UET'
+        ]);
+        Yii::$app->view->registerMetaTag([
+            'property' => 'og:description',
+            'content' => 'Bluebee-UET.com - Chương trình đào tạo chuẩn UET'
+        ]);
+        Yii::$app->view->registerMetaTag([
+            'property' => 'og:image',
+            'content' => 'http://bluebee-uet.com/img/logo.jpg'
+        ]);
+
         return $this->render('list', ['departments'=>$departments]);
     }
 
@@ -28,6 +45,23 @@ class ProgramController extends \yii\web\Controller {
         $department_name = Departments::findOne(['id'=>$department_id])->name;
 
         Yii::$app->view->title = 'Chương trình đào tạo ngành: ' . $department_name;
+
+        Yii::$app->view->registerMetaTag([
+            'name' => 'description',
+            'content' => 'Bluebee-UET.com - Chương trình đào tạo ngành: ' . $department_name
+        ]);
+        Yii::$app->view->registerMetaTag([
+            'property' => 'og:title',
+            'content' => 'Bluebee-UET.com - Chương trình đào tạo ngành: ' . $department_name
+        ]);
+        Yii::$app->view->registerMetaTag([
+            'property' => 'og:description',
+            'content' => 'Bluebee-UET.com - Chương trình đào tạo ngành: ' . $department_name
+        ]);
+        Yii::$app->view->registerMetaTag([
+            'property' => 'og:image',
+            'content' => 'http://bluebee-uet.com/img/logo.jpg'
+        ]);
 
         return $this->render('index', ['department_name' => $department_name, 'department_id'=>$department_id]);
     }

@@ -14,6 +14,25 @@ class SearchController extends \yii\web\Controller {
         try {
             $query = $request->get('search-string', '');
             Yii::$app->view->title = 'Kết quả tìm kiếm cho ' . $query;
+
+            Yii::$app->view->registerMetaTag([
+                'name' => 'description',
+                'content' => 'Bluebee-UET.com - Kết quả tìm kiếm cho ' . $query
+            ]);
+            Yii::$app->view->registerMetaTag([
+                'property' => 'og:title',
+                'content' => 'Bluebee-UET.com - Kết quả tìm kiếm cho ' . $query
+            ]);
+            Yii::$app->view->registerMetaTag([
+                'property' => 'og:description',
+                'content' => 'Bluebee-UET.com - Kết quả tìm kiếm cho ' . $query
+            ]);
+            Yii::$app->view->registerMetaTag([
+                'property' => 'og:image',
+                'content' => 'http://bluebee-uet.com/img/logo.jpg'
+            ]);
+
+
             $attr = $request->get('attr', '');
             switch ($attr) {
                 case 'teacher':

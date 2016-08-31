@@ -123,7 +123,7 @@
                                 url: '<?php echo Url::to(['user/login-with-facebook']) ?>',
                                 type: 'POST',
                                 data: {
-                                    token: '<?php echo Yii::$app->request->csrfToken ?>',
+                                    _csrf: '<?php echo Yii::$app->request->csrfToken ?>',
                                     facebook_id: response.id,
                                     gender: response.gender,
                                     name: response.name,

@@ -27,6 +27,27 @@ class TeacherController extends \yii\web\Controller {
             $department = $request->get('id', '');
             $teachers = Teachers::getTeachersByDepartment($department);
             $department_name = Departments::findOne(['id' => $department])->name;
+
+
+
+            Yii::$app->view->registerMetaTag([
+                'name' => 'description',
+                'content' => 'Bluebee-UET.com - Giảng viên ngành: ' . $department_name
+            ]);
+            Yii::$app->view->registerMetaTag([
+                'property' => 'og:title',
+                'content' => 'Bluebee-UET.com - Giảng viên ngành: ' . $department_name
+            ]);
+            Yii::$app->view->registerMetaTag([
+                'property' => 'og:description',
+                'content' => 'Bluebee-UET.com - Giảng viên ngành: ' . $department_name
+            ]);
+            Yii::$app->view->registerMetaTag([
+                'property' => 'og:image',
+                'content' => 'http://bluebee-uet.com/img/logo.jpg'
+            ]);
+
+
             Yii::$app->view->title = 'Giảng viên ngành: ' . $department_name;
             return $this->render('teachers', $teachers);
         } catch (Exception $ex) {
@@ -41,6 +62,26 @@ class TeacherController extends \yii\web\Controller {
             $teachers = Teachers::getTeachersBySubject($subject);
             $subject_name = Subjects::findOne(['id' => $subject])->name;
             Yii::$app->view->title = 'Giảng viên môn ' . $subject_name;
+
+
+            Yii::$app->view->registerMetaTag([
+                'name' => 'description',
+                'content' => 'Bluebee-UET.com - Giảng viên môn ' . $subject_name
+            ]);
+            Yii::$app->view->registerMetaTag([
+                'property' => 'og:title',
+                'content' => 'Bluebee-UET.com - Giảng viên môn ' . $subject_name
+            ]);
+            Yii::$app->view->registerMetaTag([
+                'property' => 'og:description',
+                'content' => 'Bluebee-UET.com - Giảng viên môn ' . $subject_name
+            ]);
+            Yii::$app->view->registerMetaTag([
+                'property' => 'og:image',
+                'content' => 'http://bluebee-uet.com/img/logo.jpg'
+            ]);
+
+
             return $this->render('teachers', $teachers);
         } catch (Exception $ex) {
             
@@ -54,6 +95,26 @@ class TeacherController extends \yii\web\Controller {
             $document = Teachers::getTeacherById($id);
             $related_teachers = Teachers::getRelatedTeachers();
             Yii::$app->view->title = 'Giảng viên: ' .$document['name'];
+
+
+            Yii::$app->view->registerMetaTag([
+                'name' => 'description',
+                'content' => 'Bluebee-UET.com - Giảng viên: ' .$document['name']
+            ]);
+            Yii::$app->view->registerMetaTag([
+                'property' => 'og:title',
+                'content' => 'Bluebee-UET.com - Giảng viên: ' .$document['name']
+            ]);
+            Yii::$app->view->registerMetaTag([
+                'property' => 'og:description',
+                'content' => 'Bluebee-UET.com - Giảng viên: ' .$document['name']
+            ]);
+            Yii::$app->view->registerMetaTag([
+                'property' => 'og:image',
+                'content' => 'http://bluebee-uet.com/img/logo.jpg'
+            ]);
+
+
             return $this->render('item', ['data' => $document, 'related_teachers'=>$related_teachers]);
         } catch (Exception $ex) {
             

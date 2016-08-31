@@ -13,8 +13,29 @@ class MossController extends \yii\web\Controller {
     }
 
     public function actionCheck() {
+
+        Yii::$app->view->registerMetaTag([
+            'name' => 'description',
+            'content' => 'Bluebee-UET.com - Kiểm tra sao chép code'
+        ]);
+        Yii::$app->view->registerMetaTag([
+            'property' => 'og:title',
+            'content' => 'Bluebee-UET.com - Kiểm tra sao chép code'
+        ]);
+        Yii::$app->view->registerMetaTag([
+            'property' => 'og:description',
+            'content' => 'Bluebee-UET.com - Kiểm tra sao chép code'
+        ]);
+        Yii::$app->view->registerMetaTag([
+            'property' => 'og:image',
+            'content' => 'http://bluebee-uet.com/img/logo.jpg'
+        ]);
+
+
         $languages = Yii::$app->params['moss_languages'];
         Yii::$app->view->title = 'Kiểm tra sao chép code';
+
+
 
         return $this->render('index', ['languages' => $languages]);
     }

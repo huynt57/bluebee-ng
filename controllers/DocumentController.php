@@ -102,6 +102,25 @@ class DocumentController extends \yii\web\Controller {
             $documents = Documents::getDocumentsBySubject($subject);
             $subject_name = Subjects::findOne(['id' => $subject])->name;
             Yii::$app->view->title = 'Tài liệu môn ' . $subject_name;
+
+            Yii::$app->view->registerMetaTag([
+                'name' => 'description',
+                'content' => 'Bluebee-UET.com - Tài liệu môn ' . $subject_name
+            ]);
+            Yii::$app->view->registerMetaTag([
+                'property' => 'og:title',
+                'content' => 'Bluebee-UET.com - Tài liệu môn ' . $subject_name
+            ]);
+            Yii::$app->view->registerMetaTag([
+                'property' => 'og:description',
+                'content' => 'Bluebee-UET.com - Tài liệu môn ' . $subject_name
+            ]);
+            Yii::$app->view->registerMetaTag([
+                'property' => 'og:image',
+                'content' => 'http://bluebee-uet.com/img/logo.jpg'
+            ]);
+
+
             return $this->render('documents', $documents);
         } catch (Exception $ex) {
             

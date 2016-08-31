@@ -42,6 +42,8 @@ class UserController extends \yii\web\Controller {
 
             $data = Users::getUserById($id);
             Yii::$app->view->title = $data['name'] . ', chào mừng trở lại';
+
+
             return $this->render('profile', ['profile' => $data]);
         } catch (Exception $ex) {
             
@@ -73,6 +75,8 @@ class UserController extends \yii\web\Controller {
     }
 
     public function actionOther() {
+
+        $this->redirect('http://bluebee-uet.com');
         
     }
 
