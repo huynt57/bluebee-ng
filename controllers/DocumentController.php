@@ -7,6 +7,8 @@ use Yii;
 use app\components\Util;
 use app\models\Subjects;
 use app\models\Wishlist;
+use yii\caching\ApcCache;
+use yii\caching\Cache;
 
 class DocumentController extends \yii\web\Controller {
 
@@ -128,6 +130,8 @@ class DocumentController extends \yii\web\Controller {
     }
 
     public function actionAddWishlist() {
+
+
         $request = Yii::$app->request;
         try {
             $doc_id = $request->post('doc_id', '');

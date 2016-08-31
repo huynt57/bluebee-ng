@@ -22,7 +22,14 @@ class Teachers extends BaseTeachers
         $models = $query->offset($pages->offset)
             ->limit($pages->limit)
             ->all();
-        $departments = Departments::find()->orderBy('name', 'desc')->all();
+        if(!Yii::$app->cache->exists('departments'))
+        {
+            $departments = Departments::find()->orderBy('name', 'desc')->all();
+            Yii::$app->cache->add('departments', $departments, 3600);
+        } else {
+            $departments = Yii::$app->cache->get('departments');
+        }
+
         return [
             'models' => $models,
             'pages' => $pages,
@@ -80,7 +87,15 @@ class Teachers extends BaseTeachers
         $models = $query->offset($pages->offset)
             ->limit($pages->limit)
             ->all();
-        $departments = Departments::find()->orderBy('name', 'desc')->all();
+
+
+        if(!Yii::$app->cache->exists('departments'))
+        {
+            $departments = Departments::find()->orderBy('name', 'desc')->all();
+            Yii::$app->cache->add('departments', $departments, 3600);
+        } else {
+            $departments = Yii::$app->cache->get('departments');
+        }
 
         $returnArr = [];
 
@@ -135,7 +150,13 @@ class Teachers extends BaseTeachers
         $models = $query->offset($pages->offset)
             ->limit($pages->limit)
             ->all();
-        $departments = Departments::find()->orderBy('name', 'desc')->all();
+        if(!Yii::$app->cache->exists('departments'))
+        {
+            $departments = Departments::find()->orderBy('name', 'desc')->all();
+            Yii::$app->cache->add('departments', $departments, 3600);
+        } else {
+            $departments = Yii::$app->cache->get('departments');
+        }
         return [
             'models' => $models,
             'pages' => $pages,

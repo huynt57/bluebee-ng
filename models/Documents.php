@@ -52,7 +52,16 @@ class Documents extends BaseDocuments {
         $models = $query->offset($pages->offset)
                 ->limit($pages->limit)
                 ->all();
-        $subjects = Subjects::find()->orderBy('name', 'desc')->all();
+
+
+        if(!Yii::$app->cache->exists('subjects'))
+        {
+            $subjects = Subjects::find()->orderBy('name', 'desc')->all();
+            Yii::$app->cache->add('subjects', $subjects, 3600);
+        } else {
+            $subjects = Yii::$app->cache->get('subjects');
+        }
+
         return [
             'models' => $models,
             'pages' => $pages,
@@ -94,7 +103,13 @@ class Documents extends BaseDocuments {
         $models = $query->offset($pages->offset)
                 ->limit($pages->limit)
                 ->all();
-        $subjects = Subjects::find()->orderBy('name', 'desc')->all();
+        if(!Yii::$app->cache->exists('subjects'))
+        {
+            $subjects = Subjects::find()->orderBy('name', 'desc')->all();
+            Yii::$app->cache->add('subjects', $subjects, 3600);
+        } else {
+            $subjects = Yii::$app->cache->get('subjects');
+        }
         return [
             'models' => $models,
             'pages' => $pages,
@@ -125,7 +140,13 @@ class Documents extends BaseDocuments {
                 ->limit($pages->limit)
                 ->all();
 
-        $subjects = Subjects::find()->orderBy('name', 'desc')->all();
+        if(!Yii::$app->cache->exists('subjects'))
+        {
+            $subjects = Subjects::find()->orderBy('name', 'desc')->all();
+            Yii::$app->cache->add('subjects', $subjects, 3600);
+        } else {
+            $subjects = Yii::$app->cache->get('subjects');
+        }
         return [
             'models' => $models,
             'pages' => $pages,
@@ -142,7 +163,13 @@ class Documents extends BaseDocuments {
                 ->limit($pages->limit)
                 ->all();
 
-        $subjects = Subjects::find()->orderBy('name', 'desc')->all();
+        if(!Yii::$app->cache->exists('subjects'))
+        {
+            $subjects = Subjects::find()->orderBy('name', 'desc')->all();
+            Yii::$app->cache->add('subjects', $subjects, 3600);
+        } else {
+            $subjects = Yii::$app->cache->get('subjects');
+        }
         return [
             'models' => $models,
             'pages' => $pages,

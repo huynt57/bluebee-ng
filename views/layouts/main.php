@@ -73,9 +73,20 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.<?php echo Yii::getAlias('@web') ?>/js/1.4.2/respond.min.js"></script>
                               <link rel='stylesheet' href="<?php echo Yii::getAlias('@web') ?>/css/ie/ie8.css">
+
         <![endif]-->
     </head>
     <body class="fixed-header">
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-83431631-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
         <div id="fb-root"></div>
         <script>
 
