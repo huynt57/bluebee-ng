@@ -60,16 +60,17 @@ use app\components\Util;
                                     <div class="pull-left">Đánh giá <span class="required">*</span></div>
 <!--                                        <label for="description">Đánh giá <span class="required">*</span></label>-->
                                     <div class="add-rating">
-                                        <label class="radio"><input type="radio" name="radio"><span class="stars">1</span></label>
-                                        <label class="radio"><input type="radio" name="radio"><span class="stars">2</span></label>
-                                        <label class="radio"><input type="radio" name="radio"><span class="stars">3</span></label>
-                                        <label class="radio"><input type="radio" name="radio"><span class="stars">4</span></label>
-                                        <label class="radio"><input type="radio" name="radio"><span class="stars">5</span></label>
+                                        <label class="radio"><input type="radio" name="stars" value="1"><span class="stars">1</span></label>
+                                        <label class="radio"><input type="radio" name="stars" value="2"><span class="stars">2</span></label>
+                                        <label class="radio"><input type="radio" name="stars" value="3"><span class="stars">3</span></label>
+                                        <label class="radio"><input type="radio" name="stars" value="4"><span class="stars">4</span></label>
+                                        <label class="radio"><input type="radio" name="stars" value="5"><span class="stars">5</span></label>
                                     </div>
 
                                 </div>
                             </div>
                             <input type="hidden" name="teacher" value="<?php echo $data['id'] ?>" />
+                            <input type="hidden" name="<?php echo \Yii::$app->request->csrfParam ?>" value="<?php echo \Yii::$app->request->csrfToken?>" >
                             <br>
                             <div class="form-group">
                                 <label for="description">Một vài comment</label>

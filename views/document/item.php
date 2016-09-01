@@ -6,13 +6,13 @@ use app\components\Util;
 <div class="row">
     <article class="content product-page col-sm-12 col-md-12">
         <div class="row">
-            <div class="alert alert-success  alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <div class="fa fa-volume-up alert-icon"></div>
-                <strong>Tip!</strong> Upload bạn sẽ được thêm điểm. Đạt đến mức nhất định bạn có thể download mà không cần thông qua link ouo.io. Chi tiết xem tại <a href="#">đây</a>
-            </div>
+<!--            <div class="alert alert-success  alert-dismissable">-->
+<!--                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
+<!--                <div class="fa fa-volume-up alert-icon"></div>-->
+<!--                <strong>Tip!</strong> Upload bạn sẽ được thêm điểm. Đạt đến mức nhất định bạn có thể download mà không cần thông qua link ouo.io. Chi tiết xem tại <a href="#">đây</a>-->
+<!--            </div>-->
             <div class="alert alert-info">
-                <strong>Hey !</strong> Các bạn hãy sử dụng nút Download để ủng hộ Bluebee và uploader nha :D.
+                <strong>Hey !</strong> Các bạn hãy sử dụng nút Download để ủng hộ Bluebee nha :D.
             </div>
 
 

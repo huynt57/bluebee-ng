@@ -6,6 +6,7 @@ use Yii;
 use app\components\Util;
 use app\models\Users;
 use app\models\Documents;
+use yii\helpers\HtmlPurifier;
 
 class UserController extends \yii\web\Controller {
 
@@ -53,6 +54,12 @@ class UserController extends \yii\web\Controller {
     public function actionMyUpload() {
         try {
             $id = Yii::$app->session['user_id'];
+
+            if(empty($id))
+            {
+                $this->redirect('http://bluebee-uet.com');
+            }
+
             $data = Documents::getDocumentsByUser($id);
             $user = Users::findOne(['id' => $id]);
             Yii::$app->view->title = $user->name . ', đây là tài liệu bạn đã tải lên';
@@ -65,6 +72,10 @@ class UserController extends \yii\web\Controller {
     public function actionMyWishlist() {
         try {
             $id = Yii::$app->session['user_id'];
+            if(empty($id))
+            {
+                $this->redirect('http://bluebee-uet.com');
+            }
             $data = Documents::getDocumentsByWishlist($id);
             $user = Users::findOne(['id' => $id]);
             Yii::$app->view->title = $user->name . ', đây là tài liệu bạn đã đánh dấu';

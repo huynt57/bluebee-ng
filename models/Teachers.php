@@ -117,7 +117,7 @@ class Teachers extends BaseTeachers
         $model = Teachers::findOne(['id' => $teacher]);
         $model->number_rated++;
         $model->stars += $stars;
-        if ($model->save(FALSE)) {
+        if ($model->save()) {
             return true;
         }
         return false;

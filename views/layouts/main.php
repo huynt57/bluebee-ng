@@ -339,6 +339,8 @@
                             </nav>
                         </aside>
 
+                        <?php if (isset(Yii::$app->session['user_id'])): ?>
+
                         <aside class="col-xs-12 col-sm-6 col-md-3 widget links">
                             <div class="title-block">
                                 <h3 class="title">Tài khoản của tôi</h3>
@@ -352,6 +354,8 @@
                                 </ul>
                             </nav>
                         </aside>
+
+                        <?php endif; ?>
                     </div>
                 </div>
             </div><!-- .footer-top -->

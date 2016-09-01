@@ -18,12 +18,21 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (response)
             {
-                $.toast({
-                    heading: 'Xong !',
-                    text: 'Bạn đã gửi đánh giá thành công',
-                    showHideTransition: 'slide',
-                    icon: 'success'
-                });
+                if(response.status == 1) {
+                    $.toast({
+                        heading: 'Xong !',
+                        text: 'Bạn đã gửi đánh giá thành công',
+                        showHideTransition: 'slide',
+                        icon: 'success'
+                    });
+                } else {
+                    $.toast({
+                        heading: 'Lỗi !',
+                        text: response.message,
+                        showHideTransition: 'slide',
+                        icon: 'error'
+                    });
+                }
             },
             error: function (response)
             {

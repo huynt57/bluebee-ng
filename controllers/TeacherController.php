@@ -7,6 +7,7 @@ use Yii;
 use app\models\Teachers;
 use app\components\Util;
 use app\models\Subjects;
+use yii\helpers\HtmlPurifier;
 
 class TeacherController extends \yii\web\Controller {
 
@@ -24,7 +25,7 @@ class TeacherController extends \yii\web\Controller {
     {
         $request = Yii::$app->request;
         try {
-            $department = $request->get('id', '');
+            $department = HtmlPurifier::process($request->get('id', ''));
             $teachers = Teachers::getTeachersByDepartment($department);
             $department_name = Departments::findOne(['id' => $department])->name;
 
@@ -58,7 +59,7 @@ class TeacherController extends \yii\web\Controller {
     public function actionGetTeachersBySubject() {
         $request = Yii::$app->request;
         try {
-            $subject = $request->get('id', '');
+            $subject = HtmlPurifier::process($request->get('id', ''));
             $teachers = Teachers::getTeachersBySubject($subject);
             $subject_name = Subjects::findOne(['id' => $subject])->name;
             Yii::$app->view->title = 'Giảng viên môn ' . $subject_name;
@@ -91,7 +92,7 @@ class TeacherController extends \yii\web\Controller {
     public function actionItem() {
         $request = Yii::$app->request;
         try {
-            $id = $request->get('id', '');
+            $id = HtmlPurifier::process($request->get('id', ''));
             $document = Teachers::getTeacherById($id);
             $related_teachers = Teachers::getRelatedTeachers();
             Yii::$app->view->title = 'Giảng viên: ' .$document['name'];
@@ -126,9 +127,22 @@ class TeacherController extends \yii\web\Controller {
         $request = Yii::$app->request;
         try {
             $teacher = $request->post('teacher', '');
+
+            $check_teacher = Teachers::find()->where(['id' => $teacher])->count();
+
+            if($check_teacher == 0)
+            {
+                return json_encode(Util::arrayError('Giáo viên không tồn tại', ''));
+            }
+
             $stars = $request->post('stars', '');
+
+            if($stars < 1 || $stars > 5)
+            {
+                return json_encode(Util::arrayError('Điểm không hợp lệ', ''));
+            }
             $result = Teachers::rateTeacher($teacher, $stars);
-            Util::arraySuccess('Success', $result);
+            return json_encode(Util::arraySuccess('Success', $result));
         } catch (Exception $ex) {
             
         }

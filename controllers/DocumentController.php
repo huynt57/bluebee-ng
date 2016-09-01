@@ -9,6 +9,8 @@ use app\models\Subjects;
 use app\models\Wishlist;
 use yii\caching\ApcCache;
 use yii\caching\Cache;
+use yii\helpers\HtmlPurifier;
+
 
 class DocumentController extends \yii\web\Controller {
 
@@ -21,8 +23,8 @@ class DocumentController extends \yii\web\Controller {
         $request = Yii::$app->request;
         $value = array();
         $value['user'] = Yii::$app->session['user_id'];
-        $value['name'] = $request->post('name', '');
-        $value['description'] = $request->post('description', '');
+        $value['name'] = HtmlPurifier::process($request->post('name', ''));
+        $value['description'] = HtmlPurifier::process($request->post('description', ''));
         $value['subject'] = $request->post('subject', '');
 
         $check_subject = Subjects::find()->where(['id'=> $request->post('subject', '')])->count();
@@ -70,7 +72,11 @@ class DocumentController extends \yii\web\Controller {
     public function actionItem() {
         $request = Yii::$app->request;
         try {
+
             $id = $request->get('id', '');
+
+            $id = HtmlPurifier::process($id);
+
             $document = Documents::getDocumentById($id);
             Yii::$app->view->title = $document['name'];
             $related_documents = Documents::getRelatedDocuments();
@@ -100,7 +106,8 @@ class DocumentController extends \yii\web\Controller {
     public function actionGetDocumentBySubject() {
         $request = Yii::$app->request;
         try {
-            $subject = $request->get('id', '');
+            $subject = HtmlPurifier::process($request->get('id', ''));
+
             $documents = Documents::getDocumentsBySubject($subject);
             $subject_name = Subjects::findOne(['id' => $subject])->name;
             Yii::$app->view->title = 'Tài liệu môn ' . $subject_name;

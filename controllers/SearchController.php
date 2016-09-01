@@ -6,6 +6,7 @@ use app\models\Subjects;
 use app\models\Teachers;
 use app\models\Documents;
 use Yii;
+use yii\helpers\HtmlPurifier;
 
 class SearchController extends \yii\web\Controller {
 
@@ -13,6 +14,10 @@ class SearchController extends \yii\web\Controller {
         $request = Yii::$app->request;
         try {
             $query = $request->get('search-string', '');
+
+            $query = HtmlPurifier::process($query);
+
+
             Yii::$app->view->title = 'Kết quả tìm kiếm cho ' . $query;
 
             Yii::$app->view->registerMetaTag([
@@ -33,6 +38,7 @@ class SearchController extends \yii\web\Controller {
             ]);
 
 
+
             $attr = $request->get('attr', '');
             switch ($attr) {
                 case 'teacher':
@@ -45,6 +51,7 @@ class SearchController extends \yii\web\Controller {
                     $data = Subjects::searchSubjects(strtolower($query));
                     break;
                 default:
+                    $this->redirect('http://bluebee-uet.com');
                     break;
             }
             $data['attr'] = $attr;
