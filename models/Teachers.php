@@ -18,7 +18,7 @@ class Teachers extends BaseTeachers
         $query = Teachers::find()->orderBy('id desc');
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count()]);
-        $pages->defaultPageSize = 12;
+        $pages->defaultPageSize = 27;
         $models = $query->offset($pages->offset)
             ->limit($pages->limit)
             ->all();
@@ -84,6 +84,7 @@ class Teachers extends BaseTeachers
         $query = TeacherSubject::find()->where(['subject_id' => $subject])->orderBy('id desc');
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $pages->defaultPageSize = 27;
         $models = $query->offset($pages->offset)
             ->limit($pages->limit)
             ->all();
@@ -147,6 +148,7 @@ class Teachers extends BaseTeachers
         $query = Teachers::find()->where(['department' => $department])->orderBy('id desc');
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $pages->defaultPageSize = 27;
         $models = $query->offset($pages->offset)
             ->limit($pages->limit)
             ->all();

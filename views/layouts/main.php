@@ -180,7 +180,7 @@
                             <div class="row">
                                 <div class="col-xs-6 col-md-2 col-lg-3 logo-box">
                                     <div class="logo">
-                                        <a href="index-2.html">
+                                        <a href="http://bluebee-uet.com">
                                             <img src="<?php echo Yii::getAlias('@web') ?>/img/logo.jpg" class="logo-img" alt="" style="width: auto!important">
                                         </a>
                                     </div>

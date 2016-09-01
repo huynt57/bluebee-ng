@@ -3,9 +3,20 @@
 use yii\widgets\LinkPager;
 use yii\helpers\Url;
 use app\components\Util;
+
 ?>
+<style>
+    .name > a {
+        color: white;
+    }
+
+    .name > a:hover {
+        color: white;
+    }
+
+</style>
 <div class="row">
-    <div id="catalog" class="col-sm-12 col-md-9 content pull-right">
+    <div class="col-sm-12 col-md-9 content pull-right">
 
         <div class="clearfix"></div>
 
@@ -13,23 +24,25 @@ use app\components\Util;
             <?php foreach ($models as $item): ?>
                 <div class="col-sm-4 col-md-4 col-sm-4 col-md-4 employee rotation" style="float: left !important;">
                     <div class="default">
-
-                        <a href="<?php echo Url::to(['item', 'id' => $item->id]) ?>" class="image">
-                            <img class="replace-2x" src="<?php echo Util::makeUrlImage($item->avatar) ?>" alt="" title="" width="270" height="270">
-                        </a>
+                        <div class="image">
+                            <a href="<?php echo Url::to(['teacher/item', 'id' => $item->id]) ?>" class="image">
+                                <img class="replace-2x" src="<?php echo Util::makeUrlImage($item->avatar) ?>" alt="<?php echo $item->name ?>"
+                                     title="" width="270" height="270">
+                            </a>
+                        </div>
                         <div class="description">
                             <div class="vertical">
                                 <h3 class="name">
-                                    <a href="<?php echo Url::to(['item', 'id' => $item->id]) ?>"><?php echo $item->name ?></a>
+                                   <?php echo $item->name ?>
                                 </h3>
 
                             </div>
                         </div>
                     </div>
-                    <a href="<?php echo Url::to(['item', 'id' => $item->id]) ?>">
+                    <a href="<?php echo Url::to(['teacher/item', 'id' => $item->id]) ?>">
                         <div class="employee-hover">
                             <h3 class="name">
-                                <a href="<?php echo Url::to(['item', 'id' => $item->id]) ?>"><?php echo $item->name ?></a>
+                                <a href="<?php echo Url::to(['teacher/item', 'id' => $item->id]) ?>"><?php echo $item->name ?></a>
                             </h3>
 
                             <div>
@@ -54,7 +67,6 @@ use app\components\Util;
                 ]);
                 ?>
 
-               
 
             </div><!-- .pagination-box -->
         <?php endif; ?>
