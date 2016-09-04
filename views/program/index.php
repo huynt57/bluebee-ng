@@ -26,14 +26,14 @@
                 <?php endif;?>
                 >
                     <h2 class="entry-title">
-                        <a href="blog-view.html">Các môn học theo khuyến nghị của nhà trường:</a>
+                        Các môn học theo khuyến nghị của nhà trường:
                     </h2>
 
                     <div class="entry-content">
                         <?php $data =  Util::suggest($department_id, $i) ?>
 
                             <?php foreach($data as $item):?>
-                                    <?php echo $item['subject']; ?><br>
+                                   <a href="<?php echo \yii\helpers\Url::to(['document/get-document-by-subject', 'id' => $item['subject_id']]) ?>"> <?php echo $item['subject']; ?></a><br>
                             <?php endforeach;?>
 
                     </div>

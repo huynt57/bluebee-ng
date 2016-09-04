@@ -13,7 +13,7 @@ use app\components\Util;
             <div class="description">
                 <div class="vertical">
                     <h3 class="name">
-                        <a href="<?php echo Url::to(['item', 'id' => $item->id]) ?>"><?php echo $item->name ?></a>
+                        <a href="<?php echo Url::to(['item', 'id' => $item->id]) ?>" style="color: white"><?php echo $item->name ?></a>
                     </h3>
 
                 </div>
