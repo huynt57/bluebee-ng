@@ -50,6 +50,12 @@ class MossController extends \yii\web\Controller {
         }
 
         $result = Util::multipleUpload('file');
+
+        if(is_array($result))
+        {
+            return json_encode(['data' => $result['message']]);
+        }
+
         $moss = new Moss(Yii::$app->params['moss_id']);
         $moss->setLanguage($lang);
         $moss->addByWildcard($result . '/*');

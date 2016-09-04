@@ -247,7 +247,7 @@ class Util {
         } else {
             $departments = Yii::$app->cache->get('departments');
         }
-        return Departments::find()->orderBy('name')->all();
+        return $departments;
     }
 
     public static function excerpt($text, $numb) {
