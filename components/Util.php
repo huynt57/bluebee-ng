@@ -124,22 +124,14 @@ class Util {
         $extension = strtolower($file->extension);
         $mime = FileHelper::getMimeType($file->tempName, null, false);
         if (!in_array($extension, $ext_arr)) {
-            return [
-                'status' => 0,
-                'message' => 'Phần mở rộng file của bạn không hợp lệ'
-            ];
+            return json_encode(self::arrayError('Phần mở rộng file của bạn không hợp lệ', ''));
         }
         if ($file->size > Yii::$app->params['MAX_FILE_SIZE']) {
-            return [
-                'status' => 0,
-                'message' => 'Bạn không thể tải lên file quá 8MB'
-            ];
+            return json_encode(self::arrayError('Bạn không thể tải lên file quá 8MB', ''));
+
         }
         if (!in_array($mime, $mime_arr)) {
-            return [
-                'status' => false,
-                'message' => 'Loại file của bạn không hợp lệ'
-            ];
+            return json_encode(self::arrayError('Loại file của bạn không hợp lệ', ''));
         }
         $file->saveAs($save);
 
@@ -185,7 +177,7 @@ class Util {
         $relative_path = '/uploads/moss/' . Date('d-m-Y') . '/' . time() . '/';
         $storeFolder = Yii::getAlias('@webroot') . $relative_path;
         $files = UploadedFile::getInstancesByName($fileName);
-        $ext_arr = ['pdf', 'jpg', 'doc', 'docx', 'jpeg', 'png', 'pjepg', 'gif'];
+        $ext_arr = Yii::$app->params['moss_languages'];
         foreach ($files as $file) {
             if (!file_exists($storeFolder)) {
                 mkdir($storeFolder, 0777, true);

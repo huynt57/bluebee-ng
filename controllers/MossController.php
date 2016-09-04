@@ -53,7 +53,7 @@ class MossController extends \yii\web\Controller {
         $moss = new Moss(Yii::$app->params['moss_id']);
         $moss->setLanguage($lang);
         $moss->addByWildcard($result . '/*');
-        $moss->setCommentString("This is a test");
+        $moss->setCommentString("This is a bluebee test");
         //    return $lang;
         return json_encode(['data' => $moss->send()]);
     }

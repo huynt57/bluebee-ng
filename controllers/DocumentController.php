@@ -22,10 +22,33 @@ class DocumentController extends \yii\web\Controller {
         $fileName = 'file';
         $request = Yii::$app->request;
         $value = array();
+
+        if(empty(Yii::$app->session['user_id']))
+        {
+            return json_encode(Util::arrayError('Bạn chưa đăng nhập', ''));
+        }
+
         $value['user'] = Yii::$app->session['user_id'];
-        $value['name'] = HtmlPurifier::process($request->post('name', ''));
+
+        $name = $request->post('name', '');
+
+        if(empty($name))
+        {
+            return json_encode(Util::arrayError('Tên tài liệu không được để trống', ''));
+        }
+
+        $subject = $request->post('subject', '');
+
+        if(empty($subject))
+        {
+            return json_encode(Util::arrayError('Bạn phải lựa chọn môn học', ''));
+        }
+
+        $value['name'] = HtmlPurifier::process($name);
+
+
         $value['description'] = HtmlPurifier::process($request->post('description', ''));
-        $value['subject'] = $request->post('subject', '');
+        $value['subject'] = HtmlPurifier::process($subject);
 
         $check_subject = Subjects::find()->where(['id'=> $request->post('subject', '')])->count();
 
@@ -34,10 +57,7 @@ class DocumentController extends \yii\web\Controller {
             return json_encode(Util::arrayError('Không tồn tại môn học này', ''));
         }
 
-        if(empty(Yii::$app->session['user_id']))
-        {
-            return json_encode(Util::arrayError('Bạn chưa đăng nhập', ''));
-        }
+
 
 
         if (isset($_FILES[$fileName])) {
