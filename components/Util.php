@@ -177,19 +177,14 @@ class Util {
         $relative_path = '/uploads/moss/' . Date('d-m-Y') . '/' . time() . '/';
         $storeFolder = Yii::getAlias('@webroot') . $relative_path;
         $files = UploadedFile::getInstancesByName($fileName);
-        $ext_arr = Yii::$app->params['moss_languages'];
+        $ext_arr = array_keys(Yii::$app->params['moss_languages']);
         foreach ($files as $file) {
             if (!file_exists($storeFolder)) {
                 mkdir($storeFolder, 0777, true);
             }
             $save = $storeFolder . $file->baseName . '.' . $file->extension;
 
-            if (!in_array($file->extension, $ext_arr)) {
-                return [
-                    'status' => 0,
-                    'message' => 'Phần mở rộng file của bạn không hợp lệ'
-                ];
-            }
+           
             if ($file->size > Yii::$app->params['MAX_FILE_SIZE']) {
                 return [
                     'status' => 0,

@@ -46,22 +46,24 @@ class MossController extends \yii\web\Controller {
 
         if($lang == '')
         {
-            return json_encode(['data' => 'Lỗi, bạn phải chọn ngôn ngữ']);
+            return json_encode(Util::arrayError('Bạn phải chọn ngôn ngữ', ''));
         }
 
         $result = Util::multipleUpload('file');
 
         if(is_array($result))
         {
-            return json_encode(['data' => $result['message']]);
+            return json_encode(Util::arrayError($result['message'], ''));
         }
 
         $moss = new Moss(Yii::$app->params['moss_id']);
         $moss->setLanguage($lang);
         $moss->addByWildcard($result . '/*');
         $moss->setCommentString("This is a bluebee test");
-        //    return $lang;
-        return json_encode(['data' => $moss->send()]);
+
+        return json_encode(Util::arraySuccess('Thành công', $moss->send()));
+
+
     }
 
 }

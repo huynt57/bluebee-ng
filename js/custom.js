@@ -98,6 +98,7 @@ $(document).ready(function () {
             type: 'POST',
             url: '/moss/upload',
             data: formData,
+
             xhr: function () {
                 hideProgressBar();
                 var xhr = new window.XMLHttpRequest();
@@ -131,11 +132,22 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (response)
             {
-                $("#form-upload")[0].reset();
+                if(response.status == 1) {
+                    $("#form-upload")[0].reset();
+                    hideProgressBar();
+                    $('#modal-upload').modal('hide');
+                    $('#message-success').html('Hệ thống đã xử lý thành công. Bạn có thể kiểm tra kết quả  tại <a href="' + response.data + '" target="_blank" >đây</a>');
+                    $('#modal-success').modal('show');
+                } else {
+
+                    hideProgressBar();
+                    alert(response.message);
+
+                }
+            },
+            error: function () {
+                $('#modal-error').modal('show');
                 hideProgressBar();
-                $('#modal-upload').modal('hide');
-                $('#message-success').html('Hệ thống đã xử lý thành công. Bạn có thể kiểm tra kết quả  tại <a href="' + response.data + '" target="_blank" >đây</a>');
-                $('#modal-success').modal('show');
             },
             always: function ()
             {
