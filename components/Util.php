@@ -237,10 +237,24 @@ class Util {
     }
 
     public static function getSubjects() {
-        return Subjects::find()->orderBy('name')->all();
+        if(!Yii::$app->cache->exists('subjects'))
+        {
+            $subjects = Subjects::find()->orderBy('name', 'desc')->all();
+            Yii::$app->cache->add('subjects', $subjects, 3600);
+        } else {
+            $subjects = Yii::$app->cache->get('subjects');
+        }
+        return $subjects;
     }
 
     public static function getDepartments() {
+        if(!Yii::$app->cache->exists('subjects'))
+        {
+            $departments =Departments::find()->orderBy('name')->all();
+            Yii::$app->cache->add('departments', $departments, 3600);
+        } else {
+            $departments = Yii::$app->cache->get('departments');
+        }
         return Departments::find()->orderBy('name')->all();
     }
 
