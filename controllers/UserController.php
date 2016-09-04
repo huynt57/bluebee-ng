@@ -85,6 +85,14 @@ class UserController extends \yii\web\Controller {
         }
     }
 
+    public function actionLogout()
+    {
+        $session =  Yii::$app->session;
+        $session->removeAll();
+        $session->destroy();
+        $this->redirect('http://bluebee-uet.com');
+    }
+
     public function actionOther() {
 
         $this->redirect('http://bluebee-uet.com');

@@ -184,7 +184,7 @@ class Util {
             }
             $save = $storeFolder . $file->baseName . '.' . $file->extension;
 
-           
+
             if ($file->size > Yii::$app->params['MAX_FILE_SIZE']) {
                 return [
                     'status' => 0,
