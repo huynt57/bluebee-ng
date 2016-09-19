@@ -22,7 +22,7 @@ use app\components\Util;
 
         <div class="row">
             <?php foreach ($models as $item): ?>
-                <div class="col-sm-4 col-md-4 col-sm-4 col-md-4 employee rotation" style="float: left !important;">
+                <div class="col-sm-4 col-md-4 col-sm-4 col-md-4 employee" style="float: left !important;">
                     <div class="default">
                         <div class="image">
                             <a href="<?php echo Url::to(['teacher/item', 'id' => $item->id]) ?>" class="image">

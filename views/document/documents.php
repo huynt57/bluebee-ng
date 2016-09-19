@@ -18,7 +18,7 @@ use app\components\Util; ?>
 
         <div class="products grid row">
 <?php foreach ($models as $item): ?>
-                <div class="col-sm-4 col-md-4 col-sm-4 col-md-4 product rotation" style="float: left !important;">
+                <div class="col-sm-4 col-md-4 col-sm-4 col-md-4 product" style="float: left !important;">
                     <div class="default">
 <!--                        <span class="sale top"></span>-->
                         <a href="<?php echo Url::to(['document/item', 'id'=>$item->id])?>" class="product-image">
