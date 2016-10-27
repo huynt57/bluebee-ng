@@ -4,6 +4,7 @@ namespace app\modules\controllers;
 
 use app\models\Program;
 use yii\data\Pagination;
+use Yii;
 
 class ProgramController extends \yii\web\Controller
 {
@@ -12,6 +13,7 @@ class ProgramController extends \yii\web\Controller
 
     public function actionList()
     {
+        Yii::$app->view->title = 'Program management';
         $data = Program::getAllProgram();
         return $this->render('list', $data);
     }

@@ -235,7 +235,7 @@ class Util {
     }
 
     public static function getDepartments() {
-        if(!Yii::$app->cache->exists('subjects'))
+        if(!Yii::$app->cache->exists('departments'))
         {
             $departments =Departments::find()->orderBy('name')->all();
             Yii::$app->cache->add('departments', $departments, 3600);

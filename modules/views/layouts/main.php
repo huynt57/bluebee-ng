@@ -79,11 +79,11 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <ul class="nav nav-pills nav-stacked">
-                                    <li class="active"><a href="/admin/document/list">Document management</a></li>
-                                    <li><a href="/admin/teacher/list">Teacher management</a></li>
-                                    <li><a href="/admin/subject/list">Subject management</a></li>
-                                    <li><a href="/admin/program/list">Program management</a></li>
-                                    <li><a href="/admin/user/list">User management</a></li>
+                                    <li><a href="<?php echo Url::to(['document/list'], true) ?>">Document management</a></li>
+                                    <li><a href="<?php echo Url::to(['teacher/list'], true) ?>">Teacher management</a></li>
+                                    <li><a href="<?php echo Url::to(['subject/list'], true) ?>">Subject management</a></li>
+                                    <li><a href="<?php echo Url::to(['program/list'], true) ?>">Program management</a></li>
+                                    <li><a href="<?php echo Url::to(['user/list'], true) ?>">User management</a></li>
                                 </ul>
                             </div>
                             <div class="col-md-10">
@@ -211,8 +211,13 @@
             var csrfToken = $('meta[name="csrf-token"]').attr("content")
 
             $.ajaxSetup({
-                data: { token: csrfToken }
+                data: { token: csrfToken, cache: false }
             });
+
+        </script>
+
+        <script>
+            $(document).ready(function(){var url=window.location.href;$('a[href="'+url+'"]').parent().addClass('active');url=url.substring(0,url.length-1);$('a[href="'+url+'"]').parent().addClass('active') });
 
         </script>
 

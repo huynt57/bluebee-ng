@@ -16,6 +16,7 @@ class SubjectController extends \yii\web\Controller
 
     public function actionList()
     {
+        Yii::$app->view->title = 'Subject management';
         $data = Subjects::getAllSubject();
         return $this->render('list', $data);
     }
@@ -94,7 +95,7 @@ class SubjectController extends \yii\web\Controller
         Yii::$app->response->format = Response::FORMAT_JSON;
         $request = \Yii::$app->request;
 
-        $data = $request->post();
+        $data = $request->get();
 
         $id = $data['id'];
 

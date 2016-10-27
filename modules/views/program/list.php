@@ -5,6 +5,7 @@ use yii\helpers\Url;
 use app\components\Util;
 use app\models\Users;
 use app\models\Subjects;
+use app\models\Departments;
 ?>
 <div class="row" style="margin-bottom: 10px;">
     <div class="col-md-3">
@@ -30,14 +31,14 @@ use app\models\Subjects;
                 <tr>
                     <td><input type="checkbox" > </td>
                     <td><?php echo $model->id; ?></td>
-                    <td><?php echo Deparment::findOne(['id' => $model->department_id])->name ?></td>
+                    <td><?php echo Departments::findOne(['id' => $model->department_id])->name ?></td>
                     <td><?php echo $model->semester ?></td>
                     <td><?php echo Subjects::findOne(['id' => $model->subject])->name ?></td>
 
 
                     <td>
-                        <a class="btn btn-default">Edit</a>
-                        <a class="btn btn-danger">Delete</a>
+                        <a class="btn btn-default admin-update"  href="#" data-toggle="modal" data-target="#modal-admin-update" data-id="<?php echo $model->id?>">Edit</a>
+                        <a class="btn btn-danger admin-delete" href="#" data-toggle="modal" data-target="#modal-admin-delete" data-id="<?php echo $model->id?>">Delete</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -56,3 +57,5 @@ use app\models\Subjects;
     </div>
 </div>
 <?php echo Yii::$app->view->render('add'); ?>
+<?php echo Yii::$app->view->render('update'); ?>
+<?php echo Yii::$app->view->render('delete'); ?>

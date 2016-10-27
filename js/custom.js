@@ -262,6 +262,24 @@ $(document).ready(function () {
         });
     });
 
+    $(document).on('click', '#btn-submit-admin-delete', function() {
+        var url = $('#url-delete').val();
+        var id = $('#id-delete').val();
+
+        $.ajax({
+            url: url,
+            type: 'get',
+            data: {id: id},
+            success: function(response)
+            {
+
+                $('#modal-admin-delete').modal('hide');
+            }
+
+
+        });
+    });
+
     $('.admin-update').click(function() {
 
         var data_id = $(this).attr('data-id');
@@ -277,6 +295,12 @@ $(document).ready(function () {
             }
 
         });
+    });
+
+    $('.admin-delete').click(function() {
+
+        var data_id = $(this).attr('data-id');
+        $('#modal-body-update').append('<input type="hidden" id="id-delete" value="'+data_id+'" >');
     });
 
 });

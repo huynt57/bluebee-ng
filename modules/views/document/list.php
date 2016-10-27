@@ -56,6 +56,7 @@ use app\models\Subjects;
     </div>
 </div><?php echo Yii::$app->view->render('add'); ?>
 <?php echo Yii::$app->view->render('update'); ?>
+<?php echo Yii::$app->view->render('delete'); ?>
 
 <script>
 

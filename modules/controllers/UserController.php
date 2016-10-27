@@ -4,6 +4,7 @@ namespace app\modules\controllers;
 
 use app\models\Users;
 use yii\data\Pagination;
+use Yii;
 
 class UserController extends \yii\web\Controller
 {
@@ -17,6 +18,7 @@ class UserController extends \yii\web\Controller
 
     public function actionList()
     {
+        Yii::$app->view->title = 'User management';
         $data = Users::getAll();
         return $this->render('list', $data);
     }

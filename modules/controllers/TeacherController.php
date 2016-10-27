@@ -4,6 +4,7 @@ namespace app\modules\controllers;
 
 use app\models\Teachers;
 use yii\data\Pagination;
+use yii\web\Response;
 use Yii;
 
 class TeacherController extends \yii\web\Controller
