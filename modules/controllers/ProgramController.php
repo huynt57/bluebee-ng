@@ -26,7 +26,7 @@ class ProgramController extends \yii\web\Controller
         $request = \Yii::$app->request;
         $id = $request->get('id');
 
-        $data = Subjects::findOne(['id' => $id]);
+        $data = Program::findOne(['id' => $id]);
 
         return $this->render('form_update', ['data' => $data]);
 
@@ -40,13 +40,15 @@ class ProgramController extends \yii\web\Controller
 
         $data = $request->post();
 
+        unset($data['_csrf']);
+
         if ($data['name'] == '') {
             return ['status' => 0, 'message' => 'Không được để trống tên'];
         }
 
         $data['updated_at'] = time();
         try {
-            Subjects::updateAll($data, 'id = ' . $data['id']);
+            Program::updateAll($data, 'id = ' . $data['id']);
             return ['status' => 1, 'message' => 'Thành công'];
         } catch (Exception $ex) {
             return ['status' => 0, 'message' => 'Có lỗi xảy ra'];
@@ -72,7 +74,7 @@ class ProgramController extends \yii\web\Controller
 
         try {
 
-            $model = new Subjects();
+            $model = new Program();
             $model->attributes = $data;
             if ($model->save()) {
 
@@ -97,7 +99,7 @@ class ProgramController extends \yii\web\Controller
 
         try {
 
-            Subjects::findOne(['id'=>$id])->delete();
+            Program::findOne(['id'=>$id])->delete();
 
             return ['status' => 1, 'message' => 'Thành công'];
         } catch (Exception $ex) {

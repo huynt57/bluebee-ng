@@ -1,7 +1,7 @@
 <form role="form" id="form-admin-update" name="form-admin">
     <div class="form-group">
         <label for="name">Semester</label>
-        <input type="text" class="form-control" id="name" name="name" value="<?php echo $data->name; ?>" placeholder="Điền tên môn học">
+        <input type="text" class="form-control" id="name" name="name" value="<?php echo $data->semester; ?>" placeholder="Điền tên môn học">
     </div>
     <div class="form-group">
         <label for="subject">Subject</label>
@@ -16,7 +16,7 @@
         <label for="department">Department</label>
         <?php $departments = \app\components\Util::getDepartments(); ?>
         <?php foreach ($departments as $department): ?>
-            <option <?php if ($department->id == $data->department):?>selected <?php endif ?> value="<?php echo $department->id ?>"><?php echo $department->name ?></option>
+            <option <?php if ($department->id == $data->department_id):?>selected <?php endif ?> value="<?php echo $department->id ?>"><?php echo $department->name ?></option>
         <?php endforeach; ?>
     </select>
     <input type="hidden" name="<?php echo \Yii::$app->request->csrfParam ?>" value="<?php echo \Yii::$app->request->csrfToken?>" >

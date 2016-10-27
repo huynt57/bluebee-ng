@@ -59,3 +59,9 @@ use app\models\Departments;
 <?php echo Yii::$app->view->render('add'); ?>
 <?php echo Yii::$app->view->render('update'); ?>
 <?php echo Yii::$app->view->render('delete'); ?>
+
+<script>
+
+    var url_get_update = '/admin/program/edit';
+    var url_update = '/admin/program/update';
+</script>
