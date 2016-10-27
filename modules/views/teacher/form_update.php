@@ -1,12 +1,38 @@
 <form role="form" id="form-admin-update" name="form-admin">
     <div class="form-group">
         <label for="name">Tên</label>
-        <input type="text" class="form-control" id="name" name="name" value="<?php echo $data->name; ?>" placeholder="Điền tên môn học">
+        <input type="text" class="form-control" id="name" name="name" value="<?php echo $data->name; ?>">
+    </div>
+    <div class="form-group">
+        <label for="name">Email</label>
+        <input type="text" class="form-control" id="name" name="name" value="<?php echo $data->email; ?>">
+    </div>
+    <div class="form-group">
+        <label for="name">Phone</label>
+        <input type="text" class="form-control" id="name" name="name" value="<?php echo $data->phone; ?>">
+    </div>
+    <div class="form-group">
+        <label for="name">Website</label>
+        <input type="text" class="form-control" id="name" name="name" value="<?php echo $data->website; ?>">
+    </div>
+    <select class="form-control" id="subject" name="subject">
+        <?php $departments = \app\components\Util::getDepartments(); ?>
+        <?php foreach ($departments as $department): ?>
+            <option <?php if ($department->id == $data->department):?>selected <?php endif ?> value="<?php echo $department->id ?>"><?php echo $department->name ?></option>
+        <?php endforeach; ?>
+    </select>
+    <div class="form-group">
+        <label for="name">Address</label>
+        <input type="text" class="form-control" id="name" name="name" value="<?php echo $data->address; ?>">
     </div>
     <div class="form-group">
         <label for="description">Miêu tả</label>
         <textarea type="text" class="form-control" id="description" name="description" placeholder="Điền miêu tả "><?php echo strip_tags($data->description); ?></textarea>
     </div>
-    <input type="hidden" id="url-update" value="/admin/subject/update"/>
+    <div class="form-group">
+        <label for="description">Research</label>
+        <textarea type="text" class="form-control" id="description" name="description" placeholder="Điền miêu tả "><?php echo strip_tags($data->research); ?></textarea>
+    </div>
+    <input type="hidden" id="url-update" value="/admin/teacher/update"/>
     <input type="hidden" name="id" value="<?php echo $data->id ?>">
 </form>

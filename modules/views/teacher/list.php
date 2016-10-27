@@ -18,13 +18,13 @@ use app\components\Util;
                 <th></th>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Description</th>
+<!--                <th>Description</th>-->
                 <th>Avatar</th>
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Website</th>
-                <th>Stars</th>
-                <th>Number Rated</th>
+<!--                <th>Stars</th>-->
+<!--                <th>Number Rated</th>-->
                 <th>Department</th>
                 <th>Created At</th>
                 <th>Action</th>
@@ -36,13 +36,13 @@ use app\components\Util;
                     <td><input type="checkbox" > </td>
                     <td><?php echo $model->id; ?></td>
                     <td><?php echo $model->name ?></td>
-                    <td><?php echo $model->description ?></td>
+<!--                    <td>--><?php //echo $model->description ?><!--</td>-->
                     <td><img src="<?php echo Util::makeUrlImage($model->avatar) ?>" ></td>
                     <td><?php echo $model->email ?></td>
                     <td><?php echo $model->phone ?></td>
                     <td><?php echo $model->website ?></td>
-                    <td><?php echo $model->stars ?></td>
-                    <td><?php echo $model->number_rated ?></td>
+<!--                    <td>--><?php //echo $model->stars ?><!--</td>-->
+<!--                    <td>--><?php //echo $model->number_rated ?><!--</td>-->
                     <td><?php echo \app\models\Departments::findOne(['id'=>$model->department])->name; ?></td>
                     <td><?php echo Date('d/m/Y', $model->created_at) ?></td>
                     <td>
@@ -70,8 +70,8 @@ use app\components\Util;
 
 <script>
 
-    var url_get_update = '/admin/subject/edit';
-    var url_update = '/admin/subject/update';
+    var url_get_update = '/admin/teacher/edit';
+    var url_update = '/admin/teacher/update';
 </script>
 
 

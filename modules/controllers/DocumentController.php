@@ -4,8 +4,12 @@ namespace app\modules\controllers;
 
 use app\models\Documents;
 use yii\data\Pagination;
+use Yii;
 
 class DocumentController extends \yii\web\Controller {
+
+    public $layout;
+    public $layoutPath;
 
     public function actionIndex() {
 
@@ -13,6 +17,7 @@ class DocumentController extends \yii\web\Controller {
     }
 
     public function actionList() {
+        Yii::$app->view->title = 'Document management';
         $data = Documents::getAllLatestDocuments();
         return $this->render('list', $data);
     }

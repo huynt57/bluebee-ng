@@ -7,6 +7,9 @@ use yii\data\Pagination;
 
 class UserController extends \yii\web\Controller
 {
+    public $layout;
+    public $layoutPath;
+
     public function actionIndex()
     {
         return $this->render('index');

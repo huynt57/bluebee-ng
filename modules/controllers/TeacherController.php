@@ -4,9 +4,13 @@ namespace app\modules\controllers;
 
 use app\models\Teachers;
 use yii\data\Pagination;
+use Yii;
 
 class TeacherController extends \yii\web\Controller
 {
+    public $layout;
+    public $layoutPath;
+
     public function actionIndex()
     {
         return $this->render('index');
@@ -14,6 +18,7 @@ class TeacherController extends \yii\web\Controller
 
     public function actionList()
     {
+        Yii::$app->view->title = 'Teacher management';
         $data = Teachers::getAll();
         return $this->render('list', $data);
     }

@@ -7,6 +7,9 @@ use yii\data\Pagination;
 
 class ProgramController extends \yii\web\Controller
 {
+    public $layout;
+    public $layoutPath;
+
     public function actionList()
     {
         $data = Program::getAllProgram();

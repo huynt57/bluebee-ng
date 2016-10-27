@@ -18,7 +18,6 @@ use app\components\Util;
                 <th></th>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Avatar</th>
                 <th>Email</th>
                 <th>Number upload</th>
                 <th>Point</th>
@@ -32,7 +31,6 @@ use app\components\Util;
                     <td><input type="checkbox" > </td>
                     <td><?php echo $model->id; ?></td>
                     <td style=""><?php echo $model->name ?></td>
-                    <td style=""><img src="<?php echo Util::makeUrlImage($model->avatar) ?>" ></td>
                     <td style=""><?php echo $model->email ?></td>
                     <td style=""><?php echo $model->number_upload ?></td>
                     <td style=""><?php echo $model->points ?></td>
@@ -64,8 +62,8 @@ use app\components\Util;
 
 <script>
 
-    var url_get_update = '/admin/subject/edit';
-    var url_update = '/admin/subject/update';
+    var url_get_update = '/admin/user/edit';
+    var url_update = '/admin/user/update';
 </script>
 
 

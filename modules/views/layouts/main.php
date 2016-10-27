@@ -72,7 +72,7 @@
                 <section id="main" style="padding-top: 0px; padding-bottom: 80px;">
                     <header class="page-header">
                         <div class="container-fluid">
-                            <h1 class="title">11<?php echo $this->title ?></h1>
+                            <h1 class="title"><?php echo $this->title ?></h1>
                         </div>	
                     </header>
                     <div class="container-fluid">

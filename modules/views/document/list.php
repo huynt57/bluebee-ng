@@ -36,8 +36,8 @@ use app\models\Subjects;
                     <td><?php echo Date('d/m/Y', $model->created_at) ?></td>
 
                     <td>
-                        <a class="btn btn-default">Edit</a>
-                        <a class="btn btn-danger">Delete</a>
+                        <a class="btn btn-default admin-update"  href="#" data-toggle="modal" data-target="#modal-admin-update" data-id="<?php echo $model->id?>">Edit</a>
+                        <a class="btn btn-danger admin-delete" href="#" data-toggle="modal" data-target="#modal-admin-delete" data-id="<?php echo $model->id?>">Delete</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -54,5 +54,11 @@ use app\models\Subjects;
         </div><!-- .pagination-box -->
     <?php endif; ?>
     </div>
-</div>
-<?php echo Yii::$app->view->render('add'); ?>
+</div><?php echo Yii::$app->view->render('add'); ?>
+<?php echo Yii::$app->view->render('update'); ?>
+
+<script>
+
+    var url_get_update = '/admin/document/edit';
+    var url_update = '/admin/document/update';
+</script>
