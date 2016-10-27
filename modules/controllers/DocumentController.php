@@ -44,6 +44,8 @@ class DocumentController extends \yii\web\Controller {
 
         $data = $request->post();
 
+        unset($data['_csrf']);
+
         if ($data['name'] == '') {
             return ['status' => 0, 'message' => 'Không được để trống tên'];
         }
@@ -53,7 +55,7 @@ class DocumentController extends \yii\web\Controller {
             Documents::updateAll($data, 'id = ' . $data['id']);
             return ['status' => 1, 'message' => 'Thành công'];
         } catch (Exception $ex) {
-            return ['status' => 0, 'message' => 'Có lỗi xảy ra'];
+            return ['status' => 0, 'message' => $ex->getMessage()];
         }
 
 

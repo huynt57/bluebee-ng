@@ -7,6 +7,7 @@
         <label for="description">Miêu tả</label>
         <textarea type="text" class="form-control" id="description" name="description" placeholder="Điền miêu tả "><?php echo strip_tags($data->description); ?></textarea>
     </div>
+    <input type="hidden" name="<?php echo \Yii::$app->request->csrfParam ?>" value="<?php echo \Yii::$app->request->csrfToken?>" >
     <input type="hidden" id="url-update" value="/admin/subject/update"/>
     <input type="hidden" name="id" value="<?php echo $data->id ?>">
 </form>

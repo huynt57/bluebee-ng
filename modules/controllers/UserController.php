@@ -43,6 +43,8 @@ class UserController extends \yii\web\Controller
 
         $data = $request->post();
 
+        unset($data['_csrf']);
+
         if ($data['name'] == '') {
             return ['status' => 0, 'message' => 'Không được để trống tên'];
         }
