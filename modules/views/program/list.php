@@ -9,7 +9,7 @@ use app\models\Departments;
 ?>
 <div class="row" style="margin-bottom: 10px;">
     <div class="col-md-3">
-        <a class="btn btn-primary" href="#"data-toggle="modal" data-target="#modal-upload">Add</a>
+        <a class="btn btn-primary" href="#"data-toggle="modal" data-target="#modal-add">Add</a>
     </div>
 </div>
 <div class="row">

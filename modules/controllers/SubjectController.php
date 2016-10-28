@@ -2,6 +2,7 @@
 
 namespace app\modules\controllers;
 
+use app\models\base\Documents;
 use app\models\Subjects;
 use yii\base\Exception;
 use yii\web\Response;
@@ -100,6 +101,15 @@ class SubjectController extends \yii\web\Controller
         $id = $data['id'];
 
         try {
+
+            $documents = Documents::find()->where([
+                'subject_id' => $id
+            ]);
+
+            foreach ($documents as $document)
+            {
+                $document->delete();
+            }
 
             Subjects::findOne(['id'=>$id])->delete();
 
